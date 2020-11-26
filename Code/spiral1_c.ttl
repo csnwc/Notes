@@ -1,0 +1,7 @@
+{
+   DO A FROM 1 TO 100 {
+      SET C := A 1.5 * ;
+      FD C
+      RT 62
+   }
+}
