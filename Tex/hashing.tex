@@ -124,7 +124,6 @@ $p("HKG")=3$
 \includegraphics{../Images/hashp2.pdf}
 \end{center}
 \item Often we choose our table size to be a prime number and our probe decrement to be a number in the range $1 \ldots M-1$.
-\item Other hashing techniques: Cuckoo Hashing
 \end{itemize}
 }
 
@@ -175,3 +174,35 @@ int rand_r (unsigned int *seed)
 }
 }
 
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Cuckoo Hashing}}
+\end{center}
+{\tiny
+\begin{verbatim}
+Empty: copied farandoles into table 0(4)
+Empty: copied bronzine into table 0(12)
+Empty: copied auscultatory into table 0(5)
+Empty: copied bifer into table 0(13)
+Empty: copied steepgrass into table 0(6)
+Empty: copied prevised into table 0(7)
+Empty: copied oomph into table 0(8)
+empodium, so cuckooed out auscultatory from table 0(5)
+Empty: copied auscultatory into table 1(10)
+interquarreled, so cuckooed out bronzine from table 0(12)
+Empty: copied bronzine into table 1(5)
+ranseur, so cuckooed out empodium from table 0(5)
+Empty: copied empodium into table 1(4)
+Empty: copied megalodon into table 0(11)
+geosynchronous, so cuckooed out megalodon from table 0(11)
+Empty: copied megalodon into table 1(14)
+Empty: copied osmeteria into table 0(14)
+Table getting full -> rehashed old sz =16
+\end{verbatim}
+}
+\vspace*{-0.5in}
+\begin{center}
+\includegraphics[scale=1.00]{../Images/cuckoo.pdf}
+\end{center}
+}

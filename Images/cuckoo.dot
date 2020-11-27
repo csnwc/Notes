@@ -1,0 +1,21 @@
+digraph g {
+   rankdir="LR";
+   splines=false;
+   rank=same;
+   edge [dir=both]
+   t0 [ label = "<0>  0 | <1>  1 | <2>  2 | <3>  3 | <4>  4:farandoles | <5>  5:ranseur | <6>  6:steepgrass | <7>  7:prevised | <8>  8:oomph | <9>  9 | <10> 10 | <11> 11:geosynchronous | <12> 12:interquarreled | <13> 13:bifer | <14> 14:osmeteria | <15> 15 " shape=record];
+   t1 [ label = "<0>  0 | <1>  1 | <2>  2 | <3>  3 | <4>  4:empodium | <5>  5:bronzine | <6>  6 | <7>  7 | <8>  8 | <9>  9 | <10> 10:auscultatory | <11> 11 | <12> 12 | <13> 13 | <14> 14:megalodon | <15> 15 " shape=record];
+t0:<4>:e -> t1:<11>:w
+t0:<5>:e -> t1:<14>:w
+t0:<6>:e -> t1:<7>:w
+t0:<7>:e -> t1:<12>:w
+t0:<8>:e -> t1:<5>:w
+t0:<11>:e -> t1:<8>:w
+t0:<12>:e -> t1:<7>:w
+t0:<13>:e -> t1:<12>:w
+t0:<14>:e -> t1:<13>:w
+t1:<4>:w -> t0:<5>:e
+t1:<5>:w -> t0:<12>:e
+t1:<10>:w -> t0:<5>:e
+t1:<14>:w -> t0:<11>:e
+}
