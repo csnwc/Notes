@@ -2146,27 +2146,148 @@ typedef struct Node {
 \newpage
 {\samepage
 \begin{center}
-{\Large{\bf Searching a Tree}}
+{\Large{\bf Binary Trees\\[1.75ex]{\small(via an Array)}}}
 \end{center}
-This is a pre-order tree traversal:
+Don't rush to assume a linked data structure must be used to implement
+trees. You could use $1$ cell of an array for the first node, the next
+two cells for its children, the next $4$ cells for their children and
+so on. You need to mark which cells are in use \& which aren't ...
+Counting from cell $1$:
+
+\begin{center}
+\begin{tabular}{|l|l|l|}\hline
+To find & Use & Iff\\ \hline
+The root & $A[1]$ & $A$ is nonempty \\
+The left child of $A[i]$ & $A[2i]$ & $2i \leq n$ \\
+The parent of $A[i]$ & $A[i/2]$ & $i > 1$\\
+Is $A[i]$ a leaf ? & True & $2i > n$\\ \hline
+\end{tabular}
+\end{center}
+}
+
+
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Binary Search Trees}}
+\end{center}
+In a binary search tree the left-hand tree of a parent contains all keys less than the parent node,
+and the right-hand side all the keys greater than the parent node.
+\begin{center}
+\includegraphics{../Images/treeapt.pdf}
+\end{center}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf My BST ADT}}
+\end{center}
+{\small
 \begin{verbatim}
-Node *InTree(char l, Node *t)
+bst* bst_init(void);
+
+/* Insert 1 item into the tree */
+bool bst_insert(bst* b, datatype d);
+
+/* Return number of datatypes in tree */
+int bst_size(bst* b);
+
+/* Whether the data d is stored in the tree */
+bool bst_isin(bst* b, datatype d);
+
+/* Bulk insert n items from an array a into an initialised tree */
+bool bst_insertarray(bst* b, datatype* a, int n);
+
+/* Clear all memory associated with tree, & set pointer to NULL */
+bool bst_free(bst* b);
+
+/* Optional ? */
+char* bst_preorder(bst* b);
+void bst_printlevel(bst* b);
+
+/* Create string with tree as ((head)(left)(right)) */
+char* bst_printlisp(bst* b);
+
+/* Use Graphviz via a .dot file */
+void bst_todot(bst* b, char* dotname);
+\end{verbatim}
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Binary Search Trees}}
+\end{center}
+\begin{verbatim}
+/* Based on geekforgeeks.org */
+dataframe* _insert(dataframe* t, datatype d)
 {
+    dataframe* f;
+    /* If the tree is empty, return a new frame */
+    if (t == NULL){
+       f = ncalloc(sizeof(dataframe), 1);
+       f->d = d;
+       return f;
+    }
+    /* Otherwise, recurs down the tree */
+    if (d < t->d){
+        t->left = _insert(t->left, d);
+    }
+    else if(d > t->d){
+       t->right = _insert(t->right, d);
+    }
+    /* return the (unchanged) dataframe pointer */
+    return t;
+}
+\end{verbatim}
+}
 
-   Node *p;
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Binary Search Trees}}
+\end{center}
+{\small
+\begin{verbatim}
+char* _printlisp(dataframe* t)
+{
+   char tmp[ELEMSIZE];
+   char *s1, *s2, *p;
 
-   if(t == NULL) return NULL;
-
-   if(t->letter == l) return t;
-
-   if((p = InTree(l, t->left)) != NULL)
+   if(t==NULL){
+      /*  \0 string */
+      p = ncalloc(1,1);
       return p;
+   }
+   sprintf(tmp, FORMATSTR, t->d);
+   s1 = _printlisp(t->left);
+   s2 = _printlisp(t->right);
+   p = ncalloc(strlen(s1)+strlen(s2)+strlen(tmp)+strlen("()() "), 1);
+   sprintf(p, "%s(%s)(%s)", tmp, s1, s2);
+   free(s1);
+   free(s2);
+   return p;
+}
+\end{verbatim}
+}
 
-   if((p = InTree(l, t->right)) != NULL)
-      return p;
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Binary Search Trees}}
+\end{center}
+\begin{verbatim}
+int InTree(Node *t, int i)
+{
+   if(t == NULL) return 0;
+   if(i == t->num) return 1;
 
-   return NULL;
-
+   if(i < t->num)
+      return InTree(t->left, i);
+   else
+      return InTree(t->right, i);
 }
 \end{verbatim}
 }
@@ -2199,185 +2320,14 @@ void bst_printlevel(bst* b)
    /* Make a queue of cell indices */
    q = queue_init();
    queue_enqueue(q, 0);
-   while(queue_dequeue(q, &n) && _isvalid(b, (int)n)){
+   while(queue_dequeue(q, &n) &&
+         _isvalid(b, (int)n)){
       printf(FORMATSTR, b->a[n].d);
       putchar(' ');
       queue_enqueue(q, _leftchild((int)n));
       queue_enqueue(q, _rightchild((int)n));
    }
 }
-\end{verbatim}
-}
-
-\newpage
-{\samepage
-\begin{center}
-{\Large{\bf Complete Binary Trees\\[1.75ex]{\small(Almost Full Trees)}}}
-\end{center}
-Don't rush to assume a linked data structure must be used to implement
-trees. If the tree is {\bf complete} (every level, except possibly the last, is completely filled, and all nodes are as far left as possible)
-then an array can be used. If you ignore the first cell A[0]:
-
-\begin{center}
-\begin{tabular}{|l|l|l|}\hline
-To find & Use & Iff\\ \hline
-The root & $A[1]$ & $A$ is nonempty \\
-The left child of $A[i]$ & $A[2i]$ & $2i \leq n$ \\
-The parent of $A[i]$ & $A[i/2]$ & $i > 1$\\
-Is $A[i]$ a leaf ? & True & $2i > n$\\ \hline
-\end{tabular}
-\end{center}
-
-Effectively, the array is simply an encoding of the level-order traversal.
-Useful for many operations, including representing {\it Heaps} (every child has a value no bigger than its parent).
-}
-
-
-\newpage
-{\samepage
-\begin{center}
-{\Large{\bf Binary Search Trees}}
-\end{center}
-In a binary search tree the left-hand tree of a parent contains all keys less than the parent node,
-and the right-hand side all the keys greater than the parent node.
-\begin{center}
-\includegraphics{../Images/treeapt.pdf}
-\end{center}
-}
-
-\newpage
-{\samepage
-\begin{center}
-{\Large{\bf Binary Search Trees}}
-\end{center}
-\begin{verbatim}
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <assert.h>
-#define STRSIZE 500
-struct node{
-   int num;
-   struct node *left;
-   struct node *right;
-};
-typedef struct node Node;
-Node *CreateNode();
-char *PrintTree(Node *t);
-void InsertBinTree(Node *t, int i);
-int InTree(Node *t, int i);
-\end{verbatim}
-}
-
-\newpage
-{\samepage
-\begin{center}
-{\Large{\bf Binary Search Trees}}
-\end{center}
-\begin{verbatim}
-int main(void)
-{
-
-   Node *top;
-   int i;
-   assert(scanf("%d", &i) == 1);
-   top = CreateNode();
-   top->num = i;
-   while(scanf("%d", &i) == 1)
-      InsertBinTree(top, i);
-   printf("%s\n", PrintTree(top));
-   while(scanf("%d", &i) == 1)
-      printf("%d is%s in Tree\n",
-         i, InTree(top, i) ? "" : " not");
-   return 0;
-
-}
-\end{verbatim}
-}
-
-\newpage
-{\samepage
-\begin{center}
-{\Large{\bf Binary Search Trees}}
-\end{center}
-\begin{verbatim}
-void InsertBinTree(Node *t, int i)
-{
-   Node *p;
-   if(t == NULL || i == t->num) return;
-   if(i < t->num){
-      if(t->left == NULL){
-         p = CreateNode();
-         p->num = i;
-         t->left = p;
-      }
-      else
-         InsertBinTree(t->left, i);
-   }
-   else{
-      if(t->right == NULL){
-         p = CreateNode();
-         p->num = i;
-         t->right = p;
-      }
-      else
-         InsertBinTree(t->right, i);
-   }
-}
-\end{verbatim}
-}
-
-\newpage
-{\samepage
-\begin{center}
-{\Large{\bf Binary Search Trees}}
-\end{center}
-{\small
-\begin{verbatim}
-char *PrintTree(Node *t)
-{
-   char *str;
-
-   str = calloc(STRSIZE, sizeof(char));
-   assert(str != NULL);
-   if(t == NULL){
-      strcpy(str, "*");
-      return str;
-   }
-   sprintf(str, "%d(%s)(%s)", t->num,
-      PrintTree(t->left),
-      PrintTree(t->right));
-   return str;
-}
-
-int InTree(Node *t, int i)
-{
-   if(t == NULL) return 0;
-   if(i == t->num) return 1;
-
-   if(i < t->num)
-      return InTree(t->left, i);
-   else
-      return InTree(t->right, i);
-}
-\end{verbatim}
-}
-}
-
-\newpage
-{\samepage
-\begin{center}
-{\Large{\bf Example Run}}
-\end{center}
-\begin{verbatim}
-20
-10
-17
-30
-21
-30
-5
-20(10(5(*)(*))(17(*)(*)))(30(21(*)(*))(*))
 \end{verbatim}
 }
 
@@ -2392,6 +2342,10 @@ int InTree(Node *t, int i)
 body of literature about creating \& re-balancing trees.
 \end{itemize}
 }
+
+
+
+
 
 
 \newpage
@@ -2430,6 +2384,25 @@ body of literature about creating \& re-balancing trees.
 \end{itemize}
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 {\samepage
