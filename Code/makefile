@@ -1,18 +1,29 @@
-CFLAGS = `sdl-config --cflags` -O2 -Wall -Wextra -pedantic -ansi
-INCS = neillsdl.h
-TARGET = rl
-SOURCES = neillsdl.c $(TARGET).c
-LIBS =  `sdl-config --libs` -lm
+STANDARD = -Wall -Wextra -pedantic -ansi
+OPTIMIZE = -O3
+SANITIZE= -fsanitize=undefined -fsanitize=address -g3
+PROFILE = -pg -g3
+SDLC = `sdl-config --cflags`
+SDLL = `sdl-config --libs`
 CC = gcc
 
 
-all: $(TARGET)
+all: quicksrandbuiltin quicksrandnolib quickssortbuiltin quickssortnolib
 
-$(TARGET): $(SOURCES) $(INCS)
-	$(CC) $(SOURCES) -o $(TARGET) $(CFLAGS) $(WARNS) $(LIBS)
+quicksrandbuiltin : quicks.c
+	$(CC) $(STANDARD) $(OPTIMIZE) -DBUILTIN -DRAND quicks.c -o quicksrandbuiltin
+	/usr/bin/time ./quicksrandbuiltin
+
+quicksrandnolib : quicks.c
+	$(CC) $(STANDARD) $(OPTIMIZE) -DRAND quicks.c -o quicksrandnolib
+	/usr/bin/time ./quicksrandnolib
+
+quickssortbuiltin : quicks.c
+	$(CC) $(STANDARD) $(OPTIMIZE) -DBUILTIN -DSORT quicks.c -o quickssortbuiltin
+	/usr/bin/time ./quickssortbuiltin
+
+quickssortnolib : quicks.c
+	$(CC) $(STANDARD) $(OPTIMIZE) -DSORT quicks.c -o quickssortnolib
+	/usr/bin/time ./quickssortnolib
 
 clean:
-	rm -f $(TARGET)
-
-run: all
-	$(TARGET) 
+	rm -f quicksrandbuiltin quicksrandnolib quickssortbuiltin quickssortnolib
