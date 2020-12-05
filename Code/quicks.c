@@ -18,12 +18,14 @@ int main(void)
 
 #ifdef RAND
    /* Random */
+   printf("Random ");
    for(i=0; i<NUM; i++){
-      a[i] = rand()%100;
+      a[i] = rand()%10000;
    }
 #endif
 #ifdef SORT
    /* Pathologically sorted */
+   printf("Sorted ");
    for(i=0; i<NUM; i++){
       a[i] = i;
    }
@@ -40,7 +42,7 @@ int main(void)
    return 0;
 }
 
-void sorted(int*a)
+void sorted(int* a)
 {
    int i;
    for(i=0; i<NUM-1; i++){
@@ -64,7 +66,7 @@ int partition(int *a, int l, int r)
 
    int piv;
 
-   piv = (a[l]+a[r])/2;
+   piv = a[l];
    while(l<r){
       while(piv < a[r] && l<r) r--;
       if(r!=l){
