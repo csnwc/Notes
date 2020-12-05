@@ -1,0 +1,8 @@
+digraph {
+   A[color=green,fontcolor=green];
+   B[color=red,fontcolor=red];
+   A -> B[label="1", color=red, fontcolor=red];
+   A -> D[label="30"];
+   A -> I[label="8"];
+   A -> J[label="9"];
+}

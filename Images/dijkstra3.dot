@@ -1,0 +1,7 @@
+digraph {
+   A[color=gray90,fontcolor=gray90];
+   C[color=green,fontcolor=green];
+   D[color=red,fontcolor=red];
+   C -> A[label="20+13",color=gray90,fontcolor=gray90];
+   C -> D[label="23+13", color=red, fontcolor=red];
+}

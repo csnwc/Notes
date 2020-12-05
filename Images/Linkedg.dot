@@ -1,0 +1,19 @@
+digraph {
+   A -> B[label="1"];
+   A -> D[label="30"];
+   A -> I[label="8"];
+   A -> J[label="9"];
+   B -> C[label="12"];
+   B -> I[label="20"];
+   B -> E[label="21"];
+   C -> A[label="20"];
+   C -> D[label="23"];
+   D -> J[label="4"];
+   E -> F[label="9"];
+   F -> G[label="6"];
+   I -> D[label="10"];
+   I -> B[label="18"];
+   I -> E[label="2"];
+   J -> D[label="10"];
+   J -> I[label="1"];
+}

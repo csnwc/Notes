@@ -1,0 +1,765 @@
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Algorithms : Sorting}}
+\end{center}
+\begin{itemize}
+\item Bubblesort - we have seen this already, but at complexity $O(n^2)$ is
+very inefficient.
+\item If an algorithm uses comparison keys to decide the correct order
+then the theoretical lower bound on complexity is $O(n \log n )$. From
+wiki:
+\end{itemize}
+\begin{center}
+\includegraphics[width=\textwidth]{../Images/1280px-Comparison_computational_complexity.png}
+\end{center}
+
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Types of Sort}}
+\end{center}
+\begin{itemize}
+\item Transposition (Bubblesort)
+\item Insertion Sort (Lab Work)
+\item Priority Queue (Selection sort, Heap sort)
+\item Divide \& Conquer (Merge \& Quick sort)
+\item Address Calculation (Proxmap)
+\end{itemize}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Algorithms : Mergesort}}
+\end{center}
+The merge sort is divide-and-conquer in the sense that you
+divide the array into two halves, mergesort each half and
+then merge the two halves into order.
+{\small
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void mergesort(int *src, int *spare,
+               int l, int r);
+void merge(int *src, int *spare, int l,
+           int m, int r);
+
+#define NUM 5000
+
+int main(void)
+{
+
+   int i;
+   int a[NUM];
+   int spare[NUM];
+
+   for(i=0; i<NUM; i++)
+      a[i] = rand()%100;
+
+   mergesort(a, spare, 0, NUM-1);
+
+   for(i=0; i<NUM; i++)
+      printf("%4d => %d\n", i, a[i]);
+
+   return 0;
+
+}
+\end{verbatim}
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Mergesort II}}
+\end{center}
+\begin{verbatim}
+void mergesort(int *src, int *spare,
+               int l, int r)
+{
+
+   int m;
+
+   if(l != r){
+      m = (l+r)/2;
+      mergesort(src, spare, l, m);
+      mergesort(src, spare, m+1, r);
+      merge(src, spare, l, m, r);
+   }
+
+}
+\end{verbatim}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Mergesort III}}
+\end{center}
+{\small
+\begin{verbatim}
+
+void merge(int *src, int *spare,
+           int l, int m, int r)
+{
+
+   int s1, s2, d;
+
+   s1 = l;
+   s2 = m+1;
+   d = l;
+
+   do{
+      if(src[s1] < src[s2])
+         spare[d++] = src[s1++];
+      else
+         spare[d++] = src[s2++];
+   }while((s1 <= m) && (s2 <= r));
+
+   if(s1 > m)
+      memcpy(&spare[d], &src[s2],
+             sizeof(spare[0])*(r-s2+1));
+   else
+      memcpy(&spare[d], &src[s1],
+             sizeof(spare[0])*(m-s1+1));
+   memcpy(&src[l], &spare[l],
+          (r-l+1)*sizeof(spare[0]));
+}
+\end{verbatim}
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Algorithms : Quicksort}}
+\end{center}
+Quicksort is also divide-and-conquer. Choose some value
+in the array as the {\it pivot} key. This key is used to divide
+the array into two partitions. The left partition contains keys
+$\leq$ pivot key, the right partition contains keys $>$ pivot.
+Once again, the sort is then applied recursively.
+{\small
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int partition(int *a, int l, int r);
+void quicksort(int *a, int l, int r);
+
+#define NUM 100000
+
+int main(void)
+{
+
+   int i;
+   int a[NUM];
+
+   for(i=0; i<NUM; i++)
+      a[i] = rand()%100;
+
+   quicksort(a, 0, NUM-1);
+
+   return 0;
+
+}
+\end{verbatim}
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Quicksort II}}
+\end{center}
+\begin{verbatim}
+void quicksort(int *a, int l, int r)
+{
+
+   int pivpoint;
+
+   pivpoint = partition(a, l, r);
+   if(l < pivpoint)
+      quicksort(a, l, pivpoint-1);
+   if(r > pivpoint)
+      quicksort(a, pivpoint+1, r);
+
+}
+
+\end{verbatim}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Quicksort III}}
+\end{center}
+{\small
+\begin{verbatim}
+int partition(int *a, int l, int r)
+{
+
+   int piv;
+
+   piv = a[l];
+   while(l<r){
+      while(piv < a[r] && l<r) r--;
+      if(r!=l){
+         a[l] = a[r];
+         l++;
+      }
+      /* Left -> Right Scan */
+      while(piv > a[l] && l<r) l++;
+      if(r!=l){
+         a[r] = a[l];
+         r--;
+      }
+   }
+   a[r] = piv;
+   return r;
+
+}
+\end{verbatim}
+\begin{itemize}
+\item Theoretically both methods have a complexity $O(n \log n)$,
+although quicksort is preferred because it requires less memory and
+is generally faster.
+\item Quicksort can go badly wrong if the pivot key chosen is either
+the maximum or minimum value in the array.
+\end{itemize}
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf qsort()}}
+\end{center}
+Quicksort is so loved by programmers that a general version of
+it exists in ANSI C. If you need an off-the-shelf sort, and speed isn't
+too crucial, see \verb^man qsort^:
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+
+int intcompare(const void *a, const void *b);
+
+int main(void)
+{
+
+   int a[10];
+   int i;
+
+   for(i=0; i<10; i++){
+      a[i] = 9 - i;
+   }
+
+   qsort(a, 10, sizeof(int), intcompare);
+
+   for (i=0; i<10; i++) printf(" %d",a[i]);
+   printf("\n");
+   return 0;
+
+}
+\end{verbatim}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf qsort() II}}
+\end{center}
+\begin{verbatim}
+int intcompare(const void *a, const void *b)
+{
+    const int *ia = (const int *)a;
+    const int *ib = (const int *)b;
+    return *ia  - *ib;
+}
+\end{verbatim}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Algorithms : Radix Sort}}
+\end{center}
+\begin{itemize}
+\item The radix sort is also know as the bin sort, a name
+derived from its origin as a technique used on (now obsolete)
+card sorters.
+\item For integer data, repeated passes of radix sort focus
+on the right digit (the 1's), then the second digit (the 10's)
+and so on.
+\item Strings can be sorted in a similar manner.
+\end{itemize}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Radix Sort II}}
+\end{center}
+
+459 254 472 534 649 239 432 654 477
+
+{\bf 0}\\
+{\bf 1}\\
+{\bf 2} 472 432\\
+{\bf 3}\\
+{\bf 4} 254 534 654\\
+{\bf 5}\\
+{\bf 6}\\
+{\bf 7} 477\\
+{\bf 8}\\
+{\bf 9} 459 649 239
+
+Read out the new list:
+
+472 432 254 534 654 477 459 649 239
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Radix Sort III}}
+\end{center}
+
+472 432 254 534 654 477 459 649 239
+
+{\bf 0}\\
+{\bf 1}\\
+{\bf 2}\\
+{\bf 3} 432 534 239\\
+{\bf 4} 649\\
+{\bf 5} 254 654 459\\
+{\bf 6}\\
+{\bf 7} 472 477\\
+{\bf 8}\\
+{\bf 9}
+}
+
+432 534 239 649 254 654 459 472 477
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Radix Sort IV}}
+\end{center}
+
+432 534 239 649 254 654 459 472 477
+
+{\bf 0}\\
+{\bf 1}\\
+{\bf 2} 239 254\\
+{\bf 3}\\
+{\bf 4} 432 459 472 477\\
+{\bf 5} 534\\
+{\bf 6} 649 654\\
+{\bf 7}\\
+{\bf 8}\\
+{\bf 9}
+
+239 254 432 459 472 477 534 649 654
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Radix Sort V}}
+\end{center}
+\begin{itemize}
+\item This has a theoretical complexity of $O(n)$.
+\item It is difficult to write an all-purpose radix sort - you need
+a different one for doubles, integers, strings etc.
+\item $O(n)$ simply means that the number of operations
+can be bounded by $k.n$, for some constant $k$.
+\item With the radix sort, $k$
+is often very large. for many lists this will be a less efficient
+sort than more traditional $O(n \log n)$ algorithms.
+\end{itemize}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Algorithms : String Searching}}
+\end{center}
+\begin{itemize}
+\item The task of searching for a string amongst a large
+amount of text is commonly required in word-processors,
+but more interesingly in massive Biological Databases e.g.
+searching for amino acids amonsgt protein sequences.
+\item How difficult can it be ? Don't you just do a character by
+character brute-force seach ?
+\begin{verbatim}
+Master String : AAAAAAAAAAAAH
+Substring     : AAAAAAH
+Substring     :  AAAAAAH
+Substring     :   AAAAAAH
+\end{verbatim}
+\item If the master string has $m$ characters, and the search string
+has $n$ characters then this search has complexity:
+$O(mn)$
+\end{itemize}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Rabin-Karp}}
+\end{center}
+{\small
+Recall that to compute a hash function on a word we did something like:
+\[
+h("NEILL") =
+\]
+{\small
+\[
+(13\times26^4 + 4\times26^3 + 8\times26^2 + 11\times26 + 11) \% P
+\]
+}
+where $P$ is a big prime number.
+This can be expanded by Horner's method to:
+{\small
+\[
+(((((((13\times26)+ 4)\times26) + 8)\times26) + 11)\times26 + 11) \% P
+\]
+}
+The problem here is that for a large search string, overflow can occur.
+We therefore move the {\it mod} operation inside the brackets:
+{\small
+\[
+((((((13\times26)+ 4)\%P \times26) + 8)\%P \times26) + 11)\%P \times26 + 11) \% P
+\]
+}
+We can compute a hash number for the search string, and for the initial
+part of the master string.
+When we compute the hash number for the next part of the master, most
+of the computation is common, we just need to take out the effect of the first letter and add in the effect of the new one.
+
+One small calculation each time we move one place left in the master.
+
+Complexity $O(m+n)$ roughly, but need to check that two identical hash
+numbers really has identified two identical strings.
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Rabin-Karp II}}
+\end{center}
+{\small
+\begin{verbatim}
+#include <stdio.h>
+#include <string.h>
+
+#define Q 33554393
+#define D 26
+#define index(C) (C-'A')
+
+int rk(char *p, char *a);
+
+int main(void)
+{
+   printf("%d\n", rk("LOT", "SLOT"));
+   return 0;
+}
+int rk(char *p, char *a)
+{
+
+   int i, dM = 1, h1=0, h2=0;
+   int m = strlen(p);
+   int n = strlen(a);
+   for(i=1; i<m; i++) dM = (D*dM)%Q;
+   for(i=0; i<m; i++){
+      h1 = (h1*D+index(p[i]))%Q;
+      h2 = (h2*D+index(a[i]))%Q;
+   }
+   /* h1 = search string hash */
+   /* h2 = master hash */
+   for(i=0; h1!=h2; i++){
+      h2 = (h2+D*Q-index(a[i])*dM) % Q;
+      h2 = (h2*D+index(a[i+m])) % Q;
+      if(i>n-m) return n;
+   }
+   return i;
+}
+\end{verbatim}
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Boyer-Moore}}
+\end{center}
+
+The Boyer-Moore algorithm uses (in part) an array flagging
+which characters form part of the search string and an array telling
+us how far to slide right if that character appears in the master and causes
+a mismatch.
+{\small
+\begin{verbatim}
+A STRING SEARCHING EXAMPLE CONSISTING OF ...
+STING    |   |    |    |    |    |
+     STING   |    |    |    |    |
+         STING    |    |    |    |
+              STING    |    |    |
+                   STING    |    |
+                        STING    |
+                             STING
+\end{verbatim}
+}
+\begin{itemize}
+\item With a right-to-left walk through the search string we see that
+the G and the R mismatch on the first comparison. Since R doesn't appear in the
+search string, we can take $5$ steps to the left.
+\item The next comparison is between the G and the S. We can slide the search string right until it matches the S in the master.
+\end{itemize}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Boyer-Moore II}}
+\end{center}
+{\small
+\begin{verbatim}
+A STRING SEARCHING EXAMPLE CONSISTING OF ...
+STING    |   |    |    |    |    |
+     STING   |    |    |    |    |
+         STING    |    |    |    |
+              STING    |    |    |
+                   STING    |    |
+                        STING    |
+                             STING
+\end{verbatim}
+}
+\begin{itemize}
+\item Now the C doesn't appear in the master and once again we can slide a
+full $5$ places to the right.
+\item After $3$ more full slides right we arrive at the T in CONSISTING.
+We align the T's, and have found our match using $7$ compares (plus $5$
+to verify the match).
+\end{itemize}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Graph Algorithms : TSP}}
+\end{center}
+{\small
+\begin{itemize}
+\item Imagine planning a delivery route around a graph, starting from a particular vertex.
+\item What's the least cost by which you can visit every vertex without ever returning to one~?
+\item Finding the optimal path (to redcuce travelling time) is an \verb^NP-hard^ problem - 
+read up on Computational Complexity Theory to understand this better.
+\item For small graphs you could do this exhaustively, but for very large graphs you have
+to use some heuristics.
+\item One `greedy' approach is to simply go to your closest unvisited neighbour each time.
+\item Typically gives results within \verb^25%^
+of the optimal solution, but sometimes give a worst-case solution $\ldots$
+\end{itemize}
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf TSP II}}
+\end{center}
+{\small
+\begin{verbatim}
+edge graph_salesman(graph* g, int from, char* str)
+{
+   bool* unvis;
+   int v;
+   int curr, ncurr, nvs;
+   edge cst, bcst, e;
+
+   nvs = graph_numVerts(g);
+   if((g==NULL) || (from >= nvs) || (str==NULL)){
+      return INF;
+   }
+   unvis = (bool*)ncalloc(nvs, sizeof(bool));
+   for(v=0; v<nvs; v++){
+      unvis[v] = true;
+   }
+   curr = from;
+   bcst = 0;
+   strcpy(str, graph_getLabel(g, from));
+   do{
+      unvis[curr] = false;
+      cst = INF;
+      ncurr = NO_VERT;
+      /* Look at neighbours of curr */
+      for(v=0; v<nvs; v++){
+         e = graph_getEdgeWeight(g, curr, v);
+         if((v!=curr) && unvis[v] && (e!=INF)){
+            if(e < cst){
+               cst = e;
+               ncurr = v;
+            }
+         }
+      }
+\end{verbatim}
+}}
+
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf TSP III}}
+\end{center}
+{\small
+\begin{verbatim}
+      /* Add in cost to go to closest */
+      if(cst < INF){
+         bcst += cst;
+         curr = ncurr;
+         strcat(str, " ");
+         strcat(str, graph_getLabel(g, ncurr));
+      }
+   }while((cst < INF) && (curr != NO_VERT));
+   free(unvis);
+   return bcst;
+}
+\end{verbatim}
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Graph Algorithms : Dijkstra}}
+\end{center}
+{\small
+\begin{itemize}
+\item Its often important to find the shortest path through a graph
+from one vertex to another.
+\item One way of doing this is the greedy algorithm due to Dijkstra
+discovered $~1956$.
+\item Picks the unvisited vertex with the lowest distance, \& calculate the distance through it to each unvisited neighbor, updating the neighbour's distance if smaller. Mark visited when done with neighbors.
+\end{itemize}
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Dijkstra II}}
+\end{center}
+\begin{center}
+\includegraphics[height=7in]{../Images/Linkedg.pdf}
+\end{center}
+\begin{itemize}
+\item \verb^A -> B -> C -> D -> J -> I -> E -> F -> G^
+\end{itemize}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Dijkstra III}}
+\end{center}
+\begin{center}
+\includegraphics[width=\textwidth]{../Images/dijkstra1.pdf}
+\end{center}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Dijkstra IV}}
+\end{center}
+\begin{center}
+\includegraphics[width=\textwidth]{../Images/dijkstra2.pdf}
+\end{center}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Dijkstra V}}
+\end{center}
+\begin{center}
+\includegraphics[width=\textwidth]{../Images/dijkstra3.pdf}
+\end{center}
+}
+
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Dijkstra VI}}
+\end{center}
+{\small
+\begin{verbatim}
+/* Not efficient : Use a min heap instead */
+edge graph_dijkstra(graph* g, int from, int to)
+{
+
+   bool* unvis;
+   edge* dist;
+   edge e, cst;
+   int v, curr, nvs;
+
+
+   nvs = graph_numVerts(g);
+   if((g==NULL) || (from >= nvs)
+      || (to >= nvs)){
+      return INF;
+   }
+   unvis = (bool*)ncalloc(nvs, sizeof(bool));
+   dist  = (edge*)ncalloc(nvs, sizeof(edge));
+   for(v=0; v<nvs; v++){
+      unvis[v] = true;
+      dist[v] = INF;
+   }
+   dist[from] = 0;
+   curr = from;
+   do{
+      /* Look at neighbours of curr */
+      unvis[curr] = false;
+      for(v=0; v<g->size; v++){
+         e = graph_getEdgeWeight(g, curr, v);
+         if((v!=curr) && unvis[v] && (e!=INF)){
+            cst = dist[curr] + e;
+            if(cst < dist[v]){
+               dist[v] = cst;
+            }
+         }
+      }
+\end{verbatim}
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Dijkstra VII}}
+\end{center}
+{\small
+\begin{verbatim}
+      /* Have we found the answer */
+      if(!unvis[to]){
+          e = dist[to];
+          free(dist); free(unvis);
+         return e;
+      }
+      curr = -1;
+      e = INF;
+      /* Best unvisited node */
+      for(v=0; v<g->size; v++){
+         if(unvis[v] && (dist[v] < e)){
+            curr = v;
+            e = dist[v];
+         }
+      }
+   }while(curr >= 0);
+   /* No route */
+   free(dist); free(unvis);
+   return INF;
+
+}
+\end{verbatim}
+}}

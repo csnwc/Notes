@@ -1,0 +1,7 @@
+digraph {
+   B[color=green,fontcolor=green];
+   C[color=red,fontcolor=red];
+   B -> C[label="12+1",color=red,fontcolor=red];
+   B -> E[label="21+1"];
+   B -> I[label="20+1"];
+}
