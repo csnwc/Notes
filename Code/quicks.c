@@ -8,13 +8,13 @@ int partition (int arr[], int low, int high);
 void sorted(int*a);
 int intcompare(const void *a, const void *b);
 
-#define NUM 250000
+#define NUM 2500000
 
 int main(void)
 {
 
    int i;
-   int a[NUM]; 
+   static int a[NUM]; 
 
 #ifdef RAND
    /* Random */
@@ -66,7 +66,7 @@ int partition(int *a, int l, int r)
 
    int piv;
 
-   piv = a[l];
+   piv = a[(l+r)/2];
    while(l<r){
       while(piv < a[r] && l<r) r--;
       if(r!=l){
