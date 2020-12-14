@@ -17,28 +17,6 @@ the structure of languages in general.
 \newpage
 {\samepage
 \begin{center}
-{\Large{\bf English}}
-\end{center}
-{\small Based on \verb^https://web.stanford.edu/class/archive/cs/cs143/cs143.1128/handouts/080%20Formal%20Grammars.pdf^}
-\begin{verbatim}
-SENTENCE –> <SUBJECT> <VERB-PHRASE> <OBJECT>
-SUBJECT –> "This" | "Computers" | "I"
-VERB-PHRASE –> <ADVERB> <VERB> | <VERB>
-ADVERB –> "never"
-VERB –> "is" | "run" | "am" | "tell"
-OBJECT –> "the" <NOUN> | "a" <NOUN> | <NOUN>
-NOUN –> "university" | "world" | "cheese" | "lies"
-
-This is a university.
-Computers run the world.
-I am the cheese.
-I never tell lies.
-\end{verbatim}
-}
-
-\newpage
-{\samepage
-\begin{center}
 {\Large{\bf Infix Notation}}
 \end{center}
 {\small
@@ -120,6 +98,54 @@ item on the stack. Else repeat.
 \newpage
 {\samepage
 \begin{center}
+{\Large{\bf Implementing Reverse Polish}}
+\end{center}
+{\small
+\begin{verbatim}
+   s = stack_init();
+   while(fgets(input, MAXINPUT, stdin)){
+      /* If number push */
+      if(sscanf(input, FORMATSTR, &d)==1){
+         stack_push(s, d);
+      }
+      else{
+         /* Must be an operator ? */
+         assert(stack_pop(s, &g2));
+         assert(stack_pop(s, &g1));
+         switch(input[0]){
+            case '+' :
+               d = g1 + g2;
+               break;
+            case '-' :
+               d = g1 - g2;
+               break;
+            case '*' :
+               d = g1 * g2;
+               break;
+            case '/' :
+               d = g1 / g2;
+               break;
+            default:
+               fprintf(stderr, "Can't understand that ? %d\n", input[0]);
+               exit(EXIT_FAILURE);
+         }
+         stack_push(s, d);
+      }
+   }
+   assert(stack_pop(s, &d));
+   printf("Answer = ");
+   printf(FORMATSTR, d); printf("\n");
+   if(stack_peek(s, &d) == true){
+      fprintf(stderr, "Stack still had items on it ?\n");
+      exit(EXIT_FAILURE);
+   }
+   stack_free(s);
+\end{verbatim}
+}}
+
+\newpage
+{\samepage
+\begin{center}
 {\Large{\bf General Infix to Postfix}}
 \end{center}
 \begin{itemize}
@@ -164,6 +190,28 @@ END
 \end{verbatim}
 \item We will need a formal definition of the language.
 \end{itemize}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf English}}
+\end{center}
+{\small Based on \verb^https://web.stanford.edu/class/archive/cs/cs143/cs143.1128/handouts/080%20Formal%20Grammars.pdf^}
+\begin{verbatim}
+SENTENCE –> <SUBJECT> <VERB-PHRASE> <OBJECT>
+SUBJECT –> "This" | "Computers" | "I"
+VERB-PHRASE –> <ADVERB> <VERB> | <VERB>
+ADVERB –> "never"
+VERB –> "is" | "run" | "am" | "tell"
+OBJECT –> "the" <NOUN> | "a" <NOUN> | <NOUN>
+NOUN –> "university" | "world" | "cheese" | "lies"
+
+This is a university.
+Computers run the world.
+I am the cheese.
+I never tell lies.
+\end{verbatim}
 }
 
 \newpage
@@ -404,7 +452,7 @@ void Op(Prog *p);
 int isop(char c);
 void Expr(Prog *p);
 \end{verbatim}
-}}
+}
 
 \newpage
 {\samepage
