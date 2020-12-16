@@ -102,44 +102,41 @@ item on the stack. Else repeat.
 \end{center}
 {\small
 \begin{verbatim}
-   s = stack_init();
-   while(fgets(input, MAXINPUT, stdin)){
-      /* If number push */
-      if(sscanf(input, FORMATSTR, &d)==1){
-         stack_push(s, d);
-      }
-      else{
-         /* Must be an operator ? */
-         assert(stack_pop(s, &g2));
-         assert(stack_pop(s, &g1));
-         switch(input[0]){
-            case '+' :
-               d = g1 + g2;
-               break;
-            case '-' :
-               d = g1 - g2;
-               break;
-            case '*' :
-               d = g1 * g2;
-               break;
-            case '/' :
-               d = g1 / g2;
-               break;
-            default:
-               fprintf(stderr, "Can't understand that ? %d\n", input[0]);
-               exit(EXIT_FAILURE);
-         }
-         stack_push(s, d);
-      }
+s = stack_init();
+while(fgets(input, MAXINPUT, stdin)){
+   /* If number push */
+   if(sscanf(input, FORMATSTR, &d)==1){
+      stack_push(s, d);
    }
-   assert(stack_pop(s, &d));
-   printf("Answer = ");
-   printf(FORMATSTR, d); printf("\n");
-   if(stack_peek(s, &d) == true){
-      fprintf(stderr, "Stack still had items on it ?\n");
-      exit(EXIT_FAILURE);
+   else{
+      /* Must be an operator ? */
+      assert(stack_pop(s, &g2));
+      assert(stack_pop(s, &g1));
+      switch(input[0]){
+         case '+' :
+            d = g1 + g2; break;
+         case '-' :
+            d = g1 - g2; break;
+         case '*' :
+            d = g1 * g2; break;
+         case '/' :
+            d = g1 / g2; break;
+         default:
+            fprintf(stderr, "Can't understand ? %d\n",
+                    input[0]);
+            exit(EXIT_FAILURE);
+      }
+      stack_push(s, d);
    }
-   stack_free(s);
+}
+assert(stack_pop(s, &d));
+printf("Answer = ");
+printf(FORMATSTR, d); printf("\n");
+if(stack_peek(s, &d) == true){
+   fprintf(stderr, "Stack still had items on it ?\n");
+   exit(EXIT_FAILURE);
+}
+stack_free(s);
 \end{verbatim}
 }}
 
@@ -148,19 +145,38 @@ item on the stack. Else repeat.
 \begin{center}
 {\Large{\bf General Infix to Postfix}}
 \end{center}
-\begin{itemize}
-\item A totally general approach for translating infix to postfix relies on
-a table of operator precedence:
-{\large
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|}\hline
-*&$/$&+&-&(&)&\verb^'\0'^ \\ \hline
-2&2&1&1&3&0&0\\\hline
-\end{tabular}
-\end{center}
-}
-\end{itemize}
-}
+{\small
+\begin{verbatim}
+www.geeksforgeeks.org/stack-set-2-infix-to-postfix
+
+Dijkstra's Shunting Yard Algorithm
+==================================
+1. Scan the infix expression from left to right. 
+2. If the scanned character is an operand, output it. 
+3. Else, 
+  1 If the precedence of the scanned operator is
+    greater than the precedence of the operator
+    in the stack(or the stack is empty  or the
+    stack contains a ‘(‘ ), push it. 
+  2 Else, Pop all the operators from the stack
+    which are greater than or equal to in
+    precedence than that of the scanned
+    operator.  After doing that Push
+    the scanned operator to the stack.  (If you
+    encounter parenthesis while popping then stop
+    there and push the scanned operator in the
+    stack.) 
+4. If the scanned character is an ‘(‘, push it to the
+   stack. 
+5. If the scanned character is an ‘)’, pop the stack
+   and and output it until a ‘(‘ is encountered, and
+   discard both the parenthesis. 
+6. Repeat steps 2-6 until infix expression is scanned. 
+7. Print the output 
+8. Pop and output from the stack until it is not
+   empty.
+\end{verbatim}
+} }
 
 \newpage
 {\samepage
@@ -178,6 +194,39 @@ what constitutes a legal program.
 \item Programming languages are often described by a particular type of
 grammar called a {\it context free grammar}.
 
+\end{itemize}
+}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf English}}
+\end{center}
+{\tiny Based on : \verb^web.stanford.edu/class/archive/cs/cs143/cs143.1128^}
+{\small
+\begin{verbatim}
+<SENTENCE> ::= <SUBJECT> <VERB-PHRASE> <OBJECT>
+<SUBJECT> ::= "This" | "Computers" | "I"
+<VERB-PHRASE> ::= <ADVERB> <VERB> | <VERB>
+<ADVERB> ::= "never"
+<VERB> ::= "is" | "run" | "am" | "tell"
+<OBJECT> ::= "the" <NOUN> | "a" <NOUN> | <NOUN>
+<NOUN> ::= "university" | "world" | "cheese" | "lies"
+
+This is a university.
+Computers run the world.
+I am the cheese.
+I never tell lies.
+\end{verbatim}
+}}
+
+\newpage
+{\samepage
+\begin{center}
+{\Large{\bf Formal Grammars}}
+\end{center}
+\begin{itemize}
+
 \item Say we wish to create a new computer language whose sole purpose
 is to print out noughts and ones onto the screen~:
 
@@ -188,30 +237,7 @@ BEGIN
     ONE
 END
 \end{verbatim}
-\item We will need a formal definition of the language.
 \end{itemize}
-}
-
-\newpage
-{\samepage
-\begin{center}
-{\Large{\bf English}}
-\end{center}
-{\small Based on \verb^https://web.stanford.edu/class/archive/cs/cs143/cs143.1128/handouts/080%20Formal%20Grammars.pdf^}
-\begin{verbatim}
-SENTENCE –> <SUBJECT> <VERB-PHRASE> <OBJECT>
-SUBJECT –> "This" | "Computers" | "I"
-VERB-PHRASE –> <ADVERB> <VERB> | <VERB>
-ADVERB –> "never"
-VERB –> "is" | "run" | "am" | "tell"
-OBJECT –> "the" <NOUN> | "a" <NOUN> | <NOUN>
-NOUN –> "university" | "world" | "cheese" | "lies"
-
-This is a university.
-Computers run the world.
-I am the cheese.
-I never tell lies.
-\end{verbatim}
 }
 
 \newpage
