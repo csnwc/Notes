@@ -1,6 +1,0 @@
-{
-   DO A FROM 1 TO 8 {
-      FD 30
-      LT 45
-   }
-}
