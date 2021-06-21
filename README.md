@@ -1,2 +1,2 @@
 # C Notes
-Course Notes for COMSM1201 @ the University of Bristol
+Course Notes for COMSM1201 @ The University of Bristol
