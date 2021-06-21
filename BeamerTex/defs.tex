@@ -1,0 +1,52 @@
+\geometry{paperwidth=160mm,paperheight=90mm}
+
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{ocre}{RGB}{243,102,25}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\usepackage{listings}
+
+\usepackage[T1]{fontenc}
+\usepackage[variablett]{lmodern}
+
+\newcommand*{\vttfamily}{%
+  \fontencoding{T1}\fontfamily{lmvtt}\selectfont
+}
+
+\newcommand*{\textsmallunderscore}{%
+  \begingroup
+    \fontencoding{T1}\fontfamily{lmtt}\selectfont
+    \textunderscore
+  \endgroup
+}
+
+%\lstdefinestyle{basicc}{language=C, basicstyle=\small\rmfamily, numbers=left, numberstyle=\tiny, frame=tb, stringstyle=\color{darkgray},columns=fixed, backgroundcolor=\color{ocre!30},xleftmargin=17pt, framexleftmargin=17pt, framexrightmargin=5pt, framexbottommargin=4pt,showstringspaces=false,captionpos=b}
+
+\lstdefinestyle{basicc}{language=C, basicstyle=\scriptsize\ttfamily, numbers=left, numberstyle=\tiny, frame=tb, stringstyle=\color{darkgray}, columns=fixed, backgroundcolor=\color{ocre!30}, xleftmargin=17pt, framexleftmargin=17pt, framexrightmargin=5pt, framexbottommargin=4pt,showstringspaces=false,captionpos=b,keywordstyle=\color{blue}\ttfamily, stringstyle=\color{red}\ttfamily, commentstyle=\color{darkgreen}\ttfamily}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\usetheme{Madrid}
+\setbeamercolor{palette primary}{bg=ocre,fg=white}
+\setbeamercolor{palette secondary}{bg=ocre,fg=white}
+\setbeamercolor{palette tertiary}{bg=ocre,fg=white}
+\setbeamercolor{palette quaternary}{bg=ocre,fg=white}
+\setbeamercolor{structure}{fg=ocre} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=ocre} % TOC sections
+% Override palette coloring with secondary
+\setbeamercolor{subsection in head/foot}{bg=gray,fg=white}
+
+
+\title{Programming in C}
+\author{Dr. Neill Campbell \\ Neill.Campbell@bristol.ac.uk}
+\institute{University of Bristol}
+\date{\today}
+
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}

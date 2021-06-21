@@ -1,0 +1,10 @@
+\frametitle{The Conditional Operator}
+
+\begin{verbatim}
+expr1 ? expr2 : expr3
+\end{verbatim}
+
+If \verb^expr1^ is {\it true} then \verb^expr2^ is executed, else
+\verb^expr3^ is evaluated, i.e.:
+
+\verb^x = ((y < z) ? y : z);^

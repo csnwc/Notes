@@ -1,0 +1,108 @@
+\section{C: Grammar}
+
+\begin{frame}[fragile]
+\frametitle{Grammar}
+\begin{itemize}[<+->]
+\item  C has a grammar/syntax like every other language.
+\item  It has {\it Keywords}, {\it Identifiers}, {\it Constants}, {\it String Constants}, {\it Operators} and {\it Punctuators}.
+\item
+Valid Identifiers :\\
+\verb+k+,
+\verb+_id+,
+\verb+iamanidentifier2+,
+\verb+so_am_i+.
+\item  {\bf Invalid} Identifiers :\\
+\verb+not#me+,
+\verb+101_south+,
+\verb+-plus+.
+\item  Constants :\\
+\verb+17+ (decimal),
+\verb+017+ (octal),
+\verb+0x17+ (hexadecimal).
+\item  String Constant enclosed in double-quotes:\\
+\verb+"I am a string"+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Operators}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}[<+->]
+\item All operators have rules of both {\it precedence}
+and {\it associativity}.
+\item  \verb$1 + 2 * 3$ is the same as
+\verb$1 + (2 * 3)$ because \verb$*$ has
+a higher precedence than \verb$+$.
+\item  The associativity of \verb$+$ is left-to-right, thus\\
+\verb$1 + 2 + 3$ is equivalent to
+\verb$(1 + 2) + 3$.
+\item  Increment and decrement operators:\\
+\verb$i++;$ is equivalent to \verb$i = i + 1;$
+\item  May also be prefixed \verb$--i;$
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapC/prepostfix.c}
+{Question : What is the output~?}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Assignment}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}[<+->]
+\item The \verb$=$ operator has a low precedence
+and a right-to-left associativity.
+\item  \verb$a = b = c = 0;$ is valid and equivalent to:\\
+\verb$ = (b = (c = 0));$
+\item  \verb$i = i + 3;$ is the same as \verb$i += 3;$
+\item  Many other operators are possible e.g. \verb$-=, *=, /=$.
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapC/power2.c}
+{\small Output : \verb^2    4    8   16   32   64  128  256  512 1024^}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{The Standard Library}
+\begin{columns}
+
+\begin{column}{0.65\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapC/randnums.c}
+\vspace*{-1em}
+{\tiny
+\begin{verbatim}
+Some randomly distributed integers will be printed.
+How many do you want to see?  11
+
+ 1804289383   846930886  1681692777  1714636915
+ 1957747793   424238335   719885386  1649760492
+  596516649  1189641421  1025202362
+\end{verbatim}
+}
+\end{column}
+
+\begin{column}{0.35\textwidth}
+\begin{itemize}[<+->]
+\item Definitions required for the proper use of
+many functions such as \verb^rand()^
+are found in \verb^stdlib.h^.
+\item  Do not mistake these header files for the libraries
+themselves~!
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
