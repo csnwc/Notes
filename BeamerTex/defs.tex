@@ -20,12 +20,17 @@
   \endgroup
 }
 
-%\lstdefinestyle{basicc}{language=C, basicstyle=\small\rmfamily, numbers=left, numberstyle=\tiny, frame=tb, stringstyle=\color{darkgray},columns=fixed, backgroundcolor=\color{ocre!30},xleftmargin=17pt, framexleftmargin=17pt, framexrightmargin=5pt, framexbottommargin=4pt,showstringspaces=false,captionpos=b}
-
-\lstdefinestyle{basicc}{language=C, basicstyle=\scriptsize\ttfamily, numbers=left, numberstyle=\tiny, frame=tb, stringstyle=\color{darkgray}, columns=fixed, backgroundcolor=\color{ocre!30}, xleftmargin=17pt, framexleftmargin=17pt, framexrightmargin=5pt, framexbottommargin=4pt,showstringspaces=false,captionpos=b,keywordstyle=\color{blue}\ttfamily, stringstyle=\color{red}\ttfamily, commentstyle=\color{darkgreen}\ttfamily}
+\lstdefinestyle{basicc}{language=C, basicstyle=\scriptsize\ttfamily, numbers=left, numberstyle=\tiny, frame=tb, stringstyle=\color{darkgray}, columns=fixed, backgroundcolor=\color{ocre!30}, xleftmargin=15pt, framexleftmargin=15pt, framexrightmargin=5pt, showstringspaces=false,captionpos=b,keywordstyle=\color{blue}\ttfamily, stringstyle=\color{red}\ttfamily, commentstyle=\color{darkgreen}\ttfamily}
 
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{fancyvrb}
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\scriptsize,
+ fontshape=tt,
+ framesep=0pt, % separation between frame and text
+}
 
 \usetheme{Madrid}
 \setbeamercolor{palette primary}{bg=ocre,fg=white}

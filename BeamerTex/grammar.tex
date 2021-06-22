@@ -6,20 +6,20 @@
 \item  C has a grammar/syntax like every other language.
 \item  It has {\it Keywords}, {\it Identifiers}, {\it Constants}, {\it String Constants}, {\it Operators} and {\it Punctuators}.
 \item
-Valid Identifiers :\\
+Valid Identifiers~:\\
 \verb+k+,
 \verb+_id+,
 \verb+iamanidentifier2+,
 \verb+so_am_i+.
-\item  {\bf Invalid} Identifiers :\\
+\item  {\bf Invalid} Identifiers~:\\
 \verb+not#me+,
 \verb+101_south+,
 \verb+-plus+.
-\item  Constants :\\
+\item  Constants~:\\
 \verb+17+ (decimal),
 \verb+017+ (octal),
 \verb+0x17+ (hexadecimal).
-\item  String Constant enclosed in double-quotes:\\
+\item  String Constant enclosed in double-quotes~:\\
 \verb+"I am a string"+
 \end{itemize}
 \end{frame}
@@ -38,7 +38,7 @@ a higher precedence than \verb$+$.
 \item  The associativity of \verb$+$ is left-to-right, thus\\
 \verb$1 + 2 + 3$ is equivalent to
 \verb$(1 + 2) + 3$.
-\item  Increment and decrement operators:\\
+\item  Increment and decrement operators~:\\
 \verb$i++;$ is equivalent to \verb$i = i + 1;$
 \item  May also be prefixed \verb$--i;$
 \end{itemize}
@@ -60,7 +60,7 @@ a higher precedence than \verb$+$.
 \begin{itemize}[<+->]
 \item The \verb$=$ operator has a low precedence
 and a right-to-left associativity.
-\item  \verb$a = b = c = 0;$ is valid and equivalent to:\\
+\item  \verb$a = b = c = 0;$ is valid and equivalent to~:\\
 \verb$ = (b = (c = 0));$
 \item  \verb$i = i + 3;$ is the same as \verb$i += 3;$
 \item  Many other operators are possible e.g. \verb$-=, *=, /=$.
@@ -69,7 +69,8 @@ and a right-to-left associativity.
 
 \begin{column}{0.5\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapC/power2.c}
-{\small Output : \verb^2    4    8   16   32   64  128  256  512 1024^}
+{\scriptsize{\tt Output :}}
+\VerbatimInput{../Code/ChapC/power2.autoout}
 \end{column}
 
 \end{columns}
@@ -84,7 +85,7 @@ and a right-to-left associativity.
 \vspace*{-1em}
 {\tiny
 \begin{verbatim}
-Some randomly distributed integers will be printed.
+Randomly distributed integers will be printed.
 How many do you want to see?  11
 
  1804289383   846930886  1681692777  1714636915

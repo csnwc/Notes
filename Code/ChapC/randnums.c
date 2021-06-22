@@ -4,7 +4,7 @@
 int main(void)
 {
    int   i, n;
-   printf("\nRandomly distributed integers are printed.\n"
+   printf("Randomly distributed integers are printed.\n"
            "How many do you want to see?  ");
    do{
       i = scanf("%d", &n);

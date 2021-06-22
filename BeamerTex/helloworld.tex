@@ -15,7 +15,7 @@
 \end{figure}
 \end{column}
 
-\begin{column}{0.5\textwidth}
+\begin{column}{0.45\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapB/helloworld.c}
 \end{column}
 
@@ -47,7 +47,7 @@ main()
 { ... }
 \end{verbatim}
 
-\item \verb+printf()+ One of the pre-defined library functions being called (invoked) using a single argument the string:
+\item \verb+printf()+ One of the pre-defined library functions being called (invoked) using a single argument the string~:
 \begin{verbatim}
 "Hello, world!\n"
 \end{verbatim}
@@ -64,14 +64,22 @@ Instruct the Operating System that the function
 
 \begin{frame}[fragile]
 \frametitle{Area of a Rectangle}
+\begin{columns}
+
+\begin{column}{0.9\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapB/arearect.c}
+{\scriptsize{\tt Output :}}
+\VerbatimInput{../Code/ChapB/arearect.autoout}
+\end{column}
+
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Dissecting the 2nd Program}
+\frametitle{Dissecting the Area Program}
 
 \begin{columns}
-\begin{column}{0.5\textwidth}
+\begin{column}{0.45\textwidth}
 \begin{itemize}[<+->]
 \item \verb^//^ One line comment.
 \item \verb^#include <stdio.h>^ Always required when using I/O.
@@ -83,7 +91,7 @@ contains a \verb+%d+ to indicate an integer is to be printed.
 \end{itemize}
 \end{column}
 
-\begin{column}{0.5\textwidth}
+\begin{column}{0.45\textwidth}
 \begin{lstlisting}[style=basicc]
 preprocessing directives
 
@@ -124,18 +132,19 @@ Only available for integer arithmetic.
 \frametitle{The Character Type}
 
 \begin{columns}
-\begin{column}{0.65\textwidth}
+\begin{column}{0.55\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapB/chars.c}
 \end{column}
 
-\begin{column}{0.35\textwidth}
+\begin{column}{0.45\textwidth}
 \begin{itemize}[<+->]
 \item The  keyword \verb+char+ stands for character.
 \item Used with single quotes i.e.
 \verb^'A'^, or \verb^'+'^.
 \item Some keyboards have a second single quote the {\bf back quote} \verb^`^
 \item Note the \verb+%c+ conversion format.
-\item \verb^A B^ is printed.
+\item {\scriptsize{\tt Output :}}
+\VerbatimInput{../Code/ChapB/chars.autoout}
 \end{itemize}
 \end{column}
 
@@ -146,13 +155,15 @@ Only available for integer arithmetic.
 \begin{frame}[fragile]
 \frametitle{Floating Types}
 \begin{columns}
-\begin{column}{0.65\textwidth}
+\begin{column}{0.55\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapB/floats.c}
+{\scriptsize{\tt Output :}}
+\VerbatimInput{../Code/ChapB/floats.autoout}
 \end{column}
 
-\begin{column}{0.35\textwidth}
+\begin{column}{0.45\textwidth}
 \begin{itemize}[<+->]
-\item In C there are three common floating types:
+\item In C there are three common floating types~:
     \begin{enumerate}[<+->]
         \item \verb+float+
         \item \verb+double+
@@ -255,8 +266,8 @@ while (test is true) {
 \end{lstlisting}
 \end{column}
 
-\begin{column}{0.65\textwidth}
-\lstinputlisting[style=basicc,basicstyle=\small]{../Code/ChapB/sums.c}
+\begin{column}{0.55\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapB/sums.c}
 \end{column}
 \end{columns}
 \end{frame}

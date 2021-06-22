@@ -1,4 +1,4 @@
-\section*{D: Flow Control}
+\section{D: Flow Control}
 
 \begin{frame}[fragile]
 \frametitle{Comparisons}
@@ -56,14 +56,17 @@ be {\it false}.
 \begin{frame}[fragile]
 \frametitle{The {\tt if()} Statement}
 
-\begin{verbatim}
+\begin{columns}
+
+\begin{column}{0.45\textwidth}
+Strictly, you don't need braces if there is only one statement as part of the {\tt if}~:
+\begin{lstlisting}[style=basicc,numbers=none]
 if (expr)
    statement
-\end{verbatim}
+\end{lstlisting}
 
-If more than one statement is required:
-
-\begin{verbatim}
+If more than one statement is required~:
+\begin{lstlisting}[style=basicc,numbers=none]
 if (expr) {
    statement-1
        .
@@ -71,11 +74,14 @@ if (expr) {
        .
    statement-n
 }
-\end{verbatim}
+\end{lstlisting}
+However, we will {\bf always} brace them, even if it's not necessary.
+\end{column}
 
-Adding an \verb^else^ statement:
+\begin{column}{0.45\textwidth}
+Adding an \verb^else^ statement~:
 
-\begin{verbatim}
+\begin{lstlisting}[style=basicc,numbers=none]
 if (expr) {
    statement-1
        .
@@ -90,43 +96,44 @@ else{
        .
    statement-e
 }
-\end{verbatim}
+\end{lstlisting}
+\end{column}
 
-A practical example:
+\end{columns}
+\end{frame}
 
+\begin{frame}[fragile]
+\frametitle{A Practical Example of {\tt if}:}
+\begin{columns}
+
+\begin{column}{0.5\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapD/min.c}
+\end{column}
+
+\begin{column}{0.40\textwidth}
+Output:\\
 \begin{verbatim}
-#include <stdio.h>
-
-int main(void)
-{
-   int   x, y, z, min;
-
-   printf("Input three integers:  ");
-   scanf("%d%d%d", &x, &y, &z);
-   if (x < y)
-      min = x;
-   else
-      min = y;
-   if (z < min)
-      min = z;
-   printf("The minimum value is " \
-          "%d\n", min);
-   return 0;
-}
+Input three integers:  5 7 -4
+The minimum value is -4
 \end{verbatim}
+\end{column}
+
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{The {\tt while()} Statement}
+\begin{columns}
 
-\begin{verbatim}
+\begin{column}{0.45\textwidth}
+\begin{lstlisting}[style=basicc,numbers=none]
 while(expr)
    statement
-\end{verbatim}
+\end{lstlisting}
 
-This, as with the \verb^for^ loop, may execute compound statements:
+This, as with the {\tt for} loop, may execute compound statements~:
 
-\begin{verbatim}
+\begin{lstlisting}[style=basicc,numbers=none]
 while(expr){
    statement-1
        .
@@ -134,16 +141,28 @@ while(expr){
        .
    statement-n
 }
-\end{verbatim}
+\end{lstlisting}
+However, we will {\bf always} brace them, even if it's not necessary.
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapD/while.c}
+{\scriptsize{\tt Output :}}
+\VerbatimInput{../Code/ChapD/while.autoout}
+\end{column}
+
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{The {\tt for()} Loop}
+\begin{columns}
 
+\begin{column}{0.45\textwidth}
 This is one of the more complex and heavily used means
 for controlling execution flow.
 
-\begin{verbatim}
+\begin{lstlisting}[style=basicc,numbers=none]
 for( init ; test; loop){
    statement-1
        .
@@ -151,10 +170,10 @@ for( init ; test; loop){
        .
    statement-n
 }
-\end{verbatim}
+\end{lstlisting}
 
-and may be thought of as:
-\begin{verbatim}
+and may be thought of as~:
+\begin{lstlisting}[style=basicc,numbers=none]
 init;
 while(test){
    statement-1
@@ -164,45 +183,33 @@ while(test){
    statement-n
    loop;
 }
-\end{verbatim}
+\end{lstlisting}
+\end{column}
 
-In the \verb^for()^ loop, note:
+\begin{column}{0.45\textwidth}
+In the \verb^for()^ loop, note~:
 \begin{itemize}[<+->]
 \item Semi-colons separate the three parts.
 \item Any (or all) of the three parts could be empty.
-\item If the test part is empty, it evaluates to {\it true}.\\
-\verb^for(;;){ a+=1; }^  is an infinite loop.
+\item If the test part is empty, it evaluates to {\it true}.
+\item \verb^for(;;){ a+=1; }^  is an infinite loop.
 \end{itemize}
+\end{column}
 
-{\samepage
-\begin{verbatim}
-/* Find triples of integers that
-   add up to N.                  */
+\end{columns}
+\end{frame}
 
-#include <stdio.h>
+\begin{frame}[fragile]
+\frametitle{A Triply-Nested Loop}
 
-#define   N   7
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapD/triple.c}
+\end{column}
 
-int main(void)
-{
-   int   cnt = 0, i, j, k;
-
-   for (i = 0; i <= N; i++)
-      for (j = 0; j <= N; j++)
-       for (k = 0; k <= N; k++)
-          if (i + j + k == N) {
-             ++cnt;
-             printf("%3d%3d%3d\n",
-                    i, j, k);
-          }
-   printf("\nCount: %d\n", cnt);
-   return 0;
-}
-\end{verbatim}
-}
-The result is:
-
-{\tiny
+\begin{column}{0.40\textwidth}
+Output~:
+{\scriptsize
 \begin{verbatim}
   0  0  7
   0  1  6
@@ -211,73 +218,56 @@ The result is:
   0  4  3
   0  5  2
   0  6  1
-  0  7  0
-  1  0  6
-  1  1  5
-  1  2  4
-  1  3  3
-  1  4  2
-  1  5  1
-  1  6  0
-  2  0  5
-  2  1  4
-  2  2  3
-  2  3  2
-  2  4  1
-  2  5  0
-  3  0  4
-  3  1  3
-  3  2  2
-  3  3  1
-  3  4  0
-  4  0  3
-  4  1  2
-  4  2  1
-  4  3  0
+  
+  ... etc ...
+
   5  0  2
   5  1  1
   5  2  0
   6  0  1
   6  1  0
   7  0  0
+
+Count: 36
 \end{verbatim}
 }
+\end{column}
+
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{The Comma Operator}
 
-This has the lowest predence of all the operators in C
-and associates left to right.
+This has the lowest precedence of all the operators in C
+and associates left-to-right.
 
-\begin{verbatim}
+\begin{lstlisting}[style=basicc,numbers=none]
 a = 0 , b = 1;
-\end{verbatim}
+\end{lstlisting}
 
-Hence, the \verb^for^ loop may become quite complex :
+Hence, the {\tt for} loop may become quite complex~:
 
-\begin{verbatim}
-for(sum = 0 , i = 1; i <= n; ++i)
+\begin{lstlisting}[style=basicc,numbers=none]
+for(sum = 0, i = 1; i <= n; ++i){
    sum += i;
-\end{verbatim}
-
-An equivalent, but more difficult to read expression :
-
-{\small
-\begin{verbatim}
-for(sum = 0 , i = 1; i <= n; ++i, sum += i);
-\end{verbatim}
 }
+\end{lstlisting}
 
-\begin{itemize}[<+->]
-\item Notice the loop has an empty body, hence the semicolon.
-\end{itemize}
+An equivalent, but more difficult to read expression~:
+\begin{lstlisting}[style=basicc,numbers=none]
+for(sum = 0 , i = 1; i <= n; ++i, sum += i);
+\end{lstlisting}
+
+Notice the loop has an empty body, hence the semicolon.
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{The {\tt do-while()} Statement}
+\frametitle{The {\tt do-while()} Loop}
 
-\begin{verbatim}
+\begin{columns}
+\begin{column}{0.35\textwidth}
+\begin{lstlisting}[style=basicc,numbers=none]
 do {
    statement-1
        .
@@ -285,16 +275,27 @@ do {
        .
    statement-n
 } while ( test );
-\end{verbatim}
+\end{lstlisting}
 
 Unlike the \verb^while()^ loop, the \verb^do-while()^ will always
 be executed at least once.
+\end{column}
+
+\begin{column}{0.60\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapD/dowhile.c}
+{\scriptsize{\tt Output :}}
+\VerbatimInput{../Code/ChapD/dowhile.autoout}
+\end{column}
+
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{The {\tt switch()} Statement}
+\begin{columns}
 
-\begin{verbatim}
+\begin{column}{0.45\textwidth}
+\begin{lstlisting}[style=basicc,numbers=none]
 switch (val) {
    case 1 :
       a++;
@@ -306,8 +307,10 @@ switch (val) {
    default :
       c++;
 }
-\end{verbatim}
+\end{lstlisting}
+\end{column}
 
+\begin{column}{0.45\textwidth}
 \begin{itemize}[<+->]
 \item The \verb^val^ must be an integer.
 \item The \verb^break^ statement causes execution to jump out
@@ -315,17 +318,50 @@ of the loop. No \verb^break^ statement causes execution to
 `fall through' to the next line.
 \item The \verb^default^ label is a catch-all.
 \end{itemize}
+\end{column}
+
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{The Conditional Operator}
+\frametitle{The {\tt switch()} Statement}
+\begin{columns}
 
+\begin{column}{0.55\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapD/switch.c}
+\end{column}
+
+\begin{column}{0.40\textwidth}
+Output~:
 \begin{verbatim}
-expr1 ? expr2 : expr3
+Enter a number from 2 - 9 : 1
+Enter a number from 2 - 9 : 0
+Enter a number from 2 - 9 : 10
+Enter a number from 2 - 9 : 3
+That's a prime!
 \end{verbatim}
+\end{column}
 
-If \verb^expr1^ is {\it true} then \verb^expr2^ is executed, else
-\verb^expr3^ is evaluated, i.e.:
+\end{columns}
+\end{frame}
 
-\verb^x = ((y < z) ? y : z);^
+\begin{frame}[fragile]
+\frametitle{The Conditional {\tt (?)} Operator}
+\begin{columns}
+
+\begin{column}{0.40\textwidth}
+As we have seen, C programers have a range of techniques available to reduce the amount of typing~:
+\begin{lstlisting}[style=basicc,numbers=none]
+expr1 ? expr2 : expr3
+\end{lstlisting}
+
+If {\tt expr1} is {\it true} then {\tt expr2} is executed, else
+{\tt expr3} is evaluated.
+\end{column}
+
+\begin{column}{0.55\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapD/minq.c}
+\end{column}
+
+\end{columns}
 \end{frame}

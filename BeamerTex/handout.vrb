@@ -1,10 +1,28 @@
-\frametitle{The Conditional Operator}
-
+\frametitle{Call-by-Value}
 \begin{verbatim}
-expr1 ? expr2 : expr3
+#include <stdio.h>
+
+int fact(int a);
+
+int main(void)
+{
+
+   int a, f;
+
+   printf("Input a number :\n");
+   scanf("%d", &a);
+   f = fact(a);
+   printf("%d! is %d\n", a, f);
+
+   return(0);
+}
+
+int fact(int a)
+{
+   if(a > 0)
+      return (a*fact(a - 1));
+   else
+      return 1;
+
+}
 \end{verbatim}
-
-If \verb^expr1^ is {\it true} then \verb^expr2^ is executed, else
-\verb^expr3^ is evaluated, i.e.:
-
-\verb^x = ((y < z) ? y : z);^
