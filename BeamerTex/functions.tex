@@ -1,0 +1,254 @@
+\section{E: Functions}
+
+\begin{frame}[fragile]
+\frametitle{Simple Functions}
+\begin{columns}
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,basicstyle=\tiny\ttfamily]{../Code/ChapE/callbyval.c}
+{\scriptsize{\tt Output :}}
+\VerbatimInput{../Code/ChapE/callbyval.autoout}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+\item Execution begins, as normal, in the \verb^main()^ function.
+\item The function {\it prototype is shown} at the top of the file.
+This allows the compiler to check the code more thoroughly.
+\item The function \verb^min()^ returns an \verb^int^ and takes
+two \verb^int^'s as arguments.
+\item The function is defined between two braces.
+\item The \verb^return^ statement is used return a value
+to the calling statement.
+\item A function which has no return value, is declared \verb^void^
+and is equivalent to a procedure.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Assert}
+
+The assert macro is defined in the header file\\ \verb^assert.h^.
+This is used to ensure the value of an expression is as we
+expect it to be.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Assert}
+\begin{verbatim}
+#include <assert.h>
+
+double f(int a, int b)
+{
+
+   double x;
+
+   assert(a > 0);
+
+   /* precondition */
+   assert(b >= 7 && b <= 11);
+
+      .
+      .
+      .
+
+   /* postcondition */
+   assert(x >= 1.0);
+
+   return(x);
+}
+\end{verbatim}
+
+\begin{itemize}
+\item If an assertion fails, an error is printed and the
+program is aborted.
+\item By \verb^#define^'ing \verb^NDEBUG^ all assertions are
+ignored, allowing them to be used during development and switched
+off later.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Program Layout}
+It is common for the \verb^main()^ function to come
+first in a program :
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+
+list of function prototypes
+
+int main(void)
+{
+   . . . . .
+}
+
+int f1(int a, int b)
+{
+   . . . . .
+}
+
+int f2(int a, int b)
+{
+   . . . . .
+}
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Call-by-Value}
+However, it is possible to avoid the need for function prototypes
+by defining a function before it is used :
+
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+
+int f1(int a, int b)
+{
+   . . . . .
+}
+
+int f2(int a, int b)
+{
+   . . . . .
+}
+
+int main(void)
+{
+
+   . . . . .
+
+}
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Call-by-Value}
+
+In the following example, a function is passed an integer
+using call by value:
+
+\begin{verbatim}
+#include <stdio.h>
+
+void fnc1(int a);
+
+int main(void)
+{
+
+   int x = 1;
+
+   fnc1(x);
+   printf("%d\n", x);
+
+}
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Call-by-Value}
+\begin{verbatim}
+void fnc1(int a)
+{
+
+   a = a + 1;
+
+}
+\end{verbatim}
+
+The function does not change the value of \verb^x^ in\\
+\verb^main()^, since \verb^a^ in the function is effectively
+only a {\bf copy} of the variable.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Multiply}
+Write a simple function \verb^int mul(int a, int b)^ which
+multiples two integers together {\b without} the use of the
+multiply symbol in C (i.e. the \verb^*^).
+
+Use \verb^assert()^ calls in \verb^main()^ test it thoroughly.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Recursion}
+
+A repeated computation computation is normally
+achieved via {\it iteration}, e.g. using \verb^for()^:
+
+\begin{verbatim}
+#include <stdio.h>
+
+int fact(int a);
+
+int main(void)
+{
+
+   int a, f;
+
+   printf("Input a number :\n");
+   scanf("%d", &a);
+   f = fact(a);
+   printf("%d! is %d\n", a, f);
+
+   return(0);
+
+}
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Call-by-Value}
+\begin{verbatim}
+int fact(int a)
+{
+
+   int i;
+   int tot = 1;
+
+   for(i=1; i<=a; i++){
+      tot *= i;
+   }
+   return tot;
+}
+\end{verbatim}
+
+We could also achieve this via {\it recursion} :
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Call-by-Value}
+\begin{verbatim}
+#include <stdio.h>
+
+int fact(int a);
+
+int main(void)
+{
+
+   int a, f;
+
+   printf("Input a number :\n");
+   scanf("%d", &a);
+   f = fact(a);
+   printf("%d! is %d\n", a, f);
+
+   return(0);
+}
+
+int fact(int a)
+{
+   if(a > 0)
+      return (a*fact(a - 1));
+   else
+      return 1;
+
+}
+\end{verbatim}
+\end{frame}
+
