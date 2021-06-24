@@ -17,6 +17,7 @@
 
 \begin{column}{0.45\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapB/helloworld.c}
+\outputlisting{../Code/ChapB/helloworld.autoout}
 \end{column}
 
 \end{columns}
@@ -68,8 +69,7 @@ Instruct the Operating System that the function
 
 \begin{column}{0.9\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapB/arearect.c}
-{\scriptsize{\tt Output :}}
-\VerbatimInput{../Code/ChapB/arearect.autoout}
+\outputlisting{../Code/ChapB/arearect.autoout}
 \end{column}
 
 \end{columns}
@@ -79,7 +79,7 @@ Instruct the Operating System that the function
 \frametitle{Dissecting the Area Program}
 
 \begin{columns}
-\begin{column}{0.45\textwidth}
+\begin{column}{0.40\textwidth}
 \begin{itemize}[<+->]
 \item \verb^//^ One line comment.
 \item \verb^#include <stdio.h>^ Always required when using I/O.
@@ -91,7 +91,7 @@ contains a \verb+%d+ to indicate an integer is to be printed.
 \end{itemize}
 \end{column}
 
-\begin{column}{0.45\textwidth}
+\begin{column}{0.55\textwidth}
 \begin{lstlisting}[style=basicc]
 preprocessing directives
 
@@ -134,8 +134,7 @@ Only available for integer arithmetic.
 \begin{columns}
 \begin{column}{0.55\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapB/chars.c}
-{\scriptsize{\tt Output :}}
-\lstinputlisting[style=basicterm]{../Code/ChapB/chars.autoout}
+\outputlisting{../Code/ChapB/chars.autoout}
 \end{column}
 
 \begin{column}{0.45\textwidth}
@@ -157,8 +156,7 @@ Only available for integer arithmetic.
 \begin{columns}
 \begin{column}{0.55\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapB/floats.c}
-{\scriptsize{\tt Output :}}
-\VerbatimInput{../Code/ChapB/floats.autoout}
+\outputlisting{../Code/ChapB/floats.autoout}
 \end{column}
 
 \begin{column}{0.45\textwidth}
@@ -266,10 +264,9 @@ while (test is true) {
 \end{lstlisting}
 \end{column}
 
-\begin{column}{0.55\textwidth}
+\begin{column}{0.60\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapB/sums.c}
-{\scriptsize{\tt Output :}}
-\lstinputlisting[style=basicterm]{../Code/ChapB/sums.manout}
+\outputlisting{../Code/ChapB/sums.manout}
 \end{column}
 \end{columns}
 \end{frame}

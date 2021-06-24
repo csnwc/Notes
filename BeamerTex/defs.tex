@@ -44,6 +44,13 @@
 % Override palette coloring with secondary
 \setbeamercolor{subsection in head/foot}{bg=gray,fg=white}
 
+\setlength{\parindent}{0pt}
+
+\newcommand{\outputlisting}[1]{
+{\noindent{\scriptsize Output~:}}
+\lstinputlisting[style=basicterm]{#1}
+}
+
 \usepackage{qrcode}
 
 \title{Programming in C}

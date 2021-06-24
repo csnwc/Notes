@@ -13,6 +13,6 @@ int main(void)
    }
 
    printf("\n%s%5d\n%s%5f\n\n",
-           "Count:", cnt, " Sum:", sum);
+           "Count:", cnt, "Sum: ", sum);
    return 0;
 }

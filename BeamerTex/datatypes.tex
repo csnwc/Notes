@@ -7,15 +7,19 @@
 
 \begin{columns}
 
-\begin{column}{0.45\textwidth}
+\begin{column}[c]{0.35\textwidth}
 {\small
-{\bf [}unsigned $|$ signed{\bf ]\ \ [}long $|$ short{\bf ]\ \ [}int $|$ float $|$ double{\bf ]}
 \begin{itemize}
-\item The use of {\tt int} implies {\tt signed int} without the need
-to state it.  Likewise {\tt unsigned short} means {\tt unsigned short int}.
+\item {\bf [} unsigned $|$ signed {\bf ]}
+\item {\bf [} long $|$ short {\bf ]}
+\item {\bf [} char | int $|$ float $|$ double {\bf ]}
+\item The use of {\tt int} implies {\tt signed int} without the need to state it.
+\item Likewise {\tt unsigned short} means {\tt unsigned short int}.
 \end{itemize}
 }
+\end{column}
 
+\begin{column}[c]{0.60\textwidth}
 {\tiny
 \begin{tabular}{|l|l|l|} \hline
 Type & Minimum size (bits) & Format specifier \\ \hline
@@ -47,15 +51,6 @@ signed long int &  &  \\ \hline
 %
 unsigned long & 32 & \%lu \\
 unsigned long int &  &  \\ \hline
-\end{tabular}
-}
-\end{column}
-
-\begin{column}{0.45\textwidth}
-{\tiny
-\begin{tabular}{|l|l|l|} \hline
-Type & Minimum size (bits) & Format specifier \\ \hline
-%
 long long & 64 & \%lli or \%lld \\
 long long int &  &  \\
 signed long long &  &  \\
@@ -65,23 +60,13 @@ unsigned long long & 64 & \%llu \\
 unsigned long long int &  &  \\ \hline
 %
 float &  & scanf(): \\
- &  & \%f \%F \\
- &  & \%g \%G \\
- &  & \%e \%E \\
- &  & \%a \%A \\ \hline
+ &  & \%f, \%g, \%e, \%a \\ \hline
 %
-double &  & \%lf \%lF \\
- &  & \%lg \%lG \\
- &  & \%le \%lE \\
- &  & \%la \%lA[c] \\ \hline
+double &  & \%lf, \%lg, \%le, \%la \\ \hline 
 %
-long double & & \%Lf \%LF \\
- &  & \%Lg \%LG \\
- &  & \%Le \%LE \\
- &  & \%La \%LA \\ \hline
+long double & & \%Lf, \%Lg, \%Le, \%La \\ \hline
 \end{tabular}
 }
-{\tiny \url{https://en.wikipedia.org/wiki/C_data_types}}
 \end{column}
 
 \end{columns}
@@ -109,8 +94,7 @@ The above represents : $1 * 64 + 1 * 8 + 1 * 4 = 76$.
 \item Floating operations need not be exact.
 \end{itemize}
 \lstinputlisting[style=basicc]{../Code/ChapF/prec1.c}
-{\scriptsize Output:}
-\lstinputlisting[style=basicterm]{../Code/ChapF/prec1.autoout}
+\outputlisting{../Code/ChapF/prec1.autoout}
 \end{column}
 
 \begin{column}{0.45\textwidth}
@@ -141,8 +125,7 @@ use {\tt sizeof()}. On a Dell Windows 10 laptop running WSL:
 \end{column}
 
 \begin{column}{0.40\textwidth}
-{\scriptsize{\tt Output :}}
-\lstinputlisting[style=basicterm]{../Code/ChapF/sizeof.autoout}
+\outputlisting{../Code/ChapF/sizeof.autoout}
 \end{column}
 
 \end{columns}
@@ -176,8 +159,7 @@ sin()  cos()  tan()
 
 \begin{column}{0.45\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapF/math1.c}
-{\scriptsize{\tt Output :}}
-\lstinputlisting[style=basicterm]{../Code/ChapF/math1.manout}
+\outputlisting{../Code/ChapF/math1.manout}
 \end{column}
 
 \begin{column}{0.45\textwidth}

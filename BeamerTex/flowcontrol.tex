@@ -111,11 +111,7 @@ else{
 \end{column}
 
 \begin{column}{0.40\textwidth}
-Output:\\
-\begin{verbatim}
-Input three integers:  5 7 -4
-The minimum value is -4
-\end{verbatim}
+\outputlisting{../Code/ChapD/min.manout}
 \end{column}
 
 \end{columns}
@@ -147,8 +143,7 @@ However, we will {\bf always} brace them, even if it's not necessary.
 
 \begin{column}{0.45\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapD/while.c}
-{\scriptsize{\tt Output :}}
-\VerbatimInput{../Code/ChapD/while.autoout}
+\outputlisting{../Code/ChapD/while.autoout}
 \end{column}
 
 \end{columns}
@@ -208,29 +203,10 @@ In the \verb^for()^ loop, note~:
 \end{column}
 
 \begin{column}{0.40\textwidth}
-Output~:
-{\scriptsize
-\begin{verbatim}
-  0  0  7
-  0  1  6
-  0  2  5
-  0  3  4
-  0  4  3
-  0  5  2
-  0  6  1
-  
-  ... etc ...
-
-  5  0  2
-  5  1  1
-  5  2  0
-  6  0  1
-  6  1  0
-  7  0  0
-
-Count: 36
-\end{verbatim}
-}
+{\scriptsize Output~:}
+\lstinputlisting[style=basicterm,linerange={1-8}]{../Code/ChapD/triple.autoout}
+{\scriptsize etc.}
+\lstinputlisting[style=basicterm,linerange={30-38}]{../Code/ChapD/triple.autoout}
 \end{column}
 
 \end{columns}
@@ -283,8 +259,7 @@ be executed at least once.
 
 \begin{column}{0.60\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapD/dowhile.c}
-{\scriptsize{\tt Output :}}
-\VerbatimInput{../Code/ChapD/dowhile.autoout}
+\outputlisting{../Code/ChapD/dowhile.autoout}
 \end{column}
 
 \end{columns}
@@ -332,14 +307,7 @@ of the loop. No \verb^break^ statement causes execution to
 \end{column}
 
 \begin{column}{0.40\textwidth}
-Output~:
-\begin{verbatim}
-Enter a number from 2 - 9 : 1
-Enter a number from 2 - 9 : 0
-Enter a number from 2 - 9 : 10
-Enter a number from 2 - 9 : 3
-That's a prime!
-\end{verbatim}
+\outputlisting{../Code/ChapD/switch.manout}
 \end{column}
 
 \end{columns}

@@ -6,8 +6,7 @@
 
 \begin{column}{0.40\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapE/min2func.c}
-{\scriptsize{\tt Output :}}
-\VerbatimInput{../Code/ChapE/min2func.manout}
+\outputlisting{../Code/ChapE/min2func.manout}
 \end{column}
 
 \begin{column}{0.50\textwidth}
@@ -38,6 +37,7 @@ to the calling statement.
 In the following example, a function is passed an integer
 using call by value:
 \lstinputlisting[style=basicc]{../Code/ChapE/callbyval.c}
+\outputlisting{../Code/ChapE/callbyval.autoout}
 \end{column}
 
 \begin{column}{0.45\textwidth}
@@ -222,8 +222,7 @@ We will {\bf never} use this second approach - put {\tt main()} first with the p
 
 \begin{column}{0.40\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapE/min2func_def.c}
-{\scriptsize{\tt Output :}}
-\VerbatimInput{../Code/ChapE/min2func_def.manout}
+\outputlisting{../Code/ChapE/min2func_def.manout}
 \end{column}
 
 \begin{column}{0.50\textwidth}
@@ -262,8 +261,7 @@ call.
 
 \begin{column}{0.40\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapE/min2func_inline.c}
-{\scriptsize{\tt Output :}}
-\VerbatimInput{../Code/ChapE/min2func_inline.manout}
+\outputlisting{../Code/ChapE/min2func_inline.manout}
 \end{column}
 
 \end{columns}
@@ -275,7 +273,7 @@ call.
 \frametitle{Factorials via Iteration}
 \begin{columns}
 
-\begin{column}{0.60\textwidth}
+\begin{column}{0.55\textwidth}
 \begin{itemize}[<+->]
 \item A repeated computation computation is normally
 achieved via {\it iteration}, e.g. using \verb^for()^:
@@ -285,7 +283,7 @@ $4$, written as $4!$, is simply $4\times3\times2\times1$.
 \end{itemize}
 \end{column}
 
-\begin{column}{0.35\textwidth}
+\begin{column}{0.40\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapE/iterfact.c}
 \end{column}
 

@@ -3,8 +3,7 @@
 
 \begin{column}{0.45\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapF/math1.c}
-{\scriptsize{\tt Output :}}
-\lstinputlisting[style=basicterm]{../Code/ChapF/math1.manout}
+\outputlisting{../Code/ChapF/math1.manout}
 \end{column}
 
 \begin{column}{0.45\textwidth}
