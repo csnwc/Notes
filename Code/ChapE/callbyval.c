@@ -1,23 +1,17 @@
 #include <stdio.h>
 
-int min(int a, int b);
+void fnc1(int a);
 
 int main(void)
 {
-   int   j, k, m;
 
-   j = 6;
-   k = 9;
-   m = min(j, k);
-   printf("Minimum of %d & %d = " \
-          "%d\n", j, k, m);
-   return 0;
+   int x = 1;
+
+   fnc1(x);
+   printf("%d\n", x);
 }
 
-int min(int a, int b)
+void fnc1(int x)
 {
-   if (a < b)
-      return a;
-   else
-      return b;
+   x = x + 1;
 }

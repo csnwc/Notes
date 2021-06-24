@@ -1,28 +1,18 @@
-\frametitle{Call-by-Value}
-\begin{verbatim}
-#include <stdio.h>
+\frametitle{Self-test : Multiply (Advanced)}
+\begin{columns}
 
-int fact(int a);
+\begin{column}{0.5\textwidth}
+\begin{itemize}[<+->]
+\item Write a simple function \verb^int mul(int a, int b)^ which
+multiples two integers together {\bf without} the use of the
+multiply symbol in C (i.e. the \verb^*^)
+\item Use recursion to achieve this.
+\item Use \verb^assert()^ calls to test it thoroughly.
+\end{itemize}
+\end{column}
 
-int main(void)
-{
+\begin{column}{0.35\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapE/recurfact.c}
+\end{column}
 
-   int a, f;
-
-   printf("Input a number :\n");
-   scanf("%d", &a);
-   f = fact(a);
-   printf("%d! is %d\n", a, f);
-
-   return(0);
-}
-
-int fact(int a)
-{
-   if(a > 0)
-      return (a*fact(a - 1));
-   else
-      return 1;
-
-}
-\end{verbatim}
+\end{columns}

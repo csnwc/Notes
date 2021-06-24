@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.24)  22 JUN 2021 20:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.24)  24 JUN 2021 10:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1369,10 +1369,6 @@ Overfull \hbox (6.6667pt too wide) has occurred while \output is active
 \openout4 = `handout.vrb'.
 
  (./handout.vrb (../Code/ChapD/switch.c))
-Overfull \vbox (6.11919pt too high) detected at line 346
- []
-
-
 Overfull \hbox (6.6667pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1399,7 +1395,11 @@ Overfull \hbox (6.6667pt too wide) has occurred while \output is active
 ]
 \openout4 = `handout.vrb'.
 
- (./handout.vrb (../Code/ChapE/callbyval.c))
+ (./handout.vrb (../Code/ChapE/min2func.c))
+Overfull \vbox (7.7192pt too high) detected at line 27
+ []
+
+
 Overfull \hbox (6.6667pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1409,7 +1409,7 @@ Overfull \hbox (6.6667pt too wide) has occurred while \output is active
 ]
 \openout4 = `handout.vrb'.
 
- (./handout.vrb)
+ (./handout.vrb (../Code/ChapE/callbyval.c))
 Overfull \hbox (6.6667pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1419,11 +1419,7 @@ Overfull \hbox (6.6667pt too wide) has occurred while \output is active
 ]
 \openout4 = `handout.vrb'.
 
- (./handout.vrb)
-Overfull \vbox (86.3192pt too high) detected at line 72
- []
-
-
+ (./handout.vrb (../Code/ChapE/numfacts.c))
 Overfull \hbox (6.6667pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1433,11 +1429,7 @@ Overfull \hbox (6.6667pt too wide) has occurred while \output is active
 ]
 \openout4 = `handout.vrb'.
 
- (./handout.vrb)
-Overfull \vbox (34.15253pt too high) detected at line 99
- []
-
-
+ (./handout.vrb (../Code/ChapE/numfacts_cond.c))
 Overfull \hbox (6.6667pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1447,11 +1439,7 @@ Overfull \hbox (6.6667pt too wide) has occurred while \output is active
 ]
 \openout4 = `handout.vrb'.
 
- (./handout.vrb)
-Overfull \vbox (36.15253pt too high) detected at line 127
- []
-
-
+ (./handout.vrb (../Code/ChapE/numfacts_assert.c))
 Overfull \hbox (6.6667pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1461,7 +1449,7 @@ Overfull \hbox (6.6667pt too wide) has occurred while \output is active
 ]
 \openout4 = `handout.vrb'.
 
- (./handout.vrb)
+ (./handout.vrb (../Code/ChapE/mult.c))
 Overfull \hbox (6.6667pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1481,7 +1469,7 @@ Overfull \hbox (6.6667pt too wide) has occurred while \output is active
 ]
 \openout4 = `handout.vrb'.
 
- (./handout.vrb)
+ (./handout.vrb (../Code/ChapE/min2func_def.c))
 Overfull \hbox (6.6667pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1491,11 +1479,7 @@ Overfull \hbox (6.6667pt too wide) has occurred while \output is active
 ]
 \openout4 = `handout.vrb'.
 
- (./handout.vrb)
-Overfull \vbox (12.15253pt too high) detected at line 203
- []
-
-
+ (./handout.vrb (../Code/ChapE/min2func_inline.c))
 Overfull \hbox (6.6667pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1505,7 +1489,7 @@ Overfull \hbox (6.6667pt too wide) has occurred while \output is active
 ]
 \openout4 = `handout.vrb'.
 
- (./handout.vrb)
+ (./handout.vrb (../Code/ChapE/iterfact.c))
 Overfull \hbox (6.6667pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1515,16 +1499,22 @@ Overfull \hbox (6.6667pt too wide) has occurred while \output is active
 ]
 \openout4 = `handout.vrb'.
 
- (./handout.vrb)
-Overfull \vbox (96.15253pt too high) detected at line 253
- []
-
-
+ (./handout.vrb (../Code/ChapE/recurfact.c))
 Overfull \hbox (6.6667pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
 
 [54
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/recurfact.c))
+Overfull \hbox (6.6667pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[55
 
 ])
 \tf@nav=\write7
@@ -1549,23 +1539,26 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) ) 
 Here is how much of TeX's memory you used:
- 19546 strings out of 492982
- 360394 string characters out of 6134896
- 480461 words of memory out of 5000000
- 22395 multiletter control sequences out of 15000+600000
+ 19635 strings out of 492982
+ 361785 string characters out of 6134896
+ 491497 words of memory out of 5000000
+ 22450 multiletter control sequences out of 15000+600000
  61815 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,15n,75p,774b,1472s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type
-1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr
-/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public
-/lm/lmvtt10.pfb>
-Output written on handout.pdf (54 pages, 462269 bytes).
+ 56i,15n,75p,774b,1471s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/
+dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
+/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/
+lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/te
+xmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+ss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/
+fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso
+8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/font
+s/type1/public/lm/lmvtt10.pfb>
+Output written on handout.pdf (55 pages, 487217 bytes).
 PDF statistics:
- 475 PDF objects out of 1000 (max. 8388607)
- 391 compressed objects within 4 object streams
- 114 named destinations out of 1000 (max. 500000)
+ 500 PDF objects out of 1000 (max. 8388607)
+ 412 compressed objects within 5 object streams
+ 116 named destinations out of 1000 (max. 500000)
  139 words of extra memory for PDF output out of 10000 (max. 10000000)
 

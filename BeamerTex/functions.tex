@@ -4,78 +4,163 @@
 \frametitle{Simple Functions}
 \begin{columns}
 
-\begin{column}{0.45\textwidth}
-\lstinputlisting[style=basicc,basicstyle=\tiny\ttfamily]{../Code/ChapE/callbyval.c}
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapE/min2func.c}
 {\scriptsize{\tt Output :}}
-\VerbatimInput{../Code/ChapE/callbyval.autoout}
+\VerbatimInput{../Code/ChapE/min2func.manout}
 \end{column}
 
-\begin{column}{0.45\textwidth}
-\begin{itemize}
+\begin{column}{0.50\textwidth}
+\begin{itemize}[<+->]
 \item Execution begins, as normal, in the \verb^main()^ function.
 \item The function {\it prototype is shown} at the top of the file.
 This allows the compiler to check the code more thoroughly.
-\item The function \verb^min()^ returns an \verb^int^ and takes
-two \verb^int^'s as arguments.
 \item The function is defined between two braces.
-\item The \verb^return^ statement is used return a value
+\item The function \verb^min()^ returns an \verb^int^ and takes
+two \verb^int^'s as arguments. These are copies of {\tt j} and {\tt k}.
+\item The \verb^return^ statement is used to return a value
 to the calling statement.
-\item A function which has no return value, is declared \verb^void^
-and is equivalent to a procedure.
 \end{itemize}
 \end{column}
 
 \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Assert}
+%----------------------------------------------------
 
-The assert macro is defined in the header file\\ \verb^assert.h^.
-This is used to ensure the value of an expression is as we
-expect it to be.
-\end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Assert}
-\begin{verbatim}
-#include <assert.h>
+\frametitle{Call-by-Value}
 
-double f(int a, int b)
-{
+\begin{columns}
 
-   double x;
+\begin{column}{0.45\textwidth}
+In the following example, a function is passed an integer
+using call by value:
+\lstinputlisting[style=basicc]{../Code/ChapE/callbyval.c}
+\end{column}
 
-   assert(a > 0);
-
-   /* precondition */
-   assert(b >= 7 && b <= 11);
-
-      .
-      .
-      .
-
-   /* postcondition */
-   assert(x >= 1.0);
-
-   return(x);
-}
-\end{verbatim}
-
-\begin{itemize}
-\item If an assertion fails, an error is printed and the
-program is aborted.
-\item By \verb^#define^'ing \verb^NDEBUG^ all assertions are
-ignored, allowing them to be used during development and switched
-off later.
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item The function does not change the value of \verb^x^ in
+\verb^main()^, since {\tt a} in the function is effectively
+only a {\bf copy} of the variable.
+\item A function which has no return value, is declared \verb^void^
+and, in other languages, might be termed a {\it procedure}.
+\item Most parameters used as arguments to functions in C are copied - this is known as {\it call-by-value}. We'll see the alternative, {\it call-by-reference}, later.
 \end{itemize}
+\end{column}
+
+\end{columns}
 \end{frame}
+
+%----------------------------------------------------
+
+
+% Testing
+\begin{frame}[fragile]
+\frametitle{Testing}
+\begin{columns}
+
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapE/numfacts.c}
+\end{column}
+
+\begin{column}{0.50\textwidth}
+\begin{itemize}[<+->]
+\item This is a (not very good) function to compute the number of factors a number has.
+\item A factor is a number by which a larger (whole/integer) number can be divided.
+\item $36$ has $6$ factors: $1, 2, 3, 4, 6, 12$ and $36$ itself.
+\item How do we know the program works though ?
+\item Running it ? \VerbatimInput{../Code/ChapE/numfacts.autoout}
+\item We need something more automated.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%----------------------------------------------------
+
+
+\begin{frame}[fragile]
+\frametitle{Pre- and Post-Conditions}
+\begin{columns}
+
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapE/numfacts_cond.c}
+\end{column}
+
+\begin{column}{0.55\textwidth}
+\begin{itemize}[<+->]
+\item Pre-conditions check the inputs to functions, typically their arguments.
+\item Post-conditions check the returns from functions.
+\item An {\tt assert} simple states some test that {\bf ought} to be true. If not, the
+program aborts with an error.
+\item There's a sense that this is somehow {\it safer}, but we haven't exactly done much testing on it to ensure the correct answers are returned.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%----------------------------------------------------
+
+
+\begin{frame}[fragile]
+\frametitle{Assert Testing}
+\begin{columns}
+
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapE/numfacts_assert.c}
+\end{column}
+
+\begin{column}{0.55\textwidth}
+\begin{itemize}[<+->]
+\item We will use assert testing in this style {\bf every} time we write a function.
+\item These tests tend to get quite long, so we generally collect them in a function called {\tt test()} which itself is called from {\tt main()}.
+\item If there is no error, there is no output from this program.
+\item By \verb^#define^'ing \verb^NDEBUG^ before the {\tt \#include <assert.h>}, all assertions are ignored, allowing them to be used during development and switched off later.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%----------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Self-test : Multiply}
+\begin{columns}
+
+\begin{column}{0.5\textwidth}
+\begin{itemize}[<+->]
+\item Write a simple function \verb^int mul(int a, int b)^ which
+multiples two integers together {\bf without} the use of the
+multiply symbol in C (i.e. the \verb^*^)
+\item Use iteration (a loop) to achieve this.
+\item $7\times8$ is computed by adding up $7$ eight times.
+\item Use \verb^assert()^ calls to test it thoroughly - I've given you some to get you started.
+\end{itemize}
+\end{column}
+
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapE/mult.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%----------------------------------------------------
 
 \begin{frame}[fragile]
 \frametitle{Program Layout}
-It is common for the \verb^main()^ function to come
+\begin{columns}
+
+\begin{column}{0.5\textwidth}
+It is normal for the \verb^main()^ function to come
 first in a program :
-\begin{verbatim}
+\begin{lstlisting}[style=basicc,numbers=none]
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -95,15 +180,14 @@ int f2(int a, int b)
 {
    . . . . .
 }
-\end{verbatim}
-\end{frame}
+\end{lstlisting}
+\end{column}
 
-\begin{frame}[fragile]
-\frametitle{Call-by-Value}
-However, it is possible to avoid the need for function prototypes
+\begin{column}{0.5\textwidth}
+However, it is theoretically possible to avoid the need for function prototypes
 by defining a function before it is used :
 
-\begin{verbatim}
+\begin{lstlisting}[style=basicc,numbers=none]
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -123,132 +207,132 @@ int main(void)
    . . . . .
 
 }
-\end{verbatim}
+\end{lstlisting}
+We will {\bf never} use this second approach - put {\tt main()} first with the prototypes above it.
+\end{column}
+
+\end{columns}
 \end{frame}
 
+%----------------------------------------------------
+
 \begin{frame}[fragile]
-\frametitle{Call-by-Value}
+\frametitle{Replacing Functions with Macros}
+\begin{columns}
 
-In the following example, a function is passed an integer
-using call by value:
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapE/min2func_def.c}
+{\scriptsize{\tt Output :}}
+\VerbatimInput{../Code/ChapE/min2func_def.manout}
+\end{column}
 
-\begin{verbatim}
-#include <stdio.h>
+\begin{column}{0.50\textwidth}
+\begin{itemize}[<+->]
+\item There's sometimes a (tiny) time penalty for using functions.
+\item The contents of the functions are saved onto a special stack, so that when you return to the function, its variables and state can be restored.
+\item \url{https://en.wikipedia.org/wiki/Call_stack}
+\item Historically, for small functions that needed to be fast, programmers might have \verb^#define^ a macro.
+\item There's a problem though - what happens if we used {\tt m = MIN(i++, j++);} ?
+\item This is expanded to {\tt ((i++)<(j++)?(i++):(j++))} which is {\bf not} what was intended.
+\end{itemize}
+\end{column}
 
-void fnc1(int a);
-
-int main(void)
-{
-
-   int x = 1;
-
-   fnc1(x);
-   printf("%d\n", x);
-
-}
-\end{verbatim}
+\end{columns}
 \end{frame}
 
+%----------------------------------------------------
 
 \begin{frame}[fragile]
-\frametitle{Call-by-Value}
-\begin{verbatim}
-void fnc1(int a)
-{
+\frametitle{The {\tt inline} modifier}
+\begin{columns}
 
-   a = a + 1;
+\begin{column}{0.50\textwidth}
+\begin{itemize}[<+->]
+\item In C99 the {\tt inline} modifier was introduced
+\url{https://en.wikipedia.org/wiki/Inline_function}
+\end{itemize}
+\begin{quote}
+... serves as a compiler directive that suggests (but does not
+require) that the compiler substitute the body of the function inline by
+performing inline expansion, i.e. by inserting the function code at the
+address of each function call, thereby saving the overhead of a function
+call.
+\end{quote}
+\end{column}
 
-}
-\end{verbatim}
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapE/min2func_inline.c}
+{\scriptsize{\tt Output :}}
+\VerbatimInput{../Code/ChapE/min2func_inline.manout}
+\end{column}
 
-The function does not change the value of \verb^x^ in\\
-\verb^main()^, since \verb^a^ in the function is effectively
-only a {\bf copy} of the variable.
+\end{columns}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Multiply}
-Write a simple function \verb^int mul(int a, int b)^ which
-multiples two integers together {\b without} the use of the
-multiply symbol in C (i.e. the \verb^*^).
-
-Use \verb^assert()^ calls in \verb^main()^ test it thoroughly.
-\end{frame}
+%----------------------------------------------------
 
 \begin{frame}[fragile]
-\frametitle{Recursion}
+\frametitle{Factorials via Iteration}
+\begin{columns}
 
-A repeated computation computation is normally
+\begin{column}{0.60\textwidth}
+\begin{itemize}[<+->]
+\item A repeated computation computation is normally
 achieved via {\it iteration}, e.g. using \verb^for()^:
+\item Here we compute the factorial of a number - the factorial of
+$4$, written as $4!$, is simply $4\times3\times2\times1$.
+\item Obviously, we'd do more assert tests in the full verson.
+\end{itemize}
+\end{column}
 
-\begin{verbatim}
-#include <stdio.h>
+\begin{column}{0.35\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapE/iterfact.c}
+\end{column}
 
-int fact(int a);
-
-int main(void)
-{
-
-   int a, f;
-
-   printf("Input a number :\n");
-   scanf("%d", &a);
-   f = fact(a);
-   printf("%d! is %d\n", a, f);
-
-   return(0);
-
-}
-\end{verbatim}
+\end{columns}
 \end{frame}
 
+%----------------------------------------------------
+
 \begin{frame}[fragile]
-\frametitle{Call-by-Value}
-\begin{verbatim}
-int fact(int a)
-{
+\frametitle{Factorials via Recursion (Advanced)}
+\begin{columns}
 
-   int i;
-   int tot = 1;
+\begin{column}{0.60\textwidth}
+\begin{itemize}[<+->]
+\item We could achieve the same result using recursion.
+\item The factorial of $4$ can be thought of as $4\times3!$
+\item A recursive function calls {\it itself} - there may be many versions of the same function `alive' at the same time during execution.
+\end{itemize}
+\end{column}
 
-   for(i=1; i<=a; i++){
-      tot *= i;
-   }
-   return tot;
-}
-\end{verbatim}
+\begin{column}{0.35\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapE/recurfact.c}
+\end{column}
 
-We could also achieve this via {\it recursion} :
+\end{columns}
 \end{frame}
 
+%----------------------------------------------------
+
 \begin{frame}[fragile]
-\frametitle{Call-by-Value}
-\begin{verbatim}
-#include <stdio.h>
+\frametitle{Self-test : Multiply (Advanced)}
+\begin{columns}
 
-int fact(int a);
+\begin{column}{0.5\textwidth}
+\begin{itemize}[<+->]
+\item Write a simple function \verb^int mul(int a, int b)^ which
+multiples two integers together {\bf without} the use of the
+multiply symbol in C (i.e. the \verb^*^)
+\item Use recursion to achieve this.
+\item Use \verb^assert()^ calls to test it thoroughly.
+\end{itemize}
+\end{column}
 
-int main(void)
-{
+\begin{column}{0.35\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapE/recurfact.c}
+\end{column}
 
-   int a, f;
-
-   printf("Input a number :\n");
-   scanf("%d", &a);
-   f = fact(a);
-   printf("%d! is %d\n", a, f);
-
-   return(0);
-}
-
-int fact(int a)
-{
-   if(a > 0)
-      return (a*fact(a - 1));
-   else
-      return 1;
-
-}
-\end{verbatim}
+\end{columns}
 \end{frame}
 
