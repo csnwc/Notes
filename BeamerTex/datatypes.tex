@@ -1,0 +1,217 @@
+\section{F: Data Types}
+
+\begin{frame}[fragile]
+\frametitle{Fundamental Data types}
+
+{\bf [}unsigned $|$ signed{\bf ]\ \ [}long $|$ short{\bf ]\ \ [}int $|$ float $|$ double{\bf ]}
+
+
+The use of {\tt int} implies {\tt signed int} without the need
+to state it. Likewise {\tt unsigned short} means\\ {\tt unsigned short
+int}.
+
+\begin{columns}
+\begin{column}{0.45\textwidth}
+
+{\tiny
+\begin{center}
+\begin{tabular}{|l|l|l|} \hline
+Type & Minimum size (bits) & Format specifier \\ \hline
+%
+char & 8 & \%c \\ \hline
+%
+signed char & 8 & \%c (or \%hhi for numerical output) \\ \hline
+%
+unsigned char & 8 & \%c (or \%hhu for numerical output) \\ \hline
+%
+short & 16 & \%hi or \%hd \\
+short int &  &  \\
+signed short &  &  \\
+signed short int &  &  \\ \hline
+%
+unsigned short & 16 & \%hu \\
+unsigned short int &  &  \\
+int & 16 & \%i or \%d \\
+signed &  &  \\
+signed int &  &  \\ \hline
+%
+unsigned & 16 & \%u \\
+unsigned int &  &  \\ \hline
+%
+long & 32 & \%li or \%ld \\
+long int &  &  \\
+signed long &  &  \\
+signed long int &  &  \\ \hline
+%
+unsigned long & 32 & \%lu \\
+unsigned long int &  &  \\ \hline
+\end{tabular}
+\end{center}
+}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+{\tiny
+\begin{center}
+\begin{tabular}{|l|l|l|} \hline
+Type & Minimum size (bits) & Format specifier \\ \hline
+%
+long long & 64 & \%lli or \%lld \\
+long long int &  &  \\
+signed long long &  &  \\
+signed long long int &  &  \\ \hline
+%
+unsigned long long & 64 & \%llu \\
+unsigned long long int &  &  \\ \hline
+%
+float &  & scanf(): \\
+ &  & \%f \%F \\
+ &  & \%g \%G \\
+ &  & \%e \%E \\
+ &  & \%a \%A \\ \hline
+%
+double &  & \%lf \%lF \\
+ &  & \%lg \%lG \\
+ &  & \%le \%lE \\
+ &  & \%la \%lA[c] \\ \hline
+%
+long double & & \%Lf \%LF \\
+ &  & \%Lg \%LG \\
+ &  & \%Le \%LE \\
+ &  & \%La \%LA \\ \hline
+\end{tabular}
+\end{center}
+}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Binary Storage of Numbers}
+
+In an unsigned char :
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+$2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ \\ \hline
+0     & 1     & 0     & 0     & 1     & 1     & 0     & 0     \\ \hline
+\end{tabular}
+\end{center}
+
+The above represents : $1 * 64 + 1 * 8 + 1 * 4 = 76$.
+
+\begin{itemize}[<+->]
+\item Not all floats are representable so are only approximated.
+\item Floating operations need not be exact.
+\item Since floats may not be stored exactly, it doesn't make sense to try and compare them:
+\begin{lstlisting}[style=basicc,numbers=none]
+if ( sqrt(4.0) == 2.0 )
+\end{lstlisting}
+\item Therefore, we don't allow this to happen
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Binary Storage of Numbers}
+
+To find the exact size in bytes of a type on a particular machine,
+use {\tt sizeof(type)}. On a Dell Windows 10 laptop running WSL:
+{\small
+\begin{verbatim}
+#include <stdio.h>
+
+int main(void)
+{
+   printf("\n");
+   printf("char\t\t:%3ld\n", sizeof(char));
+   printf("short\t\t:%3ld\n", sizeof(short));
+   printf("int\t\t:%3ld\n", sizeof(int));
+   printf("long\t\t:%3ld\n", sizeof(long));
+   printf("unsigned\t:%3ld\n", sizeof(unsigned));
+   printf("float\t\t:%3ld\n", sizeof(float));
+   printf("dbl\t\t:%3ld\n", sizeof(double));
+   printf("long dbl\t:%3ld\n", sizeof(long double));
+   printf("\n");
+
+   return 0;
+
+}
+\end{verbatim}
+}
+
+results in :
+{\small
+\begin{verbatim}
+char            :  1
+short           :  2
+int             :  4
+long            :  8
+unsigned        :  4
+float           :  4
+dbl             :  8
+long dbl        : 16
+\end{verbatim}
+}
+\end{frame}
+\endinput
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Mathematical Functions}
+
+There are no mathematical functions built into the C language.
+However, there are many functions in the maths library
+which may linked in using the \textbf{-lm} option with the compiler.
+
+Functions include :
+\begin{verbatim}
+sqrt()  pow()  exp()  log()
+ sin()  cos()  tan()
+\end{verbatim}
+Most take {\tt double}'s as arguments and\\ return {\tt double}'s.
+A demonstration of one of the functions is shown :
+\begin{verbatim}
+/* Precision Demo */
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+
+   int i;
+   double x, y;
+
+   printf("Enter a Number : ");
+   scanf("%lf", &x);
+   y = x;
+   for(i=0; i< 100000; i++){
+      y = pow(y, 80.0);
+      y = pow(y, 1.0/80.0);
+   }
+   printf("%.10f %.10f\n", x, y);
+   return 0;
+
+}
+\end{verbatim}
+{\tt
+Enter a Number : 1234.5678\\
+1234.5678000000 1234.5678000{\bf 455}
+}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Casting}
+
+An explicit type conversion is called a {\it cast}.
+For instance if we need to find the cube of an integer~\verb^i^:\\
+\verb^k = (int) pow( (double) i , 3.0);^
+
+\end{frame}

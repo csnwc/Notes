@@ -1,4 +1,7 @@
-CFLAGS := -Wall -Wextra -Wvla -pedantic -std=c99 -Werror -O3
+CC := clang
+CCWARNS = -Wall -Wpedantic -Wextra
+CFLAGNOABORT := $(CCWARNS) -std=c99 -O1
+CFLAGS := $(CFLAGNOABORT) -Werror
 LDLIBS := -lm
 SOURCES := $(wildcard *.c)
 EXES := $(SOURCES:.c=)
@@ -7,9 +10,15 @@ AUTOOUTS := $(AUTORUNS:.autorun=.autoout)
 MANINPS := $(wildcard *.maninp)
 MANOUTS := $(MANINPS:.maninp=.manout)
 
+all : $(EXES) $(AUTOOUTS) $(MANOUTS)
+
+mult : mult.c
+	$(CC) $(CFLAGSNOABORT) $< $(LDLIBS) -o $@
+	rm -f $@.autoout $@.manout
+
 % : %.c
-	$(CC) $(CFLAGS) $< $(LDLIBS) -o $*
-	rm -f $*.autoout $*.manout
+	$(CC) $(CFLAGS) $< $(LDLIBS) -o $@
+	rm -f $@.autoout $@.manout
 
 %.autoout :
 	./$* > $@
@@ -17,13 +26,14 @@ MANOUTS := $(MANINPS:.maninp=.manout)
 %.manout :
 	@echo "Type the following:"
 	@cat $*.maninp
-	@script -c /home/csnwc/Lecturing/ComsM1201/Git/Notes/Code/ChapD/$* $*.script
+	@script -c ./$* $*.script
 	@cat $*.script | egrep -v "^Script " > $@
 	@rm -f $*.script
 
-all : $(EXES) $(AUTOOUTS) $(MANOUTS)
 
 doof : 
+	@echo "SOURCES = " $(SOURCES)
+	@echo "EXES = " $(EXES)
 	@echo "AUTOOUTS = " $(AUTOOUTS)
 	@echo "AUTORUNS = " $(AUTORUNS)
 	@echo "MANOUTS = " $(MANOUTS)

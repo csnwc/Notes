@@ -1,0 +1,59 @@
+{\small
+\begin{center}
+\begin{tabular}{|lll|} \hline
+Type & Minimum size (bits) & Format specifier
+
+char & 8 & %c \\
+
+signed char & 8 & %c?(or?%hhi?for numerical output) \\
+
+unsigned char & 8 & %c?(or?%hhu?for numerical output) \\
+
+short & 16 & %hi?or?%hd \\
+short int &  &  \\
+signed short &  &  \\
+signed short int &  &  \\
+
+unsigned short & 16 & %hu \\
+unsigned short int &  &  \\
+int & 16 & %i?or?%d \\
+signed &  &  \\
+signed int &  &  \\
+
+unsigned & 16 & %u \\
+unsigned int &  &  \\
+
+long & 32 & %li?or?%ld \\
+long int &  &  \\
+signed long &  &  \\
+signed long int &  &  \\
+
+unsigned long & 32 & %lu \\
+unsigned long int &  &  \\
+
+long long & 64 & %lli?or?%lld \\
+long long int &  &  \\
+signed long long &  &  \\
+signed long long int &  &  \\
+
+unsigned long long & 64 & %llu \\
+unsigned long long int &  &  \\
+
+float &  & Converting from text:[b] \\
+ &  & %f?%F \\
+ &  & %g?%G \\
+ &  & %e?%E \\
+ &  & %a?%A \\
+
+double &  & %lf?%lF \\
+ &  & %lg?%lG \\
+ &  & %le?%lE \\
+ &  & %la?%lA[c] \\
+
+long double & %Lf?%LF \\
+ &  & %Lg?%LG \\
+ &  & %Le?%LE \\
+ &  & %La?%LA[c] \\
+\end{tabular}
+\end{center}
+}

@@ -12,7 +12,7 @@ int main(void)
       sum = sum + x;
    }
 
-   printf("\n%s%5d\n%s%12f\n\n",
+   printf("\n%s%5d\n%s%5f\n\n",
            "Count:", cnt, " Sum:", sum);
    return 0;
 }

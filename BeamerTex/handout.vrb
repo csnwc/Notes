@@ -1,18 +1,84 @@
-\frametitle{Self-test : Multiply (Advanced)}
-\begin{columns}
+\frametitle{Fundamental Data types}
 
-\begin{column}{0.5\textwidth}
-\begin{itemize}[<+->]
-\item Write a simple function \verb^int mul(int a, int b)^ which
-multiples two integers together {\bf without} the use of the
-multiply symbol in C (i.e. the \verb^*^)
-\item Use recursion to achieve this.
-\item Use \verb^assert()^ calls to test it thoroughly.
-\end{itemize}
+{\bf [}unsigned $|$ signed{\bf ]\ \ [}long $|$ short{\bf ]\ \ [}int $|$ float $|$ double{\bf ]}
+
+
+The use of {\tt int} implies {\tt signed int} without the need
+to state it. Likewise {\tt unsigned short} means\\ {\tt unsigned short
+int}.
+
+\begin{columns}
+\begin{column}{0.45\textwidth}
+
+{\tiny
+\begin{center}
+\begin{tabular}{|l|l|l|} \hline
+Type & Minimum size (bits) & Format specifier \\ \hline
+%
+char & 8 & \%c \\ \hline
+%
+signed char & 8 & \%c (or \%hhi for numerical output) \\ \hline
+%
+unsigned char & 8 & \%c (or \%hhu for numerical output) \\ \hline
+%
+short & 16 & \%hi or \%hd \\
+short int &  &  \\
+signed short &  &  \\
+signed short int &  &  \\ \hline
+%
+unsigned short & 16 & \%hu \\
+unsigned short int &  &  \\
+int & 16 & \%i or \%d \\
+signed &  &  \\
+signed int &  &  \\ \hline
+%
+unsigned & 16 & \%u \\
+unsigned int &  &  \\ \hline
+%
+long & 32 & \%li or \%ld \\
+long int &  &  \\
+signed long &  &  \\
+signed long int &  &  \\ \hline
+%
+unsigned long & 32 & \%lu \\
+unsigned long int &  &  \\ \hline
+\end{tabular}
+\end{center}
+}
 \end{column}
 
-\begin{column}{0.35\textwidth}
-\lstinputlisting[style=basicc]{../Code/ChapE/recurfact.c}
+\begin{column}{0.45\textwidth}
+{\tiny
+\begin{center}
+\begin{tabular}{|l|l|l|} \hline
+Type & Minimum size (bits) & Format specifier \\ \hline
+%
+long long & 64 & \%lli or \%lld \\
+long long int &  &  \\
+signed long long &  &  \\
+signed long long int &  &  \\ \hline
+%
+unsigned long long & 64 & \%llu \\
+unsigned long long int &  &  \\ \hline
+%
+float &  & scanf(): \\
+ &  & \%f \%F \\
+ &  & \%g \%G \\
+ &  & \%e \%E \\
+ &  & \%a \%A \\ \hline
+%
+double &  & \%lf \%lF \\
+ &  & \%lg \%lG \\
+ &  & \%le \%lE \\
+ &  & \%la \%lA[c] \\ \hline
+%
+long double & & \%Lf \%LF \\
+ &  & \%Lg \%LG \\
+ &  & \%Le \%LE \\
+ &  & \%La \%LA \\ \hline
+\end{tabular}
+\end{center}
+}
 \end{column}
 
 \end{columns}
