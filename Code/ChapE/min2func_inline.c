@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-inline int min(int a, int b);
+static inline int min(int a, int b);
 
 int main(void)
 {

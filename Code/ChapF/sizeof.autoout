@@ -1,9 +1,9 @@
-char		:  1
-short		:  2
-long		:  8
-long long	:  8
-unsigned	:  4
-float		:  4
-dbl		:  8
-long dbl	: 16
+char       :  1
+short      :  2
+long       :  8
+unsigned   :  4
+long long  :  8
+float      :  4
+dbl        :  8
+long dbl   : 16
 

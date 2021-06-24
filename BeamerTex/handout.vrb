@@ -1,84 +1,18 @@
-\frametitle{Fundamental Data types}
-
-{\bf [}unsigned $|$ signed{\bf ]\ \ [}long $|$ short{\bf ]\ \ [}int $|$ float $|$ double{\bf ]}
-
-
-The use of {\tt int} implies {\tt signed int} without the need
-to state it. Likewise {\tt unsigned short} means\\ {\tt unsigned short
-int}.
-
+\frametitle{Casting}
 \begin{columns}
-\begin{column}{0.45\textwidth}
 
-{\tiny
-\begin{center}
-\begin{tabular}{|l|l|l|} \hline
-Type & Minimum size (bits) & Format specifier \\ \hline
-%
-char & 8 & \%c \\ \hline
-%
-signed char & 8 & \%c (or \%hhi for numerical output) \\ \hline
-%
-unsigned char & 8 & \%c (or \%hhu for numerical output) \\ \hline
-%
-short & 16 & \%hi or \%hd \\
-short int &  &  \\
-signed short &  &  \\
-signed short int &  &  \\ \hline
-%
-unsigned short & 16 & \%hu \\
-unsigned short int &  &  \\
-int & 16 & \%i or \%d \\
-signed &  &  \\
-signed int &  &  \\ \hline
-%
-unsigned & 16 & \%u \\
-unsigned int &  &  \\ \hline
-%
-long & 32 & \%li or \%ld \\
-long int &  &  \\
-signed long &  &  \\
-signed long int &  &  \\ \hline
-%
-unsigned long & 32 & \%lu \\
-unsigned long int &  &  \\ \hline
-\end{tabular}
-\end{center}
-}
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapF/math1.c}
+{\scriptsize{\tt Output :}}
+\lstinputlisting[style=basicterm]{../Code/ChapF/math1.manout}
 \end{column}
 
 \begin{column}{0.45\textwidth}
-{\tiny
-\begin{center}
-\begin{tabular}{|l|l|l|} \hline
-Type & Minimum size (bits) & Format specifier \\ \hline
-%
-long long & 64 & \%lli or \%lld \\
-long long int &  &  \\
-signed long long &  &  \\
-signed long long int &  &  \\ \hline
-%
-unsigned long long & 64 & \%llu \\
-unsigned long long int &  &  \\ \hline
-%
-float &  & scanf(): \\
- &  & \%f \%F \\
- &  & \%g \%G \\
- &  & \%e \%E \\
- &  & \%a \%A \\ \hline
-%
-double &  & \%lf \%lF \\
- &  & \%lg \%lG \\
- &  & \%le \%lE \\
- &  & \%la \%lA[c] \\ \hline
-%
-long double & & \%Lf \%LF \\
- &  & \%Lg \%LG \\
- &  & \%Le \%LE \\
- &  & \%La \%LA \\ \hline
-\end{tabular}
-\end{center}
-}
+\begin{itemize}
+\item An explicit type conversion is called a {\it cast}.
+\item {\it If it moves - cast it}. Don't trust the compiler to do it for you~!
+\end{itemize}
 \end{column}
+
 
 \end{columns}

@@ -1,20 +1,22 @@
 \section{F: Data Types}
 
+%------------------------------------------------
+
 \begin{frame}[fragile]
 \frametitle{Fundamental Data types}
 
-{\bf [}unsigned $|$ signed{\bf ]\ \ [}long $|$ short{\bf ]\ \ [}int $|$ float $|$ double{\bf ]}
-
-
-The use of {\tt int} implies {\tt signed int} without the need
-to state it. Likewise {\tt unsigned short} means\\ {\tt unsigned short
-int}.
-
 \begin{columns}
+
 \begin{column}{0.45\textwidth}
+{\small
+{\bf [}unsigned $|$ signed{\bf ]\ \ [}long $|$ short{\bf ]\ \ [}int $|$ float $|$ double{\bf ]}
+\begin{itemize}
+\item The use of {\tt int} implies {\tt signed int} without the need
+to state it.  Likewise {\tt unsigned short} means {\tt unsigned short int}.
+\end{itemize}
+}
 
 {\tiny
-\begin{center}
 \begin{tabular}{|l|l|l|} \hline
 Type & Minimum size (bits) & Format specifier \\ \hline
 %
@@ -30,7 +32,7 @@ signed short &  &  \\
 signed short int &  &  \\ \hline
 %
 unsigned short & 16 & \%hu \\
-unsigned short int &  &  \\
+unsigned short int &  &  \\ \hline
 int & 16 & \%i or \%d \\
 signed &  &  \\
 signed int &  &  \\ \hline
@@ -46,13 +48,11 @@ signed long int &  &  \\ \hline
 unsigned long & 32 & \%lu \\
 unsigned long int &  &  \\ \hline
 \end{tabular}
-\end{center}
 }
 \end{column}
 
 \begin{column}{0.45\textwidth}
 {\tiny
-\begin{center}
 \begin{tabular}{|l|l|l|} \hline
 Type & Minimum size (bits) & Format specifier \\ \hline
 %
@@ -80,8 +80,8 @@ long double & & \%Lf \%LF \\
  &  & \%Le \%LE \\
  &  & \%La \%LA \\ \hline
 \end{tabular}
-\end{center}
 }
+{\tiny \url{https://en.wikipedia.org/wiki/C_data_types}}
 \end{column}
 
 \end{columns}
@@ -92,8 +92,10 @@ long double & & \%Lf \%LF \\
 \begin{frame}[fragile]
 \frametitle{Binary Storage of Numbers}
 
-In an unsigned char :
+\begin{columns}
 
+\begin{column}{0.45\textwidth}
+In an unsigned char :
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
 $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ \\ \hline
@@ -104,114 +106,87 @@ $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ \\ \hline
 The above represents : $1 * 64 + 1 * 8 + 1 * 4 = 76$.
 
 \begin{itemize}[<+->]
-\item Not all floats are representable so are only approximated.
 \item Floating operations need not be exact.
+\end{itemize}
+\lstinputlisting[style=basicc]{../Code/ChapF/prec1.c}
+{\scriptsize Output:}
+\lstinputlisting[style=basicterm]{../Code/ChapF/prec1.autoout}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Not all floats are representable so are only approximated.
 \item Since floats may not be stored exactly, it doesn't make sense to try and compare them:
 \begin{lstlisting}[style=basicc,numbers=none]
-if ( sqrt(4.0) == 2.0 )
+if ( d == 0.3 )
 \end{lstlisting}
-\item Therefore, we don't allow this to happen
+\item Therefore, we don't allow this by explicitly using the compiler warning flag: {\tt -Wfloat-equal}
 \end{itemize}
+\end{column}
+
+\end{columns}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}[fragile]
-\frametitle{Binary Storage of Numbers}
+\frametitle{\tt sizeof()}
 
+\begin{columns}
+
+\begin{column}{0.45\textwidth}
 To find the exact size in bytes of a type on a particular machine,
-use {\tt sizeof(type)}. On a Dell Windows 10 laptop running WSL:
-{\small
-\begin{verbatim}
-#include <stdio.h>
+use {\tt sizeof()}. On a Dell Windows 10 laptop running WSL:
+\lstinputlisting[style=basicc]{../Code/ChapF/sizeof.c}
+\end{column}
 
-int main(void)
-{
-   printf("\n");
-   printf("char\t\t:%3ld\n", sizeof(char));
-   printf("short\t\t:%3ld\n", sizeof(short));
-   printf("int\t\t:%3ld\n", sizeof(int));
-   printf("long\t\t:%3ld\n", sizeof(long));
-   printf("unsigned\t:%3ld\n", sizeof(unsigned));
-   printf("float\t\t:%3ld\n", sizeof(float));
-   printf("dbl\t\t:%3ld\n", sizeof(double));
-   printf("long dbl\t:%3ld\n", sizeof(long double));
-   printf("\n");
+\begin{column}{0.40\textwidth}
+{\scriptsize{\tt Output :}}
+\lstinputlisting[style=basicterm]{../Code/ChapF/sizeof.autoout}
+\end{column}
 
-   return 0;
-
-}
-\end{verbatim}
-}
-
-results in :
-{\small
-\begin{verbatim}
-char            :  1
-short           :  2
-int             :  4
-long            :  8
-unsigned        :  4
-float           :  4
-dbl             :  8
-long dbl        : 16
-\end{verbatim}
-}
-\end{frame}
-\endinput
+\end{columns}
+\end{frame} 
 
 %------------------------------------------------
 
 \begin{frame}[fragile]
 \frametitle{Mathematical Functions}
 
-There are no mathematical functions built into the C language.
-However, there are many functions in the maths library
-which may linked in using the \textbf{-lm} option with the compiler.
-
-Functions include :
+\begin{itemize}
+\item There are no mathematical functions built into the C language.
+\item However, there are many functions in the maths library
+which may linked in using the {\bf -lm} option with the compiler.
+\item Functions include :
 \begin{verbatim}
-sqrt()  pow()  exp()  log()
- sin()  cos()  tan()
+sqrt()  pow() round() 
+fabs() exp()  log()
+sin()  cos()  tan()
 \end{verbatim}
-Most take {\tt double}'s as arguments and\\ return {\tt double}'s.
-A demonstration of one of the functions is shown :
-\begin{verbatim}
-/* Precision Demo */
-#include <stdio.h>
-#include <math.h>
+\item Most take {\tt double}s as arguments and return {\tt double}s.
+\end{itemize}
 
-int main(void)
-{
-
-   int i;
-   double x, y;
-
-   printf("Enter a Number : ");
-   scanf("%lf", &x);
-   y = x;
-   for(i=0; i< 100000; i++){
-      y = pow(y, 80.0);
-      y = pow(y, 1.0/80.0);
-   }
-   printf("%.10f %.10f\n", x, y);
-   return 0;
-
-}
-\end{verbatim}
-{\tt
-Enter a Number : 1234.5678\\
-1234.5678000000 1234.5678000{\bf 455}
-}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}[fragile]
 \frametitle{Casting}
+\begin{columns}
 
-An explicit type conversion is called a {\it cast}.
-For instance if we need to find the cube of an integer~\verb^i^:\\
-\verb^k = (int) pow( (double) i , 3.0);^
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapF/math1.c}
+{\scriptsize{\tt Output :}}
+\lstinputlisting[style=basicterm]{../Code/ChapF/math1.manout}
+\end{column}
 
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+\item An explicit type conversion is called a {\it cast}.
+\item {\it If it moves - cast it}. Don't trust the compiler to do it for you~!
+\end{itemize}
+\end{column}
+
+
+\end{columns}
 \end{frame}

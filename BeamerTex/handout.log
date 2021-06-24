@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.24)  24 JUN 2021 13:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.24)  24 JUN 2021 18:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -771,9 +771,12 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 48.
+(hyperref)                removing `\\' on input line 50.
 
-) (./handout.aux)
+) (./handout.aux
+<Reading QR code for "https://github.com/csnwc/Notes" at level 3-Q from aux fil
+e.>
+)
 \openout1 = `handout.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
@@ -951,141 +954,674 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 \c@lstlisting=\count195
  (./handout.nav)
+Overfull \hbox (23.12521pt too wide) in paragraph at lines 3--3
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
 
 
 <QR code requested for "https://github.com/csnwc/Notes" in version 0-M.>
 <Error-correction level increased from M to Q at no cost.>
-<Calculating QR code for "https://github.com/csnwc/Notes" in version 3-Q.>
-<Splitting off block 1> <Splitting off block 2> <Making error block 1>
-<Making error block 2> <Interleaving datablocks of length 17\ and 18:  1, 2,
-3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, .>
-<Interleaving errorblocks of length 18:  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-12, 13, 14, 15, 16, 17, 18, .><Interleaving complete.> <Writing data...
-done.>
-<Applying Mask 0... done. Calculating penalty... penalty is 1266>
-<Applying Mask 1... done. Calculating penalty... penalty is 1293>
-<Applying Mask 2... done. Calculating penalty... penalty is 1212>
-<Applying Mask 3... done. Calculating penalty... penalty is 1130>
-<Applying Mask 4... done. Calculating penalty... penalty is 1254>
-<Applying Mask 5... done. Calculating penalty... penalty is 1307>
-<Applying Mask 6... done. Calculating penalty... penalty is 1327>
-<Applying Mask 7... done. Calculating penalty... penalty is 1152>
-<Selected Mask 3>
-<Encoding and writing format string... done.>
-<Encoding and writing version information... done.>
-<Saving QR code to memory... done.>
-<Writing QR code to aux file... done.>
-<Printing matrix...
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 3.
- (/usr/share/texmf/tex/latex/lm/ot1lmss.fd
+
+<Copying the QR code for "https://github.com/csnwc/Notes" in version 3-Q as pre
+viously calculated.>
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 5.
+(/usr/share/texmf/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 3.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 5.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 3.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 5.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 3.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 5.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 3.
-LaTeX Font Info:    Try loading font information for U+msa on input line 3.
+(Font)              <10> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 5.
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 3.
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 3.
- done.>
-
-
-Overfull \hbox (80.03046pt too wide) in paragraph at lines 3--3
- [][]  \T1/lmss/m/n/5 ([])  
- []
-
-
-
-<QR code requested for "https://github.com/csnwc/Notes" in version 0-M.>
-<Error-correction level increased from M to Q at no cost.>
-
-<Copying the QR code for "https://github.com/csnwc/Notes" in version 3-Q as pre
-viously calculated.>
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 5.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 5.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 5.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 5.
 
-
-<QR code requested for "https://github.com/csnwc/Notes" in version 0-M.>
-<Error-correction level increased from M to Q at no cost.>
-
-<Copying the QR code for "https://github.com/csnwc/Notes" in version 3-Q as pre
-viously calculated.>
-
-Overfull \hbox (80.03046pt too wide) has occurred while \output is active
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./datatypes.tex
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./preamble.tex
 (./handout.toc)
-
-
-<QR code requested for "https://github.com/csnwc/Notes" in version 0-M.>
-<Error-correction level increased from M to Q at no cost.>
-
-<Copying the QR code for "https://github.com/csnwc/Notes" in version 3-Q as pre
-viously calculated.>
-
-Overfull \hbox (80.03046pt too wide) has occurred while \output is active
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
 
 [2
 
 ]
-\openout4 = `handout.vrb'.
-
- (./handout.vrb
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 3.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 3.
-LaTeX Font Info:    Try loading font information for T1+lmvtt on input line 6.
- (/usr/share/texmf/tex/latex/lm/t1lmvtt.fd
-File: t1lmvtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Overfull \hbox (3.38358pt too wide) in paragraph at lines 15--46
- [] 
- []
-
-) 
-
-<QR code requested for "https://github.com/csnwc/Notes" in version 0-M.>
-<Error-correction level increased from M to Q at no cost.>
-
-<Copying the QR code for "https://github.com/csnwc/Notes" in version 3-Q as pre
-viously calculated.>
-
-Overfull \hbox (80.03046pt too wide) has occurred while \output is active
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
 
 [3
+
+]
+LaTeX Font Info:    Try loading font information for T1+lmvtt on input line 28.
+
+ (/usr/share/texmf/tex/latex/lm/t1lmvtt.fd
+File: t1lmvtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<../Figs/9780131103627.jpg, id=89, 401.5pt x 529.98pt>
+File: ../Figs/9780131103627.jpg Graphic file (type jpg)
+<use ../Figs/9780131103627.jpg>
+Package pdftex.def Info: ../Figs/9780131103627.jpg  used on input line 28.
+(pdftex.def)             Requested size: 100.37474pt x 132.49466pt.
+
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[4
+
+ <../Figs/9780131103627.jpg>]
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[5
+
+]
+<../Figs/evolvec.jpg, id=103, 1083.04625pt x 642.4pt>
+File: ../Figs/evolvec.jpg Graphic file (type jpg)
+<use ../Figs/evolvec.jpg>
+Package pdftex.def Info: ../Figs/evolvec.jpg  used on input line 72.
+(pdftex.def)             Requested size: 217.62448pt x 129.07565pt.
+
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[6
+
+ <../Figs/evolvec.jpg>]
+<../Figs/tiobe.jpg, id=111, 488.42474pt x 302.63063pt>
+File: ../Figs/tiobe.jpg Graphic file (type jpg)
+<use ../Figs/tiobe.jpg>
+Package pdftex.def Info: ../Figs/tiobe.jpg  used on input line 102.
+(pdftex.def)             Requested size: 217.62448pt x 134.83875pt.
+
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[7
+
+ <../Figs/tiobe.jpg>]
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[8
+
+]
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[9
+
+]
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[10
+
+]
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[11
+
+]) (./helloworld.tex (./handout.toc)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[12
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb
+<../Figs/hello-in-b.jpg, id=157, 259.97125pt x 194.7275pt>
+File: ../Figs/hello-in-b.jpg Graphic file (type jpg)
+<use ../Figs/hello-in-b.jpg>
+Package pdftex.def Info: ../Figs/hello-in-b.jpg  used on input line 8.
+(pdftex.def)             Requested size: 217.62448pt x 163.00839pt.
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+)
+(../Code/ChapB/helloworld.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[13
+
+ <../Figs/hello-in-b.jpg>]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[14
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapB/arearect.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[15
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[16
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[17
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapB/chars.c) (../Code/ChapB/chars.autoout))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[18
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapB/floats.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[19
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[20
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[21
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[22
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapB/sums.c) (../Code/ChapB/sums.manout))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[23
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[24
+
+]) (./grammar.tex (./handout.toc)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[25
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[26
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapC/prepostfix.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[27
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapC/power2.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[28
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapC/randnums.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[29
+
+]) (./flowcontrol.tex (./handout.toc)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[30
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[31
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[32
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[33
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapD/min.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[34
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapD/while.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[35
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[36
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapD/triple.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[37
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[38
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapD/dowhile.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[39
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[40
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapD/switch.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[41
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapD/minq.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[42
+
+]) (./functions.tex (./handout.toc)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[43
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/min2func.c))
+Overfull \vbox (7.7192pt too high) detected at line 27
+ []
+
+
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[44
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/callbyval.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[45
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/numfacts.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[46
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/numfacts_cond.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[47
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/numfacts_assert.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[48
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/mult.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[49
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[50
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/min2func_def.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[51
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/min2func_inline.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[52
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/iterfact.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[53
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/recurfact.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[54
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapE/mult.c))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[55
+
+]) (./datatypes.tex (./handout.toc)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[56
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 7.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 7.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 7.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 7.
+
+Overfull \hbox (3.38358pt too wide) in paragraph at lines 15--47
+[][] 
+ []
+
+)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[57
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapF/prec1.c) (../Code/ChapF/prec1.autoout))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[58
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapF/sizeof.c) (../Code/ChapF/sizeof.autoout))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[59
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb)
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[60
+
+]
+\openout4 = `handout.vrb'.
+
+ (./handout.vrb (../Code/ChapF/math1.c) (../Code/ChapF/math1.manout))
+Overfull \hbox (23.12521pt too wide) has occurred while \output is active
+ [][]  \T1/lmss/m/n/5 ([])  
+ []
+
+[61
 
 ])
 \tf@nav=\write7
@@ -1099,30 +1635,40 @@ Overfull \hbox (80.03046pt too wide) has occurred while \output is active
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 14.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 14.
- (./handout.aux)
+ (./handout.aux
+<Reading QR code for "https://github.com/csnwc/Notes" at level 3-Q from aux fil
+e.>
+)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 14.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 14.
 Package rerunfilecheck Info: File `handout.out' has not changed.
-(rerunfilecheck)             Checksum: 4BAB6DF2896F8BE5B336824662E8727F;48.
+(rerunfilecheck)             Checksum: 3BFAD12C293A9E6758BADC683E3B6BFC;286.
  ) ) 
 Here is how much of TeX's memory you used:
- 23025 strings out of 492982
- 414302 string characters out of 6134896
- 501909 words of memory out of 5000000
- 26123 multiletter control sequences out of 15000+600000
- 44342 words of font info for 42 fonts, out of 8000000 for 9000
+ 21416 strings out of 492982
+ 386191 string characters out of 6134896
+ 514920 words of memory out of 5000000
+ 24162 multiletter control sequences out of 15000+600000
+ 80558 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,18n,229p,774b,1606s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/
-dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr
-/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmvtt10.pfb>
-Output written on handout.pdf (3 pages, 98756 bytes).
+ 67i,15n,112p,995b,1630s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Navigation62} has been referenced but does not 
+exist, replaced by a fixed one
+
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/
+dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/t
+exmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/l
+mmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/
+fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.
+pfb></usr/share/texmf/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmvtt10.pfb>
+Output written on handout.pdf (61 pages, 524788 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
- 75 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 565 PDF objects out of 1000 (max. 8388607)
+ 469 compressed objects within 5 object streams
+ 130 named destinations out of 1000 (max. 500000)
+ 147 words of extra memory for PDF output out of 10000 (max. 10000000)
 

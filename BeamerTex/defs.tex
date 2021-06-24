@@ -21,6 +21,7 @@
 }
 
 \lstdefinestyle{basicc}{language=C, basicstyle=\tiny\ttfamily, numbers=left, numberstyle=\tiny, frame=tb, stringstyle=\color{darkgray}, columns=fixed, backgroundcolor=\color{ocre!30}, xleftmargin=15pt, framexleftmargin=15pt, framexrightmargin=5pt, showstringspaces=false,captionpos=b,keywordstyle=\color{blue}\ttfamily, stringstyle=\color{red}\ttfamily, commentstyle=\color{darkgreen}\ttfamily}
+\lstdefinestyle{basicterm}{basicstyle=\scriptsize\ttfamily}
 
 \usepackage{hyperref}
 \usepackage{graphicx}
@@ -28,7 +29,8 @@
 % redefine \VerbatimInput
 \RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
 {fontsize=\scriptsize,
- fontshape=tt,
+ %fontshape=tt,
+ %tabsize=8,
  framesep=0pt, % separation between frame and text
 }
 
@@ -46,7 +48,8 @@
 
 \title{Programming in C}
 \author{Dr. Neill Campbell \\ Neill.Campbell@bristol.ac.uk}
-\institute{University of Bristol\\[0.5cm]\qrcode{https://github.com/csnwc/Notes}}
+\institute{University of Bristol\\[0.5cm]}
+\titlegraphic{\qrcode{https://github.com/csnwc/Notes}}
 \date{\today}
 
 \AtBeginSection[]

@@ -1,5 +1,5 @@
 CC := clang
-CCWARNS = -Wall -Wpedantic -Wextra
+CCWARNS = -Wall -Wpedantic -Wextra -Wfloat-equal
 CFLAGNOABORT := $(CCWARNS) -std=c99 -O1
 CFLAGS := $(CFLAGNOABORT) -Werror
 LDLIBS := -lm
@@ -24,8 +24,9 @@ mult : mult.c
 	./$* > $@
 
 %.manout :
-	@echo "Type the following:"
+	@echo "\nType the following:"
 	@cat $*.maninp
+	@echo
 	@script -c ./$* $*.script
 	@cat $*.script | egrep -v "^Script " > $@
 	@rm -f $*.script
