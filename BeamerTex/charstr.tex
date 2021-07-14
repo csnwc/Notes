@@ -1,0 +1,376 @@
+%\begin{frame}[fragile]
+%\frametitle{Storage of Characters}
+%\begin{columns}
+%\begin{column}{0.45\textwidth}
+%\begin{itemize}
+%\end{itemize}
+%\end{column}
+%\begin{column}{0.45\textwidth}
+%\end{column}
+%\end{columns}
+%\end{frame}
+
+\section{Characters \& Strings}
+\label{chap:charstr}
+
+\begin{frame}[fragile]
+\frametitle{Storage of Characters}
+\begin{columns}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+\item Characters are stored in the machine as one byte (generally $8$-bits storing one
+of {\bf 256} possible values).
+\item These may be thought of a characters, or very small integers.
+\item Only a subset of these 256 values are required
+for the printable characters, space, newline etc.
+\item Declaration:
+\begin{verbatim}
+char c;
+
+c = 'A';
+\end{verbatim}
+or :
+\begin{verbatim}
+char c1 = 'A', c2 = '*', c3 = ';' ;
+\end{verbatim}
+\end{itemize}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+\item The particular integer used to represent a character
+is dependent on the encoding used. The most common
+of these, used on most UNIX and PC platforms, is ASCII.
+
+\begin{center}
+\begin{tabular}{|l|lllll|}\hline
+lowercase   & 'a' & 'b' & 'c' & \verb^...^ & 'z' \\
+ASCII value & 97  &  98 &  99 & \verb^...^ & 112 \\ \hline
+uppercase   & 'A' & 'B' & 'C' & \verb^...^ & 'Z' \\
+ASCII value & 65  &  66 &  67 & \verb^...^ &  90 \\ \hline
+digit       & '0' & '1' & '2' & \verb^...^ & '9' \\
+ASCII value & 48  &  49 &  50 & \verb^...^ &  57 \\ \hline
+other       & '\&' & '*' & '+' & \verb^...^ & \\
+ASCII value & 38  &  42 &  43 & \verb^...^ & \\ \hline
+\end{tabular}
+\end{center}
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Using Characters}
+\begin{columns}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+\item When using \verb^printf()^ and \verb^scanf()^ the formats
+\verb^%c^ and \verb^%d^ do very different things :
+\begin{verbatim}
+char c = 'a'
+printf("%c\n", c); /* prints : a  */
+printf("%d\n", c); /* prints : 97 */
+\end{verbatim}
+\item Hard-to-print characters have an escape sequence
+i.e. to print a newline, the 2 character escape \verb^'\n'^ is used.
+\end{itemize}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\endinput
+
+
+
+\newpage
+\section*{Using {\tt getchar()} and {\tt putchar()}}
+
+\begin{verbatim}
+/* Outputs characters twice */                                                     
+#include <stdio.h>
+
+int main(void)
+{
+
+   char c;
+   while (1) {
+      c = getchar();
+      putchar(c);
+      putchar(c);
+   }
+   return 0;
+}
+\end{verbatim}
+\newpage
+
+This has the unfortunate problem of never terminating,
+a {\tt CTRL-C} would be required.
+
+\begin{verbatim}
+#include <stdio.h>
+
+int main(void)
+{
+   int   c;
+
+   while ((c = getchar()) != EOF) {
+      putchar(c);
+      putchar(c);
+   }
+   return 0;
+}
+\end{verbatim}
+
+The end-of-file constant is defined in {\tt stdio.h}. Although
+system dependent, {\tt -1} is often used. On the UNIX system
+this is generated when the end of a file being piped is reached,
+or when {\tt CTRL-D} is pressed.
+
+\section*{Capitalising}
+
+\begin{verbatim}
+/* Outputs characters twice */
+
+#include <stdio.h>
+
+#define CAPS ('A' - 'a')
+
+int main(void)
+{
+   int   c;
+
+   while ((c = getchar()) != EOF)
+      if (c >= 'a' && c <= 'z')
+          putchar(c + CAPS);
+      else
+         putchar(c);
+   return 0;
+}
+\end{verbatim}
+
+\newpage
+This is more easily achieved by using some of
+the definitions found in {\tt ctype.h}.
+
+\begin{center}
+\begin{tabular}{|l|l|} \hline
+Macro        & {\tt true} returned if: \\ \hline
+isalnum(int c) & Letter or digit \\
+isalpha(int c) & Letter \\
+iscntrl(int c) & Control character \\
+isdigit(int c) & Digit \\
+isgraph(int c) & Printable (not space) \\
+islower(int c) & Lowercase\\
+isprint(int c) & Printable\\
+ispunct(int c) & Punctuation\\
+isspace(int c) & White Space\\
+isupper(int c) & Uppercase\\
+isxdigit(int c)& Hexadecimal\\
+isascii(int c) & ASCII code \\ \hline
+\end{tabular}
+\end{center}
+
+
+Some useful functions are :
+
+\begin{center}
+\begin{tabular}{|l|l|} \hline
+Function/Macro & Returns: \\ \hline
+int tolower(int c) & Lowercase c \\
+int toupper(int c) & Uppercase c \\
+int toascii(int c) & ASCII code for c \\ \hline
+\end{tabular}
+\end{center}
+
+\newpage
+A better version of capitalise is now :
+
+\begin{verbatim}
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+   int   c;
+
+   while ((c = getchar()) != EOF)
+      if (islower(c))
+         putchar(toupper(c));
+      else
+         putchar(c);
+   return 0;
+}
+\end{verbatim}
+
+\newpage
+\begin{center}
+{\Large Chapter Ten Strings \& Pointers}
+\end{center}
+\vspace{-0.5in}
+\section*{Strings}
+\begin{itemize}
+\item Strings are 1D arrays of characters.
+\item Any character in a string may be accessed as an array
+element, or by dereferencing a pointer.
+\item The important difference between strings and ordinary arrays
+is the {\bf end-of-string sentinel} \verb^'\0'^ or null character.
+\end{itemize}
+
+\newpage
+\begin{itemize}
+\item The string "abc" has a {\it length} of 3, but its {\it size} is 4.
+\item Note \verb^'a'^ and \verb^"a"^ are different. The first is a
+character constant, the second is a string with 2 elements
+\verb^'a'^ and \verb^'\0'^.
+\end{itemize}
+
+\newpage
+\section*{Initialising Strings}
+\begin{itemize}
+\item \begin{verbatim}
+char w[250];
+w[0] = 'a';
+w[1] = 'b';
+w[2] = 'c';
+w[3] = '\0';
+\end{verbatim}
+\item \begin{verbatim}
+scanf("%s", w);
+\end{verbatim}
+Removes leading spaces, reads a string (terminated by a
+space or \verb^EOF^). Adds a null character to the end
+of the string.
+\item \begin{verbatim}
+char w[250] = {'a', 'b', 'c', '\0'};
+\end{verbatim}
+\end{itemize}
+
+\newpage
+{\samepage
+\begin{itemize}
+\item \begin{verbatim}
+char w[250] = "abc";
+\end{verbatim}
+\item \begin{verbatim}
+char *w = "abc";
+\end{verbatim}
+\end{itemize}
+\begin{verbatim}
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+   char w1[100] = "test";
+   char *w2 = "test";
+
+   printf("%s -> ", w1);
+   w1[0] = toupper(w1[0]);
+   printf("%s\n", w1);
+
+   printf("%s -> ", w2);
+   /* Seg Faults */
+   w2[0] = toupper(w2[0]);
+   printf("%s\n", w2);
+
+   return 0;
+}
+\end{verbatim}
+}
+
+\newpage
+{\samepage
+\section*{Repeated Characters}
+{\small
+\begin{verbatim}
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+
+   char s[100] =
+      "The Quick Brown Fox Leaps " \
+      "Over the Lazy Dog";
+   short used[26] = {0};
+   char c;
+   int i = 0;
+
+   while(s[i]){
+      c = tolower(s[i]);
+      if(islower(c)){
+         used[c - 'a'] = 1;
+      }
+      i++;
+   }
+
+   for(i=0; i<26; i++)
+      if(!used[i])
+         printf("%c has not been used.\n",
+                i+'a');
+
+   return 0;
+
+}
+\end{verbatim}
+
+Output:
+\begin{verbatim}
+j has not been used.
+m has not been used
+\end{verbatim}
+}
+}
+
+
+\newpage
+\section*{String Handling Functions}
+In \verb^#include <string.h>^ :
+{\small
+\begin{verbatim}
+char *strcat(char *dst, const char *src);
+int strcmp(const char *s1, const char *s2);
+char *strcpy(char *dst, const char *src);
+unsigned strlen(const char *s);
+\end{verbatim}
+}
+\begin{itemize}
+\item \verb^strcat()^ appends a copy of string \verb^src^,
+including  the  terminating null character,
+to  the  end  of  string  \verb^dst^.
+\item \verb^strcmp()^ compares two strings byte-by-byte, according to the
+     ordering  of  your  machine's  character  set.  The function
+     returns an integer greater than, equal to, or less  than  0,
+     if the string pointed to by \verb^s1^ is greater than, equal to, or
+     less than the string pointed to by \verb^s2^ respectively.
+\item \verb^strcpy()^ copies string \verb^src^ to \verb^dst^
+including the  terminating null  character,
+stopping after the null character has been copied.
+\item \verb^strlen()^ returns the number of bytes in \verb^s^,
+not including the terminating null character.
+\end{itemize}
+
+\newpage
+\section*{The Function {\tt strlen()}}
+One way to write the function \verb^strlen()^
+\begin{verbatim}
+unsigned strlen(const char *s)
+{
+
+   register int n = 0;
+
+   for(; *s != '\0'; ++s)
+      ++n;
+   return n;
+}
+\end{verbatim}
+

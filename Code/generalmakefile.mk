@@ -16,6 +16,11 @@ mult : mult.c
 	$(CC) $(CFLAGSNOABORT) $< $(LDLIBS) -o $@
 	rm -f $@.autoout $@.manout
 
+fvr : fvr.c
+	$(CC) $(CFLAGSNOABORT) $< $(LDLIBS) -o $@
+	rm -f $@.autoout $@.manout
+
+
 % : %.c
 	$(CC) $(CFLAGS) $< $(LDLIBS) -o $@
 	rm -f $@.autoout $@.manout

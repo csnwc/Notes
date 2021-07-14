@@ -1,5 +1,1 @@
-\beamer@sectionintoc {1}{Preamble}{2}{0}{1}
-\beamer@sectionintoc {2}{Hello World!}{34}{0}{2}
-\beamer@sectionintoc {3}{Grammar}{35}{0}{3}
-\beamer@sectionintoc {4}{Flow Control}{36}{0}{4}
-\beamer@sectionintoc {5}{Functions}{37}{0}{5}
+\beamer@sectionintoc {1}{Prettifying : New Types and Aliasing}{2}{0}{1}

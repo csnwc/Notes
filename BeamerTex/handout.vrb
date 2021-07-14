@@ -1,17 +1,22 @@
-\frametitle{Casting}
+\frametitle{Using Characters}
 \begin{columns}
 
 \begin{column}{0.45\textwidth}
-\lstinputlisting[style=basicc]{../Code/ChapF/math1.c}
-\outputlisting{../Code/ChapF/math1.manout}
+\begin{itemize}
+\item When using \verb^printf()^ and \verb^scanf()^ the formats
+\verb^%c^ and \verb^%d^ do very different things :
+\begin{verbatim}
+char c = 'a'
+printf("%c\n", c); /* prints : a  */
+printf("%d\n", c); /* prints : 97 */
+\end{verbatim}
+\end{itemize}
 \end{column}
 
 \begin{column}{0.45\textwidth}
 \begin{itemize}
-\item An explicit type conversion is called a {\it cast}.
-\item {\it If it moves - cast it}. Don't trust the compiler to do it for you~!
+\item Hard-to-print characters have an escape sequence
+i.e. to print a newline, the 2 character escape \verb^'\n'^ is used.
 \end{itemize}
 \end{column}
-
-
 \end{columns}

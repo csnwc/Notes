@@ -1,0 +1,139 @@
+\section{Prettifying : New Types and Aliasing}
+
+\begin{frame}[fragile]
+\frametitle{Enumerated Types}
+\begin{columns}
+\begin{column}{0.45\textwidth}
+{\small
+\begin{verbatim}
+enum day { sun, mon, tue, wed, thu, fri, sat};
+\end{verbatim}
+}
+
+\begin{itemize}[<+->]
+\item This creates a user-defined {\bf type} \verb^enum day^.
+\item The enumerators are constants of type \verb^int^.
+\item By default the first (\verb^sun^) has the value \verb^0^,
+the second has the value \verb^1^ and so on.
+\end{itemize}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item An example of their use:
+\begin{verbatim}
+enum day d1;
+ . . .
+d1 = fri;
+\end{verbatim}
+\item The default numbering may be changed as well:
+{\small
+\begin{verbatim}
+enum fruit{apple=7, pear, orange=3, lemon};
+\end{verbatim}
+}
+\item Use enumerated types as constants to aid readability -
+they are self-documenting.
+\item Declare them in a header (\verb^.h^) file.
+\item Note that the type is \verb^enum day^; the
+keyword \verb^enum^ is not enough.
+\end{itemize}
+\end{column}
+
+
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Typedefs}
+
+\begin{itemize}[<+->]
+\item Sometimes it is useful to associate a particular name with
+a certain type, e.g.:
+\begin{verbatim}
+typedef int colour;
+\end{verbatim}
+\item Now the type \verb^colour^ is synonymous with the type \verb^int^.
+\item Makes code self-documenting.
+\item Helps to control complexity when programmers are building
+complicated or lengthy user-defined types (See Structures \ref{chap:contypes}).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Combining {\tt typedef}s and {\tt enum}s}
+\begin{columns}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Often \verb^typedef^'s are used in conjunction with enumerated types:
+\end{itemize}
+
+\lstinputlisting[style=basicc,linerange={1-16},numbers=none]{../Code/ChapG/days.c}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={17-100},numbers=none]{../Code/ChapG/days.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Style}
+
+\begin{verbatim}
+enum veg {beet, carrot, pea};
+typedef enum veg veg;
+veg v1, v2;
+v1 = carrot;
+\end{verbatim}
+\begin{itemize}[<+->]
+\item We can combine the two operations into one:
+{\small
+\begin{verbatim}
+typedef enum veg {beet,carrot,pea} veg;
+veg v1, v2;
+v1 = carrot;
+\end{verbatim}
+}
+\item Assigning:
+\begin{verbatim}
+v1 = 10;
+\end{verbatim}
+is very poor programming style !
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Booleans}
+\begin{columns}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Before C99 you might have been tempted to define your own Boolean type:
+\end{itemize}
+\lstinputlisting[style=basicc]{../Code/ChapG/bool_old.c}
+\outputlisting{../Code/ChapG/bool_old.autoout}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item However, we can just use \verb^#include <stdbool.h>^
+\end{itemize}
+\lstinputlisting[style=basicc]{../Code/ChapG/bool.c}
+\outputlisting{../Code/ChapG/bool.autoout}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Fever}
+Rewrite/complete this code using \verb^typedefs^ and \verb^enum^s to
+create self-documenting code in any manner you wish.
+\lstinputlisting[style=basicc]{../Code/ChapG/fvr.c}
+\end{frame}
+
