@@ -1,1 +1,0 @@
-\beamer@sectionintoc {1}{Prettifying : New Types and Aliasing}{2}{0}{1}
