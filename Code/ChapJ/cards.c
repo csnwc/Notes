@@ -7,6 +7,7 @@
 #define PERSUIT 13
 #define DECK (SUITS*PERSUIT)
 #define SHUFFLE 3
+#define STR 10
 
 typedef enum {hearts, diamonds, spades, clubs} suit;
 
@@ -59,33 +60,11 @@ void shuffle_deck(card d[DECK])
 
 void print_deck(card d[DECK], int n)
 {
+
+   char numname[PERSUIT][STR] = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
+   char suitname[SUITS][STR] = {"Hearts", "Diamonds", "Spades", "Clubs"};
    for(int i=0; i<n; i++){
-      switch(d[i].pips){
-         case 11:
-            printf("Jack");
-            break;
-         case 12:
-            printf("Queen");
-            break;
-         case 13:
-            printf("King");
-            break;
-         default:
-            printf("%2d", d[i].pips);
-      }
-      switch(d[i].st){
-         case hearts :
-            printf(" of Hearts\n");
-            break;
-         case diamonds :
-            printf(" of Diamonds\n");
-            break;
-         case spades:
-            printf(" of Spades\n");
-            break;
-         default :
-            printf(" of Clubs\n");
-      }
-    }
-    printf("\n");   
+      printf("%s of %s\n", numname[d[i].pips-1], suitname[d[i].st]);
+   }
+   printf("\n");
 }

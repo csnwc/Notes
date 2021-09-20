@@ -61,6 +61,10 @@ ASCII value & 38  &  42 &  43 & \verb^...^ & \\ \hline
 \end{columns}
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \begin{frame}[fragile]
 \frametitle{Using Characters}
 \begin{columns}
@@ -79,87 +83,80 @@ i.e. to print a newline, the 2 character escape \verb^'\n'^ is used.
 \end{itemize}
 \end{column}
 
-\begin{column}{0.45\textwidth}
-\begin{itemize}
-\end{itemize}
+\begin{column}{0.55\textwidth}
+{\small
+\begin{tabular}{|l|l|l|}\hline
+Escape sequence	& Hex value & Character \\ \hline
+\textbackslash a & 07 & Alert (Beep, Bell)\\
+\textbackslash b &08&Backspace\\
+\textbackslash e &1B&Escape character\\
+\textbackslash f &0C&Formfeed Page Break\\
+\textbackslash n &0A&Newline (Line Feed)\\
+\textbackslash r &0D&Carriage Return\\
+\textbackslash t &09&Horizontal Tab\\
+\textbackslash v &0B&Vertical Tab\\
+\textbackslash\textbackslash &5C&Backslash\\
+\textbackslash ' &27&Apostrophe \\
+\textbackslash " &22&Double quote \\
+\textbackslash ? &3F&Question mark \\ \hline
+\end{tabular}
+}
 \end{column}
+
 \end{columns}
 \end{frame}
 
-\endinput
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\begin{frame}[fragile]
+\frametitle{Using {\tt getchar()} and {\tt putchar()}}
+\begin{columns}[T]
+\begin{column}{0.45\textwidth}
 
-\newpage
-\section*{Using {\tt getchar()} and {\tt putchar()}}
+\lstinputlisting[style=basicc]{../Code/ChapI/dblout1.c}
+\outputlisting{../Code/ChapI/dblout1.manout}
 
-\begin{verbatim}
-/* Outputs characters twice */                                                     
-#include <stdio.h>
-
-int main(void)
-{
-
-   char c;
-   while (1) {
-      c = getchar();
-      putchar(c);
-      putchar(c);
-   }
-   return 0;
+{\footnotesize
+This has the unfortunate problem of requiring a `special' character to terminate.
+More aggressively, the user could terminate by pressing {\tt CTRL-C}.
 }
-\end{verbatim}
-\newpage
+\end{column}
 
-This has the unfortunate problem of never terminating,
-a {\tt CTRL-C} would be required.
+\begin{column}{0.45\textwidth}
 
-\begin{verbatim}
-#include <stdio.h>
+\lstinputlisting[style=basicc]{../Code/ChapI/dblout2.c}
+\outputlisting{../Code/ChapI/dblout2.manout}
 
-int main(void)
-{
-   int   c;
-
-   while ((c = getchar()) != EOF) {
-      putchar(c);
-      putchar(c);
-   }
-   return 0;
-}
-\end{verbatim}
-
+{\footnotesize
 The end-of-file constant is defined in {\tt stdio.h}. Although
 system dependent, {\tt -1} is often used. On the UNIX system
 this is generated when the end of a file being piped is reached,
 or when {\tt CTRL-D} is pressed.
-
-\section*{Capitalising}
-
-\begin{verbatim}
-/* Outputs characters twice */
-
-#include <stdio.h>
-
-#define CAPS ('A' - 'a')
-
-int main(void)
-{
-   int   c;
-
-   while ((c = getchar()) != EOF)
-      if (c >= 'a' && c <= 'z')
-          putchar(c + CAPS);
-      else
-         putchar(c);
-   return 0;
 }
-\end{verbatim}
+\end{column}
+\end{columns}
+\end{frame}
 
-\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Capitalization}
+\begin{columns}[T]
+\begin{column}{0.45\textwidth}
+
+\lstinputlisting[style=basicc]{../Code/ChapI/caps1.c}
+\outputlisting{../Code/ChapI/caps1.manout}
+
+{\footnotesize
 This is more easily achieved by using some of
 the definitions found in {\tt ctype.h}.
+}
+\end{column}
 
+\begin{column}{0.45\textwidth}
 \begin{center}
 \begin{tabular}{|l|l|} \hline
 Macro        & {\tt true} returned if: \\ \hline
@@ -177,10 +174,20 @@ isxdigit(int c)& Hexadecimal\\
 isascii(int c) & ASCII code \\ \hline
 \end{tabular}
 \end{center}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\begin{frame}[fragile]
+\frametitle{{\tt ctype.h}}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
 Some useful functions are :
-
 \begin{center}
 \begin{tabular}{|l|l|} \hline
 Function/Macro & Returns: \\ \hline
@@ -189,52 +196,41 @@ int toupper(int c) & Uppercase c \\
 int toascii(int c) & ASCII code for c \\ \hline
 \end{tabular}
 \end{center}
+\lstinputlisting[style=basicc]{../Code/ChapI/caps2.c}
+\end{column}
 
-\newpage
-A better version of capitalise is now :
 
-\begin{verbatim}
-#include <stdio.h>
-#include <ctype.h>
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapI/caps3.c}
+\outputlisting{../Code/ChapI/caps3.manout}
+\end{column}
 
-int main(void)
-{
-   int   c;
+\end{columns}
+\end{frame}
 
-   while ((c = getchar()) != EOF)
-      if (islower(c))
-         putchar(toupper(c));
-      else
-         putchar(c);
-   return 0;
-}
-\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
-\begin{center}
-{\Large Chapter Ten Strings \& Pointers}
-\end{center}
-\vspace{-0.5in}
-\section*{Strings}
+\begin{frame}[fragile]
+\frametitle{Strings}
+\begin{columns}
+\begin{column}{0.45\textwidth}
 \begin{itemize}
 \item Strings are 1D arrays of characters.
 \item Any character in a string may be accessed as an array
-element, or by dereferencing a pointer.
+element.
 \item The important difference between strings and ordinary arrays
 is the {\bf end-of-string sentinel} \verb^'\0'^ or null character.
-\end{itemize}
-
-\newpage
-\begin{itemize}
 \item The string "abc" has a {\it length} of 3, but its {\it size} is 4.
 \item Note \verb^'a'^ and \verb^"a"^ are different. The first is a
 character constant, the second is a string with 2 elements
 \verb^'a'^ and \verb^'\0'^.
 \end{itemize}
+\end{column}
 
-\newpage
-\section*{Initialising Strings}
+\begin{column}{0.45\textwidth}
+Initialising Strings~:
 \begin{itemize}
+\item \verb^char w[6] = "Hello";^
 \item \begin{verbatim}
 char w[250];
 w[0] = 'a';
@@ -252,95 +248,29 @@ of the string.
 char w[250] = {'a', 'b', 'c', '\0'};
 \end{verbatim}
 \end{itemize}
+\end{column}
 
-\newpage
-{\samepage
-\begin{itemize}
-\item \begin{verbatim}
-char w[250] = "abc";
-\end{verbatim}
-\item \begin{verbatim}
-char *w = "abc";
-\end{verbatim}
-\end{itemize}
-\begin{verbatim}
+\end{columns}
+\end{frame}
 
-#include <stdio.h>
-#include <ctype.h>
-
-int main(void)
-{
-   char w1[100] = "test";
-   char *w2 = "test";
-
-   printf("%s -> ", w1);
-   w1[0] = toupper(w1[0]);
-   printf("%s\n", w1);
-
-   printf("%s -> ", w2);
-   /* Seg Faults */
-   w2[0] = toupper(w2[0]);
-   printf("%s\n", w2);
-
-   return 0;
-}
-\end{verbatim}
-}
-
-\newpage
-{\samepage
-\section*{Repeated Characters}
-{\small
-\begin{verbatim}
-#include <stdio.h>
-#include <ctype.h>
-
-int main(void)
-{
-
-   char s[100] =
-      "The Quick Brown Fox Leaps " \
-      "Over the Lazy Dog";
-   short used[26] = {0};
-   char c;
-   int i = 0;
-
-   while(s[i]){
-      c = tolower(s[i]);
-      if(islower(c)){
-         used[c - 'a'] = 1;
-      }
-      i++;
-   }
-
-   for(i=0; i<26; i++)
-      if(!used[i])
-         printf("%c has not been used.\n",
-                i+'a');
-
-   return 0;
-
-}
-\end{verbatim}
-
-Output:
-\begin{verbatim}
-j has not been used.
-m has not been used
-\end{verbatim}
-}
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\newpage
-\section*{String Handling Functions}
+\begin{frame}[fragile]
+\frametitle{Unused Letters and {\tt string.h}}
+\begin{columns}
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapI/lazydog.c}
+\outputlisting{../Code/ChapI/lazydog.autoout}
+\end{column}
+
+\begin{column}{0.45\textwidth}
 In \verb^#include <string.h>^ :
 {\small
 \begin{verbatim}
 char *strcat(char *dst, const char *src);
 int strcmp(const char *s1, const char *s2);
-char *strcpy(char *dst, const char *src);
-unsigned strlen(const char *s);
 \end{verbatim}
 }
 \begin{itemize}
@@ -352,25 +282,88 @@ to  the  end  of  string  \verb^dst^.
      returns an integer greater than, equal to, or less  than  0,
      if the string pointed to by \verb^s1^ is greater than, equal to, or
      less than the string pointed to by \verb^s2^ respectively.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{More {\tt string.h}}
+\begin{columns}
+
+\begin{column}{0.45\textwidth}
+In \verb^#include <string.h>^ :
+{\small
+\begin{verbatim}
+char *strcpy(char *dst, const char *src);
+unsigned strlen(const char *s);
+\end{verbatim}
+}
+\begin{itemize}
 \item \verb^strcpy()^ copies string \verb^src^ to \verb^dst^
 including the  terminating null  character,
 stopping after the null character has been copied.
 \item \verb^strlen()^ returns the number of bytes in \verb^s^,
 not including the terminating null character.
 \end{itemize}
+\end{column}
 
-\newpage
-\section*{The Function {\tt strlen()}}
+\begin{column}{0.45\textwidth}
 One way to write the function \verb^strlen()^
-\begin{verbatim}
-unsigned strlen(const char *s)
-{
+\lstinputlisting[style=basicc]{../Code/ChapI/strlen.c}
+\end{column}
 
-   register int n = 0;
+\end{columns}
+\end{frame}
 
-   for(; *s != '\0'; ++s)
-      ++n;
-   return n;
-}
-\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\endinput
+
+
+
+%\begin{center}
+%\end{center}
+%\vspace{-0.5in}
+%\section*{Strings}
+%
+%\end{itemize}
+
+%\newpage
+%{\samepage
+%\begin{itemize}
+%\item \begin{verbatim}
+%%char w[250] = "abc";
+%\end{verbatim}
+%\item \begin{verbatim}
+char *w = "abc";
+%\end{verbatim}
+%\end{itemize}
+%\begin{verbatim}
+%
+%#include <stdio.h>
+%#include <ctype.h>
+%
+%int main(void)
+%{
+   %char w1[100] = "test";
+   %char *w2 = "test";
+%
+   %printf("%s -> ", w1);
+   %w1[0] = toupper(w1[0]);
+   %printf("%s\n", w1);
+%
+   %printf("%s -> ", w2);
+   %/* Seg Faults */
+   %w2[0] = toupper(w2[0]);
+   %printf("%s\n", w2);
+%
+   %return 0;
+%}
+%\end{verbatim}
+%}
+%

@@ -6,12 +6,9 @@ int main(void)
 
    int c;
    while ((c = getchar()) != EOF){
-      if (islower(c)){
-         putchar(toupper(c));
-      }
-      else{
-         putchar(c);
-      }
+      /* toupper() returns non-lowercae
+         chars unaltered */
+      putchar(toupper(c));
    }
    putchar('\n');
    return 0;

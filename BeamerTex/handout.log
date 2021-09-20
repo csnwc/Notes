@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.24)  7 JUL 2021 14:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.24)  5 AUG 2021 15:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -640,32 +640,99 @@ Package: amsthm 2017/10/31 v2.20.4
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemedefault.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
-! I can't write on file `handout.pdf'.
-(Press Enter to retry, or Control-D to exit; default file extension is `.pdf')
-Please type another file name for output: 
 \beamer@dima=\dimen188
 \beamer@dimb=\dimen189
-) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))
-) (./body.tex (./defs.tex
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty)))
+(./body.tex (./defs.tex
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box53
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen190
+\pgf@nodesepend=\dimen191
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen192
+\pgffor@skip=\dimen193
+\pgffor@stack=\toks43
+\pgffor@toks=\toks44
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count154
+\pgfplotmarksize=\dimen194
+)
+\tikz@lastx=\dimen195
+\tikz@lasty=\dimen196
+\tikz@lastxsaved=\dimen197
+\tikz@lastysaved=\dimen198
+\tikzleveldistance=\dimen199
+\tikzsiblingdistance=\dimen256
+\tikz@figbox=\box54
+\tikz@figbox@bg=\box55
+\tikz@tempbox=\box56
+\tikz@tempbox@bg=\box57
+\tikztreelevel=\count155
+\tikznumberofchildren=\count156
+\tikznumberofcurrentchild=\count157
+\tikz@fig@count=\count158
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count159
+\pgfmatrixcurrentcolumn=\count160
+\pgf@matrix@numberofcolumns=\count161
+)
+\tikz@expandcount=\count162
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+)))
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count154
-\lst@gtempboxa=\box53
-\lst@token=\toks43
-\lst@length=\count155
-\lst@currlwidth=\dimen190
-\lst@column=\count156
-\lst@pos=\count157
-\lst@lostspace=\dimen191
-\lst@width=\dimen192
-\lst@newlines=\count158
-\lst@lineno=\count159
-\lst@maxwidth=\dimen193
+\lst@mode=\count163
+\lst@gtempboxa=\box58
+\lst@token=\toks45
+\lst@length=\count164
+\lst@currlwidth=\dimen257
+\lst@column=\count165
+\lst@pos=\count166
+\lst@lostspace=\dimen258
+\lst@width=\dimen259
+\lst@newlines=\count167
+\lst@lineno=\count168
+\lst@maxwidth=\dimen260
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count160
-\lst@skipnumbers=\count161
-\lst@framebox=\box54
+\c@lstnumber=\count169
+\lst@skipnumbers=\count170
+\lst@framebox=\box59
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
@@ -719,11 +786,11 @@ Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
 <2008/02/07> (tvz)
-\FV@CodeLineNo=\count162
+\FV@CodeLineNo=\count171
 \FV@InFile=\read2
-\FV@TabBox=\box55
-\c@FancyVerbLine=\count163
-\FV@StepNumber=\count164
+\FV@TabBox=\box60
+\c@FancyVerbLine=\count172
+\FV@StepNumber=\count173
 \FV@OutFile=\write5
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerthemeMadrid.sty
@@ -739,41 +806,41 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks44
-\XKV@tempa@toks=\toks45
+\XKV@toks=\toks46
+\XKV@tempa@toks=\toks47
 )
-\XKV@depth=\count165
+\XKV@depth=\count174
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\c@qr@i=\count166
-\c@qr@j=\count167
-\qr@a=\count168
-\qr@b=\count169
-\qr@c=\count170
-\qr@for@depth=\count171
-\qr@for@maxdepth=\count172
-\qr@for@start=\count173
-\qr@for@end=\count174
-\qr@for@step=\count175
-\qr@newforcount=\count176
-\qr@newforcount=\count177
+\c@qr@i=\count175
+\c@qr@j=\count176
+\qr@a=\count177
+\qr@b=\count178
+\qr@c=\count179
+\qr@for@depth=\count180
+\qr@for@maxdepth=\count181
+\qr@for@start=\count182
+\qr@for@end=\count183
+\qr@for@step=\count184
+\qr@newforcount=\count185
+\qr@newforcount=\count186
 \qr@desiredheight=\skip57
 \qr@modulesize=\skip58
 \qr@minipagewidth=\skip59
-\c@maski=\count178
-\c@maskj=\count179
-\c@totalones=\count180
-\c@penaltyi=\count181
-\c@penaltyii=\count182
-\c@penaltyiii=\count183
-\c@penaltyiv=\count184
-\c@qr@hexchars=\count185
-\qr@newforcount=\count186
-\c@qr@divisionsremaining=\count187
+\c@maski=\count187
+\c@maskj=\count188
+\c@totalones=\count189
+\c@penaltyi=\count190
+\c@penaltyii=\count191
+\c@penaltyiii=\count192
+\c@penaltyiv=\count193
+\c@qr@hexchars=\count194
+\qr@newforcount=\count195
+\c@qr@divisionsremaining=\count196
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 57.
+(hyperref)                removing `\\' on input line 58.
 
 ) (./handout.aux
 <Reading QR code for "https://github.com/csnwc/Notes" at level 3-Q from aux fil
@@ -835,17 +902,17 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count188
-\scratchdimen=\dimen194
-\scratchbox=\box56
-\nofMPsegments=\count189
-\nofMParguments=\count190
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count191
-\MPscratchDim=\dimen195
-\MPnumerator=\count192
-\makeMPintoPDFobject=\count193
-\everyMPtoPDFconversion=\toks47
+\scratchcounter=\count197
+\scratchdimen=\dimen261
+\scratchbox=\box61
+\nofMPsegments=\count198
+\nofMParguments=\count199
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count266
+\MPscratchDim=\dimen262
+\MPnumerator=\count267
+\makeMPintoPDFobject=\count268
+\everyMPtoPDFconversion=\toks49
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -864,7 +931,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box57
+\AtBeginShipoutBox=\box62
 Package hyperref Info: Link coloring OFF on input line 3.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -873,7 +940,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count194
+\c@section@level=\count269
 )
 LaTeX Info: Redefining \ref on input line 3.
 LaTeX Info: Redefining \pageref on input line 3.
@@ -954,7 +1021,7 @@ Dictionary: translator-numbers-dictionary, Language: English
 ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-\c@lstlisting=\count195
+\c@lstlisting=\count270
  (./handout.nav)
 Overfull \hbox (23.12521pt too wide) in paragraph at lines 3--3
  [][]  \T1/lmss/m/n/5 ([])  
@@ -1015,7 +1082,7 @@ Overfull \hbox (23.12521pt too wide) has occurred while \output is active
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./charstr.tex
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./2darrs.tex
 (./handout.toc)
 Overfull \hbox (23.12521pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
@@ -1027,16 +1094,10 @@ Overfull \hbox (23.12521pt too wide) has occurred while \output is active
 \openout4 = `handout.vrb'.
 
  (./handout.vrb
-LaTeX Font Info:    Try loading font information for T1+lmvtt on input line 12.
-
+LaTeX Font Info:    Try loading font information for T1+lmvtt on input line 6.
  (/usr/share/texmf/tex/latex/lm/t1lmvtt.fd
 File: t1lmvtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Overfull \hbox (7.77876pt too wide) in paragraph at lines 31--41
- [] 
- []
-
-)
+))
 Overfull \hbox (23.12521pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1046,7 +1107,14 @@ Overfull \hbox (23.12521pt too wide) has occurred while \output is active
 ]
 \openout4 = `handout.vrb'.
 
- (./handout.vrb)
+ (./handout.vrb
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+)
+(../Code/ChapJ/2ddists.c) (../Code/ChapJ/2ddists.autoout))
 Overfull \hbox (23.12521pt too wide) has occurred while \output is active
  [][]  \T1/lmss/m/n/5 ([])  
  []
@@ -1063,33 +1131,33 @@ Overfull \hbox (23.12521pt too wide) has occurred while \output is active
 \tf@snm=\write9
 \openout9 = `handout.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 17.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 17.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 18.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 18.
  (./handout.aux
 <Reading QR code for "https://github.com/csnwc/Notes" at level 3-Q from aux fil
 e.>
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 17.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 17.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 18.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 18.
 Package rerunfilecheck Info: File `handout.out' has not changed.
-(rerunfilecheck)             Checksum: 121BE6589E58F31DAC179485E4AA7E86;58.
+(rerunfilecheck)             Checksum: 22CBE4B7ACC1893AA4507CCF9B4F3295;44.
  ) ) 
 Here is how much of TeX's memory you used:
- 20527 strings out of 492982
- 374579 string characters out of 6134896
- 486845 words of memory out of 5000000
- 23620 multiletter control sequences out of 15000+600000
- 44342 words of font info for 42 fonts, out of 8000000 for 9000
+ 23656 strings out of 492982
+ 445799 string characters out of 6134896
+ 576851 words of memory out of 5000000
+ 26683 multiletter control sequences out of 15000+600000
+ 47538 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,15n,69p,995b,785s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,15n,112p,995b,1595s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type
 1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr
 /share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmvtt10.pfb>
-Output written on handout.pdf (4 pages, 112491 bytes).
+ic/lm/lmvtt10.pfb>
+Output written on handout.pdf (4 pages, 97423 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  11 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 75 words of extra memory for PDF output out of 10000 (max. 10000000)
 

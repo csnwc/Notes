@@ -37,7 +37,7 @@ fvr : fvr.c
 	@rm -f $*.script
 
 
-doof : 
+debugmake : 
 	@echo "SOURCES = " $(SOURCES)
 	@echo "EXES = " $(EXES)
 	@echo "AUTOOUTS = " $(AUTOOUTS)

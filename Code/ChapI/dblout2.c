@@ -5,13 +5,12 @@
 int main(void)
 {
 
-   char c;
+   char c; // char or int ?
 
-   do{
-      c = getchar();
+   while ((c = getchar()) != EOF) {
       putchar(c);
       putchar(c);
-   }while(c != '!');
+   }
    putchar('\n');
 
    return 0;
