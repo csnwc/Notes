@@ -9,6 +9,7 @@
 \outputlisting{../Code/ChapE/min2func.manout}
 \end{column}
 
+\pause
 \begin{column}{0.50\textwidth}
 \begin{itemize}[<+->]
 \item Execution begins, as normal, in the \verb^main()^ function.
@@ -40,6 +41,7 @@ using call by value:
 \outputlisting{../Code/ChapE/callbyval.autoout}
 \end{column}
 
+\pause
 \begin{column}{0.45\textwidth}
 \begin{itemize}[<+->]
 \item The function does not change the value of \verb^x^ in
@@ -62,6 +64,7 @@ and, in other languages, might be termed a {\it procedure}.
 \frametitle{Testing}
 \begin{columns}
 
+\pause
 \begin{column}{0.40\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapE/numfacts.c}
 \end{column}
@@ -91,6 +94,7 @@ and, in other languages, might be termed a {\it procedure}.
 \lstinputlisting[style=basicc]{../Code/ChapE/numfacts_cond.c}
 \end{column}
 
+\pause
 \begin{column}{0.55\textwidth}
 \begin{itemize}[<+->]
 \item Pre-conditions check the inputs to functions, typically their arguments.
@@ -115,6 +119,7 @@ program aborts with an error.
 \lstinputlisting[style=basicc]{../Code/ChapE/numfacts_assert.c}
 \end{column}
 
+\pause
 \begin{column}{0.55\textwidth}
 \begin{itemize}[<+->]
 \item We will use assert testing in this style {\bf every} time we write a function.
@@ -183,6 +188,7 @@ int f2(int a, int b)
 \end{lstlisting}
 \end{column}
 
+\pause
 \begin{column}{0.5\textwidth}
 However, it is theoretically possible to avoid the need for function prototypes
 by defining a function before it is used :
@@ -225,6 +231,7 @@ We will {\bf never} use this second approach - put {\tt main()} first with the p
 \outputlisting{../Code/ChapE/min2func_def.manout}
 \end{column}
 
+\pause
 \begin{column}{0.50\textwidth}
 \begin{itemize}[<+->]
 \item There's sometimes a (tiny) time penalty for using functions.
@@ -283,6 +290,7 @@ $4$, written as $4!$, is simply $4\times3\times2\times1$.
 \end{itemize}
 \end{column}
 
+\pause
 \begin{column}{0.40\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapE/iterfact.c}
 \end{column}

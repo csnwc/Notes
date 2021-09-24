@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void fnc1(int a);
+void fnc1(int x);
 
 int main(void)
 {
