@@ -64,16 +64,16 @@ and, in other languages, might be termed a {\it procedure}.
 \frametitle{Testing}
 \begin{columns}
 
-\pause
 \begin{column}{0.40\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapE/numfacts.c}
 \end{column}
 
+\pause
 \begin{column}{0.50\textwidth}
 \begin{itemize}[<+->]
 \item This is a (not very good) function to compute the number of factors a number has.
 \item A factor is a number by which a larger (whole/integer) number can be divided.
-\item $36$ has $6$ factors: $1, 2, 3, 4, 6, 12$ and $36$ itself.
+\item $12$ has $6$ factors: $1, 2, 3, 4, 6$ and $12$ itself.
 \item How do we know the program works though ?
 \item Running it ? \VerbatimInput{../Code/ChapE/numfacts.autoout}
 \item We need something more automated.
