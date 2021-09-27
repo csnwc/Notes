@@ -40,7 +40,7 @@ day find_next_day(day d)
          next_day = sun;
          break;
       default:
-         printf("I wasn’t expecting that !\n");
+         printf("I wasn't expecting that !\n");
    }
    return next_day;
 }

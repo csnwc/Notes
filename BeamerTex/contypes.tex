@@ -1,6 +1,7 @@
 \section{H : Constructed Types - $1D$ Arrays \& Structures }
 \label{chap:contypes}
 
+
 \begin{frame}[fragile]
 \frametitle{{\em 1D} Arrays}
 \begin{columns}
@@ -46,6 +47,7 @@ int a[5];
 \end{columns}
 \end{frame}
 
+%\endinput
 
 
 \begin{frame}[fragile]
@@ -77,6 +79,8 @@ int a[] = {3, 8, 9, 1};
 is valid, the compiler assumes the array size to be \verb^4^.
 \end{column}
 
+\pause
+\begin{column}{0.35\textwidth}
 \begin{column}{0.45\textwidth}
 \begin{itemize}
 \item Accessing an array out of bounds will not be identified by
@@ -98,6 +102,10 @@ is altered.
 \frametitle{{\em 1D} Arrays : Call by Reference}
 \begin{columns}
 
+\begin{column}{0.55\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapH/mean.c}
+\end{column}
+
 \begin{column}{0.35\textwidth}
 \begin{itemize}
 \item Here, the array is passed by {\em Reference} - no copy of
@@ -107,9 +115,6 @@ it apparently having a `different' name.
 \end{itemize}
 \end{column}
 
-\begin{column}{0.55\textwidth}
-\lstinputlisting[style=basicc]{../Code/ChapH/mean.c}
-\end{column}
 
 \end{columns}
 \end{frame}
@@ -138,6 +143,7 @@ tag name, and \verb^id^, \verb^salary^ and \verb^age^ are members of the structu
 \end{itemize}
 \end{column}
 
+\pause
 \begin{column}{0.45\textwidth}
 \begin{itemize}
 \item A statement of the form :\\
@@ -169,6 +175,7 @@ struct employee team[400];
 \lstinputlisting[style=basicc,linerange={1-33},numbers=none]{../Code/ChapH/cards.c}
 \end{column}
 
+\pause
 \begin{column}{0.45\textwidth}
 \lstinputlisting[style=basicc,linerange={35-58},numbers=none]{../Code/ChapH/cards.c}
 \end{column}
