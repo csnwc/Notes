@@ -1,5 +1,5 @@
 CC := clang
-CCWARNS = -Wall -Wpedantic -Wextra -Wfloat-equal
+CCWARNS = -Wall -Wpedantic -Wextra -Wfloat-equal -Wvla
 CFLAGNOABORT := $(CCWARNS) -std=c99 -O1
 CFLAGS := $(CFLAGNOABORT) -Werror
 LDLIBS := -lm
