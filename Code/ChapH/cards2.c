@@ -15,15 +15,16 @@ struct card {
    int pips;
 };
 typedef struct card card;
+typedef card deck[DECK];
 
-void shuffle_deck(card d[DECK]);
-void init_deck(card d[DECK]);
-void print_deck(card d[DECK], int n);
+void shuffle_deck(deck d);
+void init_deck(deck d);
+void print_deck(deck d, int n);
 void test(void);
 
 int main(void)
 {
-   card d[DECK];
+   deck d;
 
    test();
    init_deck(d);
@@ -33,7 +34,7 @@ int main(void)
    return 0;
 }
 
-void init_deck(card d[DECK])
+void init_deck(deck d)
 {
    for(int i=0; i<DECK; i++){
       // Number 1 .. 13
@@ -49,16 +50,17 @@ void init_deck(card d[DECK])
    }
 }
 
-void shuffle_deck(card d[DECK])
+void shuffle_deck(deck d)
 {
   for(int i=0; i<SHUFFLE*DECK; i++){
      int n1 = rand()%DECK;
      int n2 = rand()%DECK;
+     // Direct copying
      card c = d[n1]; d[n1] = d[n2]; d[n2] = c;
   } 
 }
 
-void print_deck(card d[DECK], int n)
+void print_deck(deck d, int n)
 {
    for(int i=0; i<n; i++){
       switch(d[i].pips){
@@ -94,7 +96,7 @@ void print_deck(card d[DECK], int n)
 void test(void)
 {
    int n = 0;
-   card d[DECK];
+   deck d;
    init_deck(d);
    // Direct assignment
    card c = {hearts, 10};

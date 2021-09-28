@@ -1,9 +1,9 @@
 \section{H : Constructed Types - $1D$ Arrays \& Structures }
 \label{chap:contypes}
 
-
 \begin{frame}[fragile]
 \frametitle{{\em 1D} Arrays}
+
 \begin{columns}
 
 \begin{column}{0.55\textwidth}
@@ -38,8 +38,10 @@ int a[5];
 \end{center}
 \item Arrays are indexed {\bf 0} to {\bf n-1}.
 \end{itemize}
+
 \end{column}
 
+\pause
 \begin{column}{0.35\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapH/1d_array.c}
 \end{column}
@@ -47,11 +49,11 @@ int a[5];
 \end{columns}
 \end{frame}
 
-%\endinput
-
+%%%% OK to here ?
 
 \begin{frame}[fragile]
 \frametitle{{\em 1D} Arrays : Initialisation}
+
 \begin{columns}
 
 \begin{column}{0.45\textwidth}
@@ -80,7 +82,6 @@ is valid, the compiler assumes the array size to be \verb^4^.
 \end{column}
 
 \pause
-\begin{column}{0.35\textwidth}
 \begin{column}{0.45\textwidth}
 \begin{itemize}
 \item Accessing an array out of bounds will not be identified by
@@ -103,9 +104,10 @@ is altered.
 \begin{columns}
 
 \begin{column}{0.55\textwidth}
-\lstinputlisting[style=basicc]{../Code/ChapH/mean.c}
+\lstinputlisting[style=basicc]{../Code/ChapH/setarr.c}
 \end{column}
 
+\pause
 \begin{column}{0.35\textwidth}
 \begin{itemize}
 \item Here, the array is passed by {\em Reference} - no copy of
@@ -172,12 +174,12 @@ struct employee team[400];
 \begin{columns}[T]
 
 \begin{column}{0.45\textwidth}
-\lstinputlisting[style=basicc,linerange={1-33},numbers=none]{../Code/ChapH/cards.c}
+\lstinputlisting[style=basicc,linerange={1-34},numbers=none]{../Code/ChapH/cards.c}
 \end{column}
 
 \pause
 \begin{column}{0.45\textwidth}
-\lstinputlisting[style=basicc,linerange={35-58},numbers=none]{../Code/ChapH/cards.c}
+\lstinputlisting[style=basicc,linerange={36-59},numbers=none]{../Code/ChapH/cards.c}
 \end{column}
 
 \end{columns}
@@ -188,13 +190,39 @@ struct employee team[400];
 \begin{columns}
 
 \begin{column}{0.45\textwidth}
-\lstinputlisting[style=basicc,linerange={60-95},numbers=none]{../Code/ChapH/cards.c}
+\lstinputlisting[style=basicc,linerange={61-92},numbers=none]{../Code/ChapH/cards.c}
 \end{column}
 
 \begin{column}{0.45\textwidth}
 \outputlisting{../Code/ChapH/cards.autoout}
 \begin{itemize}
 \item The \verb^print_deck()^ function is clearly messy ! We can simplify this a little when we understand strings.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Testing}
+\begin{columns}
+
+\begin{column}{0.50\textwidth}
+\lstinputlisting[style=basicc,linerange={94-113},numbers=none]{../Code/ChapH/cards.c}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+\item Note the direct ability to copy a structure.
+\item You can't compare them using \verb^==^ though.
+\item Tricky to think of a good test for \verb^shuffle_deck^.
+\item You could also \verb^typedef^ away the array, e.g.:
+\begin{verbatim}
+typedef card deck[DECK];
+
+void shuffle_deck(deck d);
+\end{verbatim}
+But this hides the fact it's an array (which seems odd?)
 \end{itemize}
 \end{column}
 
