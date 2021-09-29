@@ -18,7 +18,7 @@ int main(void)
    assert(x[2] == 2); assert(x[3] == 4);
 }
 
-// Mean rounded later from doubles - each element of array set to array
+// Set all values of array (size len) to n
 void set_array(int a[MAX], unsigned int len, int n)
 {
    if(len == 0){
