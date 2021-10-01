@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include <ctype.h>
 
 #define ALPHASIZE 26
@@ -7,13 +8,12 @@ int main(void)
 {
    char s[100] = "The Quick Brown Fox Leaps" \
                  "Over the Lazy Dog";
-   short used[ALPHASIZE] = {0};
-   char c;
+   bool used[ALPHASIZE] = {false};
    int i = 0;
    while(s[i]){
-      c = tolower(s[i]);
+      char c = tolower(s[i]);
       if(islower(c)){
-         used[c - 'a'] = 1;
+         used[c - 'a'] = true;
       }
       i++;
    }

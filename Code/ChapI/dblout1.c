@@ -1,4 +1,4 @@
-/* Outputs characters twice */
+// Outputs characters twice
 
 #include <stdio.h>
 

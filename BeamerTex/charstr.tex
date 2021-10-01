@@ -274,8 +274,8 @@ char w[250] = {'a', 'b', 'c', '\0'};
 In \verb^#include <string.h>^ :
 {\small
 \begin{verbatim}
-char *strcat(char *dst, const char *src);
-int strcmp(const char *s1, const char *s2);
+char *strcat(char dest[], const char src[]);
+int strcmp(const char s1[], const char s2[]);
 \end{verbatim}
 }
 \begin{itemize}
@@ -304,8 +304,8 @@ to  the  end  of  string  \verb^dst^.
 In \verb^#include <string.h>^ :
 {\small
 \begin{verbatim}
-char *strcpy(char *dst, const char *src);
-unsigned strlen(const char *s);
+char *strcpy(char dst[], const char src[]);
+unsigned strlen(const char s[]);
 \end{verbatim}
 }
 \begin{itemize}
@@ -326,50 +326,64 @@ One way to write the function \verb^strlen()^
 \end{columns}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\endinput
+\begin{frame}[fragile]
+\begin{columns}
+
+\begin{column}{0.45\textwidth}
+In \verb^#include <string.h>^ :
+\frametitle{The {\tt sprintf()} Function}
+This is very similar to the function \verb^printf()^, except
+that the output is stored in a string rather than written
+to the output.
+It is defined as:
+\vspace{-0.75em}
+{\small
+\begin{verbatim}
+int sprintf(string, control-arg, other args);
+\end{verbatim}
+}
+\vspace{-0.75em}
+For example:
+\vspace{-0.75em}
+\begin{verbatim}
+   int i = 7;
+   float f = 17.041;
+   char str[100];
+   sprintf(str, "%d %f", i, f);
+   printf("%s\n", str);
+
+Outputs : 7 17.041000
+\end{verbatim}
+\vspace{-0.75em}
+This is useful if you need to create a string for passing
+to another function for further processing.
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={74-107},numbers=none]{../Code/ChapI/cards3.c}
+\end{column}
+
+\end{columns}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}[fragile]
+\frametitle{sprintf() and sscanf()}
+\begin{columns}
 
-%\begin{center}
-%\end{center}
-%\vspace{-0.5in}
-%\section*{Strings}
-%
-%\end{itemize}
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={109-130},numbers=none]{../Code/ChapI/cards3.c}
+\end{column}
 
-%\newpage
-%{\samepage
-%\begin{itemize}
-%\item \begin{verbatim}
-%%char w[250] = "abc";
-%\end{verbatim}
-%\item \begin{verbatim}
-char *w = "abc";
-%\end{verbatim}
-%\end{itemize}
-%\begin{verbatim}
-%
-%#include <stdio.h>
-%#include <ctype.h>
-%
-%int main(void)
-%{
-   %char w1[100] = "test";
-   %char *w2 = "test";
-%
-   %printf("%s -> ", w1);
-   %w1[0] = toupper(w1[0]);
-   %printf("%s\n", w1);
-%
-   %printf("%s -> ", w2);
-   %/* Seg Faults */
-   %w2[0] = toupper(w2[0]);
-   %printf("%s\n", w2);
-%
-   %return 0;
-%}
-%\end{verbatim}
-%}
-%
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,numbers=none]{../Code/ChapI/sscanf.c}
+\outputlisting{../Code/ChapI/sscanf.manout}
+\end{column}
+
+\end{columns}
+\end{frame}
