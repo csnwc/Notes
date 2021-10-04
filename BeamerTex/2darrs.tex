@@ -1,16 +1,4 @@
-%\begin{frame}[fragile]
-%\frametitle{Storage of Characters}
-%\begin{columns}
-%\begin{column}{0.45\textwidth}
-%\begin{itemize}
-%\end{itemize}
-%\end{column}
-%\begin{column}{0.45\textwidth}
-%\end{column}
-%\end{columns}
-%\end{frame}
-
-\section{J : 2D Arrays}
+\section{J : 2D Arrays \& more Types}
 \label{chap:2darrs}
 
 \begin{frame}[fragile]
@@ -40,6 +28,7 @@ int b[ ][3] = {{1, 2, 3}, {4, 5, 6}};
 \end{verbatim}
 \end{column}
 
+\pause
 \begin{column}{0.45\textwidth}
 Although 2D arrays are stored in a contiguous block of memory,
 we may think of them as a 2D rectangle of data.
@@ -75,6 +64,8 @@ int c[3][5] = {{1,2,3,4,5}, {6,7,8,9,10},
 \end{columns}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}[fragile]
 \frametitle{2D Distance}
 
@@ -86,7 +77,59 @@ int c[3][5] = {{1,2,3,4,5}, {6,7,8,9,10},
 \begin{column}{0.45\textwidth}
 \outputlisting{../Code/ChapJ/2ddists.autoout}
 \end{column}
+
 \end{columns}
 \end{frame}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Cards (again!)}
+
+\lstinputlisting[style=basicc,linerange={68-78},numbers=none]{../Code/ChapJ/cards4.c}
+
+\begin{itemize}[<+->]
+\item The $2D$ arrays of characters here have one string per row.
+\item They are of a fixed-width, sometime called {\em ragged-right} or {\em jagged-right} arrays.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Storage Classes}
+
+\begin{columns}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item {\bf auto}
+\begin{verbatim}
+auto int a, b, c;
+auto float f;
+\end{verbatim}
+Because this is the default, it is seldom used.
+
+\item {\bf extern}
+
+Tells the compiler to look for the variable elsewhere,
+possibly another file.
+
+\item {\bf register}
+
+Informs the compiler to place the variable in a high-speed
+memory register if possible, i.e.\ if there are enough such
+registers available \& the hardware supports this.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapJ/static.c}
+\outputlisting{../Code/ChapJ/static.autoout}
+\end{column}
+
+\end{columns}
+\end{frame}

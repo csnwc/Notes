@@ -7,7 +7,7 @@
 \begin{columns}
 
 \begin{column}{0.55\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item One-Dimensional arrays are declared by a type
 followed by an identifier with a bracketed constant expression:
 {\small
@@ -82,7 +82,7 @@ is valid, the compiler assumes the array size to be \verb^4^.
 
 \pause
 \begin{column}{0.45\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item Accessing an array out of bounds will not be identified by
 the compiler. It may cause an error at run-time.
 One frequent result is that an entirely unrelated variable
@@ -108,7 +108,7 @@ is altered.
 
 \pause
 \begin{column}{0.35\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item Here, the array is passed by {\em Reference} - no copy of
 the array is made - the function processes the array that was created inside \verb^main()^, despite
 it apparently having a `different' name.
@@ -128,7 +128,7 @@ it apparently having a `different' name.
 \begin{columns}
 
 \begin{column}{0.45\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item A structure type allows the programmer to aggregate components
 into a single, named variable. Other languages call these {\it Records} or {\it Tuples}.
 \item Each component has individually named members.
@@ -146,7 +146,7 @@ tag name, and \verb^id^, \verb^salary^ and \verb^age^ are members of the structu
 
 \pause
 \begin{column}{0.45\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item A statement of the form :\\
 \verb^struct employee e1, e2;^\\
 actually creates storage for the variables. 
@@ -194,7 +194,7 @@ struct employee team[400];
 
 \begin{column}{0.45\textwidth}
 \outputlisting{../Code/ChapH/cards.autoout}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item The \verb^print_deck()^ function is clearly messy ! We can simplify this a little when we understand strings.
 \end{itemize}
 \end{column}
@@ -211,7 +211,7 @@ struct employee team[400];
 \end{column}
 
 \begin{column}{0.45\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item Note the direct ability to copy a structure.
 \item You can't compare them using \verb^==^ though.
 \item Tricky to think of a good test for \verb^shuffle_deck^.

@@ -1,15 +1,3 @@
-%\begin{frame}[fragile]
-%\frametitle{Storage of Characters}
-%\begin{columns}
-%\begin{column}{0.45\textwidth}
-%\begin{itemize}
-%\end{itemize}
-%\end{column}
-%\begin{column}{0.45\textwidth}
-%\end{column}
-%\end{columns}
-%\end{frame}
-
 \section{I : Characters \& Strings}
 \label{chap:charstr}
 
@@ -18,7 +6,7 @@
 \begin{columns}
 
 \begin{column}{0.45\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item Characters are stored in the machine as one byte (generally $8$-bits storing one
 of {\bf 256} possible values).
 \item These may be thought of a characters, or very small integers.
@@ -39,7 +27,7 @@ char c1 = 'A', c2 = '*', c3 = ';' ;
 
 \pause
 \begin{column}{0.45\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item The particular integer used to represent a character
 is dependent on the encoding used. The most common
 of these, used on most UNIX and PC platforms, is ASCII.
@@ -71,7 +59,7 @@ ASCII value & 38  &  42 &  43 & \verb^...^ & \\ \hline
 \begin{columns}
 
 \begin{column}{0.45\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item When using \verb^printf()^ and \verb^scanf()^ the formats
 \verb^%c^ and \verb^%d^ do very different things :
 \begin{verbatim}
@@ -217,7 +205,7 @@ int toascii(int c) & ASCII code for c \\ \hline
 \frametitle{Strings}
 \begin{columns}
 \begin{column}{0.45\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item Strings are 1D arrays of characters.
 \item Any character in a string may be accessed as an array
 element.
@@ -233,7 +221,7 @@ character constant, the second is a string with 2 elements
 \pause
 \begin{column}{0.45\textwidth}
 Initialising Strings~:
-\begin{itemize}
+\begin{itemize}[<+->]
 \item \verb^char w[6] = "Hello";^
 \item \begin{verbatim}
 char w[250];
@@ -278,7 +266,7 @@ char *strcat(char dest[], const char src[]);
 int strcmp(const char s1[], const char s2[]);
 \end{verbatim}
 }
-\begin{itemize}
+\begin{itemize}[<+->]
 \item \verb^strcat()^ appends a copy of string \verb^src^,
 including  the  terminating null character,
 to  the  end  of  string  \verb^dst^.
@@ -308,7 +296,7 @@ char *strcpy(char dst[], const char src[]);
 unsigned strlen(const char s[]);
 \end{verbatim}
 }
-\begin{itemize}
+\begin{itemize}[<+->]
 \item \verb^strcpy()^ copies string \verb^src^ to \verb^dst^
 including the  terminating null  character,
 stopping after the null character has been copied.
