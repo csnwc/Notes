@@ -88,7 +88,7 @@ void print_card(char s[], card c)
          strcpy(pipstr, "King");
          break;
       default:
-         sprintf(pipstr, "%2d", c.pips);
+         sprintf(pipstr, "%2i", c.pips);
    }
    switch(c.st){
       case hearts :

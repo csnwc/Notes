@@ -7,7 +7,8 @@ int main(void)
    int x = 1;
 
    changex(x);
-   printf("%d\n", x);
+   printf("%i\n", x);
+   return 0;
 }
 
 void changex(int x)

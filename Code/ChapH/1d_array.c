@@ -14,13 +14,13 @@ int main(void)
    }
    /* print array */
    for (i = 0; i < N; ++i){
-      printf("a[%d]=%d ", i, a[i]);
+      printf("a[%i]=%i ", i, a[i]);
    }
    /* sum elements */
    for (i = 0; i < N; ++i){
       sum += a[i];
    }
    /* print sum */
-   printf("\nsum=%d\n", sum);
+   printf("\nsum=%i\n", sum);
    return 0;
 }

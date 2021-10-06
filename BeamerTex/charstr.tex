@@ -61,11 +61,11 @@ ASCII value & 38  &  42 &  43 & \verb^...^ & \\ \hline
 \begin{column}{0.45\textwidth}
 \begin{itemize}[<+->]
 \item When using \verb^printf()^ and \verb^scanf()^ the formats
-\verb^%c^ and \verb^%d^ do very different things :
+\verb^%c^ and \verb^%i^ do very different things :
 \begin{verbatim}
 char c = 'a'
 printf("%c\n", c); /* prints : a  */
-printf("%d\n", c); /* prints : 97 */
+printf("%i\n", c); /* prints : 97 */
 \end{verbatim}
 \item Hard-to-print characters have an escape sequence
 i.e. to print a newline, the 2 character escape \verb^'\n'^ is used.
@@ -339,7 +339,7 @@ For example:
    int i = 7;
    float f = 17.041;
    char str[100];
-   sprintf(str, "%d %f", i, f);
+   sprintf(str, "%i %f", i, f);
    printf("%s\n", str);
 
 Outputs : 7 17.041000

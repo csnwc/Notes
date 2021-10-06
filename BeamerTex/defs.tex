@@ -21,7 +21,7 @@
   \endgroup
 }
 
-\lstdefinestyle{basicc}{language=C, basicstyle=\tiny\ttfamily, numbers=left, numberstyle=\tiny, frame=tb, stringstyle=\color{darkgray}, columns=fixed, backgroundcolor=\color{ocre!30}, xleftmargin=15pt, framexleftmargin=15pt, framexrightmargin=5pt, showstringspaces=false,captionpos=b,keywordstyle=\color{blue}\ttfamily, stringstyle=\color{red}\ttfamily, commentstyle=\color{darkgreen}\ttfamily}
+\lstdefinestyle{basicc}{language=C, basicstyle=\tiny\ttfamily, numbers=left, numberstyle=\tiny, frame=none, stringstyle=\color{darkgray}, columns=fixed, backgroundcolor=\color{ocre!30}, xleftmargin=15pt, framexleftmargin=15pt, framexrightmargin=5pt, showstringspaces=false,captionpos=b,keywordstyle=\color{blue}\ttfamily, stringstyle=\color{red}\ttfamily, commentstyle=\color{darkgreen}\ttfamily}
 \lstdefinestyle{basicterm}{basicstyle=\scriptsize\ttfamily}
 
 \usepackage{hyperref}
@@ -49,7 +49,7 @@
 
 \newcommand{\outputlisting}[1]{
 {\noindent{\scriptsize Execution~:}}
-\lstinputlisting[style=basicterm]{#1}
+\lstinputlisting[style=basicterm,frame=none]{#1}
 }
 
 \setbeamertemplate{section in toc}[default]

@@ -12,11 +12,11 @@ int main(void)
          for(k = 0; k <= N; k++){
             if(i + j + k == N){
                ++cnt;
-               printf("%3d%3d%3d\n", i, j, k);
+               printf("%3i%3i%3i\n", i, j, k);
             }
          }
       }
    }
-   printf("\nCount: %d\n", cnt);
+   printf("\nCount: %i\n", cnt);
    return 0;
 }

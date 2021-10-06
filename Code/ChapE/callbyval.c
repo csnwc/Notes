@@ -7,7 +7,7 @@ int main(void)
    int x = 1;
 
    fnc1(x);
-   printf("%d\n", x);
+   printf("%i\n", x);
 }
 
 void fnc1(int x)

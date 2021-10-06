@@ -8,9 +8,9 @@ int main(void)
    int j, k, m;
 
    printf("Input two integers: ");
-   scanf("%d%d", &j, &k);
+   scanf("%i%i", &j, &k);
    m = MIN(j, k);
-   printf("Minimum is %d\n", m);
+   printf("Minimum is %i\n", m);
    return 0;
 
 }

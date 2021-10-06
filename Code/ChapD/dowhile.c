@@ -10,7 +10,7 @@ int main(void)
    /* This program always prints at least one 
       number, even if n initialised to 0 */
    do{
-      printf("%d ", n);
+      printf("%i ", n);
       n--;
    }while(n > 0);
    printf("\n");

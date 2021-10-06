@@ -15,7 +15,7 @@ int main(void)
    double a = 4.0 / 3.0 * PI * pow(r, (double) 3);
    printf("Area of your ball = %f\n", a);
    printf("Area of your ball = %.2f\n", a);
-   printf("Area of your ball = %d\n", (int)a);
+   printf("Area of your ball = %i\n", (int)a);
    printf("Area of your ball = %.0f\n", round(a));
    return 0;
 }

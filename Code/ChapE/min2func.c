@@ -8,10 +8,10 @@ int main(void)
    int j, k, m;
 
    printf("Input two integers: ");
-   scanf("%d%d", &j, &k);
+   scanf("%i%i", &j, &k);
    m = min(j, k);
-   printf("\nOf the two values %d and %d, " \
-   "the minimum is %d.\n\n", j, k, m);
+   printf("\nOf the two values %i and %i, " \
+   "the minimum is %i.\n\n", j, k, m);
    return 0;
 
 }

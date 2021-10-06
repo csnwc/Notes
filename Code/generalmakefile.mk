@@ -20,6 +20,10 @@ fvr : fvr.c
 	$(CC) $(CFLAGSNOABORT) $< $(LDLIBS) -o $@
 	rm -f $@.autoout $@.manout
 
+nify2 : nify2.c
+	$(CC) $(CFLAGSNOABORT) $< $(LDLIBS) -o $@
+	rm -f $@.autoout $@.manout
+
 
 % : %.c
 	$(CC) $(CFLAGS) $< $(LDLIBS) -o $@

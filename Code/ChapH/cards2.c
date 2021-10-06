@@ -74,7 +74,7 @@ void print_deck(deck d, int n)
             printf("King");
             break;
          default:
-            printf("%2d", d[i].pips);
+            printf("%2i", d[i].pips);
       }
       switch(d[i].st){
          case hearts :

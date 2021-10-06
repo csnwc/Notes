@@ -6,7 +6,7 @@ int main(void)
 {
 
    int n = 12;
-   printf("Number of factors in %d is %d\n", \
+   printf("Number of factors in %i is %i\n", \
           n, numfactors(n));
    return 0;
 }

@@ -18,7 +18,7 @@ int main(void)
    char name[SMLSTR];
    int age;
    // Note no "&" before name : passed by reference already
-   assert(sscanf(bigstr, "%s %d\n", name, &age)==2);
+   assert(sscanf(bigstr, "%s %i\n", name, &age)==2);
    printf("%s, you've lived approximately %.0f days\n",
           name, ((double)(age)+0.5)*DAYSINYEAR);
    return 0;

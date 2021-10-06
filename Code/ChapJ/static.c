@@ -17,5 +17,5 @@ int main(void)
 void printstuff(void)
 {
    static int cnt = 0;
-   printf("You've been here %d times\n", ++cnt);
+   printf("You've been here %i times\n", ++cnt);
 }
