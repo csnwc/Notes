@@ -12,7 +12,7 @@ int main(void)
    int n = strlen(s);
    /* malloc() returns a pointer to memory that
       you have access to. Note forcing cast. */
-   char *t = (char*) malloc(n+1);
+   char* t = (char*) malloc(n+1);
    /* If no space, returns NULL */
    assert(t != NULL);
    /* Deep copy: character by character */

@@ -3,7 +3,8 @@
 int main(void)
 {
 
-   int i, *p;
+   int i;
+   int* p;
 
    p = &i;
    printf("Please Type a number : ");

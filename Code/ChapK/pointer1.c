@@ -3,10 +3,8 @@
 int main(void)
 {
 
-   int i, *p;
-
-   p = &i;
-   i = 5; 
+   int i = 5; 
+   int* p = &i;
    printf("%i\n", *p);
    i = 17; 
    printf("%i\n", *p);

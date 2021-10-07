@@ -2,7 +2,7 @@
 
 #define NUM 5
 
-int sum(int a[]);
+int sum(int* p );
 
 int main(void)
 {
@@ -13,10 +13,9 @@ int main(void)
    return 0;
 }
 
-int sum(int a[])
+int sum(int* p )
 {
    int sum = 0;
-   int *p = a;
 
    for(int i=0; i<NUM; i++){
       sum += *p;
