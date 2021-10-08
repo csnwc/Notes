@@ -1,12 +1,6 @@
-// A VALID attempt to
-// convert all 'n' chars to 'N'
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-
-#define LINE 500
-
 char* nify(char* s);
 
 int main(void)

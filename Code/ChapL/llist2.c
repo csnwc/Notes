@@ -1,4 +1,4 @@
-// Store a list of numbers (size of list unknown) 
+// Store a list of numbers (length unknown) 
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -31,7 +31,7 @@ int main(void)
    return 0;
 }
 
-// Add create some new space and store number in it
+// Create some new space and store number in it
 void addtolist(data* tail)
 {
    tail->next = calloc(1, sizeof(data));
@@ -46,5 +46,4 @@ void printlist(data* st)
       st = st->next;
    };
    printf("\n");
-
 }

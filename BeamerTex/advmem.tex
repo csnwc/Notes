@@ -1,0 +1,257 @@
+\section{L : Advanced Memory Handling}
+\label{chap:advmem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{String Constants}
+\begin{columns}[T]
+
+\begin{column}{0.35\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapL/nify1.c}
+\end{column}
+
+\pause
+\begin{column}{0.55\textwidth}
+\begin{itemize}[<+->]
+\item This looks (at first) like a sensible attempt to accept a string and change it {\em in-place} to capitalise all 'n' characters.
+It crashes though via a segmentation fault.
+\item With the usual compile flags we get no more information.
+\item But using:
+\begin{verbatim}
+clang nify1.c -g3 -fsanitize=undefined
+-fsanitize=address -o nify1
+\end{verbatim}
+we find that
+\lstinputlisting[style=basicc,numbers=none,linerange={23-23}]{../Code/ChapL/nify1.c}
+is the culprit.
+\item It turns out that in \verb^main()^ we have passed a {\bf constant} string to the function. This is in a part of memory that we have read-only permission.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Local Variables}
+\begin{columns}[T]
+
+\begin{column}{0.35\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapL/nify2.c}
+\end{column}
+
+\pause
+\begin{column}{0.55\textwidth}
+\begin{itemize}[<+->]
+\item Now we try to create a copy of the string, and return a pointer to it.
+\item With the usual compile flags we're told:
+\begin{verbatim}
+nify2.c: In function ‘nify’:
+nify2.c:33:11: warning: function returns address
+of local variable [-Wreturn-local-addr]
+   33 |    return t;
+\end{verbatim}
+\item The string \verb^t^ is local to \verb^nify()^.
+\item What happens in this memory when outside the scope of this function is completely undefined.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Static Variables}
+\begin{columns}[T]
+
+\begin{column}{0.35\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapL/nify3.c}
+\end{column}
+
+\pause
+\begin{column}{0.55\textwidth}
+\begin{itemize}[<+->]
+\item We could just make the local string a \verb^static^ and return it's address couldn't we?
+\item This only works if we're very careful with the order in which we use the strings.
+\item This code fails because, in \verb^main()^, by the time we \verb^strcmp(s1, "iNcoNveNieNciNg")^ the contents of \verb^s1^ have been overwritten by \verb^"Neill"^. 
+\item The pointers \verb^s1^ and \verb^s2^ are the same.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Using {\em malloc()}}
+\begin{columns}[T]
+
+\begin{column}{0.55\textwidth}
+\begin{itemize}[<+->]
+\item We must use \verb^malloc()^ instead.
+\item
+\begin{verbatim}
+void* malloc(int n);
+\end{verbatim}
+allocates $n$ bytes and returns a pointer to the allocated
+memory. The memory is  not initialized.
+\item Now, when our function is called, a dedicated chunk of memory is allocated.
+\item This memory is always in scope until \verb^free()^ is used on it.
+\item We must free the memory somewhere though, otherwise memory leaks develop.
+\item We will see \verb^calloc()^ (and perhaps \verb^realloc()^) later.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.35\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapL/nify4.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Variable Length Arrays}
+\begin{columns}[T]
+
+\begin{column}{0.35\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapL/strdup1.c}
+\end{column}
+
+\pause
+\begin{column}{0.55\textwidth}
+\begin{itemize}[<+->]
+\item Here we duplicate a string into $t$.
+\item This is known as a variable length array.
+\item However, we will always use the \verb^-Wvla^ with the compiler to prevent them.
+\item There are a number of reasons for this:
+\begin{itemize}
+\item Some C++ compilers don't accept it.
+\item The memory comes off the stack not the heap, and
+you have no idea if the allocation has worked (it'll just crash if not)
+\item \url{https://nullprogram.com/blog/2019/10/27/}
+\end{itemize}
+\item None of these is a problem if we use \verb^malloc()^.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Memory Leaks}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapL/strdup2.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item This code appears to work correctly.
+\item However, it actually {\bf leaks}. The memory
+allocated was never \verb^free()^'d.
+\item This is best found by running the program \verb^valgrind^.
+{\tiny
+\begin{verbatim}
+String String
+==474==
+==474== HEAP SUMMARY:
+==474==     in use at exit: 7 bytes in 1 blocks
+==474==   total heap usage: 2 allocs, 1 frees, 1,031 bytes allocated
+==474==
+==474== LEAK SUMMARY:
+==474==    definitely lost: 7 bytes in 1 blocks
+\end{verbatim}
+}
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{{\em free()}}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapL/strdup3.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item This code is now correct.
+{\tiny
+\begin{verbatim}
+String String
+==475==
+==475== HEAP SUMMARY:
+==475==     in use at exit: 0 bytes in 0 blocks
+==475==   total heap usage: 2 allocs, 2 frees, 1,031 bytes allocated
+==475==
+==475== All heap blocks were freed -- no leaks are possible
+\end{verbatim}
+}
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Structures with Self-Referential Pointers}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapL/llist1.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item The structure contains a pointer to a something of it's own type (even before we've fully defined the struture itself).
+\item Here, if \verb^p^ points to \verb^a^, then \verb^p->next->next^ points to \verb^c^.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Linked Lists}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,numbers=none,linerange={1-32}]{../Code/ChapL/llist2.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,numbers=none,linerange={34-49}]{../Code/ChapL/llist2.c}
+\outputlisting{../Code/ChapL/llist2.autoout}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
