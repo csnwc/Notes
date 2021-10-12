@@ -1,0 +1,152 @@
+\section{M : Files}
+\label{chap:files}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{File Properties}
+\begin{columns}[T]
+
+
+\begin{column}{0.55\textwidth}
+\begin{itemize}[<+->]
+\item They have a name.
+\item Until a file is opened nothing can be done with it.
+\item After use a file must be closed.
+\item Files may be read, written or appended.
+\item Conceptually a file may be thought of as a stream of characters.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.35\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapM/fhello.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Reading and Writing}
+\begin{columns}[T]
+
+\begin{column}{0.50\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapM/readwrite.c}
+\end{column}
+
+\pause
+\begin{column}{0.40\textwidth}
+\begin{itemize}[<+->]
+\item If you write a file, it overwrites it from the beginning.
+\item You must \verb^fclose()^ your file pointers otherwise there is a memory leak.
+\item The statement \verb^exit()^ allows you to exit the code {\bf anywhere}, not just in \verb^main^.
+\item There are three files already open for you: \verb^stdin^, \verb^stdout^ and \verb^stderr^.
+\item Therefore \verb^printf(...)^ is just a shorthand for \verb^fprintf(stdout, ...)^
+\item \verb^fscanf()^ could be used instead of \verb^fgets()^.
+\end{itemize}
+\end{column}
+
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{{\em stderr}}
+\begin{columns}[T]
+
+\begin{column}{0.90\textwidth}
+\begin{itemize}[<+->]
+\item To write to screen you'd generally use \verb^stdout^, so why is there \verb^stderr^ ?
+\item It's fairly common, when running a program, to want to redirect the output to a file.
+\item For instance, if you were to type:
+\begin{verbatim}
+$ ls > myfiles.txt
+\end{verbatim}
+this will list all your files into myfiles.txt
+\item The ">" at the prompt redirects the output (or "<" input) to file rather than screen.
+\item If something went wrong though, the user would never see the message.
+\item Therefore, \verb^stderr^ exists so that there is a stream to display warnings/errors to the user.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{One Character at a Time}
+\begin{columns}[T]
+
+\begin{column}{0.50\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapM/mycp.c}
+\end{column}
+
+\pause
+\begin{column}{0.40\textwidth}
+\begin{itemize}[<+->]
+\item This is a very basic version of the Linux command \verb^cp^.
+\item \verb^fgetc()^ and \verb^fputc()^ are the file equivalents of \verb^getchar^ and \verb^putchar^.
+\end{itemize}
+\end{column}
+
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Bulk Copying}
+\begin{columns}[T]
+
+\begin{column}{0.40\textwidth}
+\begin{itemize}[<+->]
+\item Copying one character at a time is very slow for large files.
+\item \verb^fread()^ and \verb^fwrite()^ will I/O many characters at once.
+\item Here we save an entire array to a binary file - another program could
+read this in later.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.50\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapM/bulkfacts.c}
+\end{column}
+
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Window/DOS vs. Unix Text Files}
+\begin{columns}[T]
+
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Text files created on DOS/Windows machines have different line endings than files created on Unix/Linux.
+\item DOS uses {\em carriage return} and {\em line feed} \verb^("\r\n")^ as a line ending.
+\item Unix uses just {\em line feed} \verb^("\n")^.
+\item You should generally avoid assuming line endings - use a function that reads entire lines at once such as \verb^fgets()^.
+\item When you open a file in textmode \verb^fopen("file.txt", "rt")^ some automic translation may be done on input/output.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapM/unixordos.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+\endinput
+
