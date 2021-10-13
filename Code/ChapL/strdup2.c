@@ -9,7 +9,9 @@
 int main(void)
 {
 
-   char s[WORD] = "String";
+   printf("Please type a string :\n");
+   char s[WORD];
+   assert(scanf("%s", s)==1);
    int n = strlen(s);
    /* malloc() returns a pointer to memory that
       you have access to. Note forcing cast. */
@@ -20,4 +22,5 @@ int main(void)
    strcpy(t, s);
    printf("%s %s\n", s, t);
    return 0;
+
 }

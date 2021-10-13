@@ -5,7 +5,7 @@
 #include <string.h>
 #include <assert.h>
 
-void nify(char* s);
+void nify(char s[]);
 
 int main(void)
 {
@@ -16,7 +16,7 @@ int main(void)
 }
 
 // In-Place : Swaps all 'n' -> 'N'
-void nify(char* s)
+void nify(char s[])
 {
    for(int i=0; s[i]; i++){
       if(s[i] == 'n'){

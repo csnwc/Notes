@@ -1,11 +1,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-char* nify(char* s);
+
+char* nify(char s[]);
 
 int main(void)
 {
-
    char* s1 = nify("inconveniencing");
    char* s2 = nify("neill");
    assert(strcmp(s2, "Neill")==0);
@@ -13,11 +13,10 @@ int main(void)
    free(s1);
    free(s2);
    return 0;
-
 }
 
 // malloc : Swaps all 'n' -> 'N'
-char* nify(char* s)
+char* nify(char s[])
 {
    int l = strlen(s);
    char* t  = (char*)malloc(l+1);

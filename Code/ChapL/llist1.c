@@ -11,6 +11,9 @@ typedef struct data data;
 
 int main(void)
 {
+//       a      b      c   
+
+//    |11 -->|17 -->| 5 . |
    data c = {5 , NULL};
    data b = {17, &c};
    data a = {11, &b};
@@ -27,6 +30,5 @@ int main(void)
    p = p->next;
    // And c
    printf("%i\n", p->num);
-
    return 0;
 }

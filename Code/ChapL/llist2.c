@@ -36,7 +36,8 @@ void addtolist(data* tail)
 {
    tail->next = calloc(1, sizeof(data));
    assert(tail);
-   tail->next->num = rand()%MAXNUM;
+   tail = tail->next;
+   tail->num = rand()%MAXNUM;
 }
 
 void printlist(data* st)

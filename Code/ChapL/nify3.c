@@ -7,7 +7,7 @@
 
 #define LINE 500
 
-char* nify(char* s);
+char* nify(char s[]);
 
 int main(void)
 {
@@ -21,7 +21,7 @@ int main(void)
 }
 
 // Local copy : Swaps all 'n' -> 'N'
-char* nify(char* s)
+char* nify(char s[])
 {
    static char t[LINE];
    strcpy(t, s);

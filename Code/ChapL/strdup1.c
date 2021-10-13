@@ -9,11 +9,14 @@
 int main(void)
 {
 
-   char s[WORD] = "String";
+   printf("Please type a string :\n");
+   char s[WORD];
+   assert(scanf("%s", s)==1);
    int n = strlen(s) + 1;
    char t[n];
    // Deep copy: character by character
    strcpy(t, s);
    printf("%s %s\n", s, t);
    return 0;
+
 }
