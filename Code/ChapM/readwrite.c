@@ -6,7 +6,7 @@
 
 int main(void)
 {
-   FILE* fp = fopen("helloworld.txt", "w");
+   FILE* fp = fopen(FNAME, "w");
    if(fp == NULL){
       fprintf(stderr, "Cannot open file %s ?\n", FNAME);
       exit(EXIT_FAILURE);
@@ -14,7 +14,7 @@ int main(void)
    fprintf(fp, "Hello World!\n");
    fclose(fp);
 
-   fp = fopen("helloworld.txt", "r");
+   fp = fopen(FNAME, "r");
    if(fp == NULL){
       fprintf(stderr, "Cannot read file %s ?\n", FNAME);
       exit(EXIT_FAILURE);
