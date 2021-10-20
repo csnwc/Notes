@@ -1,0 +1,91 @@
+\geometry{paperwidth=160mm,paperheight=90mm}
+
+\usepackage{tikz}
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{britishrg}{RGB}{0,66,37}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\usepackage{listings}
+
+\usepackage[T1]{fontenc}
+\usepackage[variablett]{lmodern}
+
+\newcommand*{\vttfamily}{%
+  \fontencoding{T1}\fontfamily{lmvtt}\selectfont
+}
+
+\newcommand*{\textsmallunderscore}{%
+  \begingroup
+    \fontencoding{T1}\fontfamily{lmtt}\selectfont
+    \textunderscore
+  \endgroup
+}
+
+\lstdefinestyle{basicc}{language=C, basicstyle=\tiny\ttfamily, numbers=left, numberstyle=\tiny, frame=none, stringstyle=\color{darkgray}, columns=fixed, backgroundcolor=\color{britishrg!10}, xleftmargin=15pt, framexleftmargin=15pt, framexrightmargin=5pt, showstringspaces=false,captionpos=b,keywordstyle=\color{blue}\ttfamily, stringstyle=\color{red}\ttfamily, commentstyle=\color{darkgreen}\ttfamily}
+\lstdefinestyle{basicterm}{basicstyle=\scriptsize\ttfamily}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{fancyvrb}
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\scriptsize,
+ %fontshape=tt,
+ %tabsize=8,
+ framesep=0pt, % separation between frame and text
+}
+
+\usetheme{Madrid}
+\setbeamercolor{palette primary}{bg=britishrg,fg=white}
+\setbeamercolor{palette secondary}{bg=britishrg,fg=white}
+\setbeamercolor{palette tertiary}{bg=britishrg,fg=white}
+\setbeamercolor{palette quaternary}{bg=britishrg,fg=white}
+\setbeamercolor{structure}{fg=britishrg} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=britishrg} % TOC sections
+% Override palette coloring with secondary
+\setbeamercolor{subsection in head/foot}{bg=gray,fg=white}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\outputlisting}[1]{
+{\noindent{\scriptsize Execution~:}}
+\lstinputlisting[style=basicterm,frame=none]{#1}
+}
+
+\setbeamertemplate{section in toc}[default]
+
+%\setbeamertemplate{footline}{boo \insertpagenumber hope \insertsection}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{section in head/foot}%
+    \usebeamerfont{author in head/foot}\insertsection
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{section in head/foot}%
+    \usebeamerfont{date in head/foot}\insertframenumber{}
+    / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{qrcode}
+
+\title{COMSM1201 : Data Structures \& Algorithms}
+\author{Dr. Neill Campbell \\ Neill.Campbell@bristol.ac.uk}
+\institute{University of Bristol\\[0.5cm]}
+\titlegraphic{\qrcode{https://github.com/csnwc/Notes}}
+\date{\today}
+
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}

@@ -1,12 +1,28 @@
-all: cnotes.pdf clean
+all: ../cnotes.pdf ../cnotes_slides.pdf ../datastructs.pdf ../datastructs_slides.pdf
 
-cnotes.pdf: 2darrs.tex body.tex charstr.tex contypes.tex datatypes.tex defs.tex flowcontrol.tex functions.tex grammar.tex handout.tex helloworld.tex preamble.tex typeenum.tex slides.tex
-	pdflatex handout.tex
-	pdflatex slides.tex
-	pdflatex handout.tex
-	pdflatex slides.tex
-	mv handout.pdf ../cnotes.pdf
-	mv slides.pdf ../cnotes_slides.pdf
+../cnotes.pdf: 2darrs.tex cnotes_body.tex charstr.tex contypes.tex datatypes.tex cnotes_defs.tex flowcontrol.tex functions.tex grammar.tex cnotes_handout.tex helloworld.tex preamble.tex typeenum.tex
+	pdflatex cnotes_handout.tex
+	pdflatex cnotes_handout.tex
+	mv cnotes_handout.pdf ../cnotes.pdf
+	rm -f *.aux *.log *.out *.toc *.nav *.vrb cnotes*.pdf datastructs*.pdf *.snm
+
+../cnotes_slides.pdf: 2darrs.tex cnotes_body.tex charstr.tex contypes.tex datatypes.tex cnotes_defs.tex flowcontrol.tex functions.tex grammar.tex helloworld.tex preamble.tex typeenum.tex cnotes_slides.tex
+	pdflatex cnotes_slides.tex
+	pdflatex cnotes_slides.tex
+	mv cnotes_slides.pdf ..
+	rm -f *.aux *.log *.out *.toc *.nav *.vrb cnotes*.pdf datastructs*.pdf *.snm
+
+../datastructs.pdf: recurs.tex datastructs_body.tex datastructs_defs.tex datastructs_handout.tex
+	pdflatex datastructs_handout.tex
+	pdflatex datastructs_handout.tex
+	mv datastructs_handout.pdf ../datastructs.pdf
+	rm -f *.aux *.log *.out *.toc *.nav *.vrb cnotes*.pdf datastructs*.pdf *.snm
+
+../datastructs_slides.pdf: recurs.tex datastructs_body.tex datastructs_defs.tex datastructs_slides.tex
+	pdflatex datastructs_slides.tex
+	pdflatex datastructs_slides.tex
+	mv datastructs_slides.pdf ..
+	rm -f *.aux *.log *.out *.toc *.nav *.vrb cnotes*.pdf datastructs*.pdf *.snm
 
 clean:
-	rm -f *.aux *.log *.out *.toc *.nav *.vrb handout.pdf slides.pdf *.snm
+	rm -f *.aux *.log *.out *.toc *.nav *.vrb cnotes*.pdf datastructs*.pdf *.snm
