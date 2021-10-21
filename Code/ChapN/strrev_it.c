@@ -3,7 +3,7 @@
 
 #define SWAP(A,B) {char temp; temp=A;A=B;B=temp;}
 
-void strrev(char *s, int n);
+void strrev(char* s, int n);
 
 int main(void)
 {
@@ -14,7 +14,7 @@ int main(void)
 }
 
 /* Iterative Inplace String Reverse */
-void strrev(char *s, int n)
+void strrev(char* s, int n)
 {
    for(int i=0, j=n-1; i<j; i++, j--){
        SWAP(s[i], s[j]);

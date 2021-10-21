@@ -3,7 +3,7 @@
 
 #define SWAP(A,B) {char temp; temp=A;A=B;B=temp;}
 
-void strrev(char *s, int start, int end);
+void strrev(char* s, int start, int end);
 
 int main(void)
 {
@@ -14,7 +14,7 @@ int main(void)
 }
 
 /* Recursive : Inplace String Reverse */
-void strrev(char *s, int start, int end)
+void strrev(char* s, int start, int end)
 {
    if(start >= end){
       return;

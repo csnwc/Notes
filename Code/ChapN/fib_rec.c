@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-#define MAXFIB 25
+#define MAXFIB 24
 
 int fibonacci(int n);
 
 int main(void)
 {
 
-   for(int i=1; i<MAXFIB; i++){
+   for(int i=1; i<=MAXFIB; i++){
       printf("%d = %d\n", i, fibonacci(i));
    }
 

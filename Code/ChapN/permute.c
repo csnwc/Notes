@@ -4,7 +4,7 @@
 
 #define SWAP(A,B) {char temp = *A; *A = *B; *B = temp;}
 
-void permute(char *a, int s, int e);
+void permute(char* a, int s, int e);
 
 int main()
 {
@@ -14,7 +14,7 @@ int main()
     return 0;
 }
 
-void permute(char *a, int s, int e)
+void permute(char* a, int s, int e)
 {
    if (s == e){
      printf("%s\n", a);
