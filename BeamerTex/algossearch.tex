@@ -1,0 +1,198 @@
+\section{O : Algorithms I - Search}
+\label{chap:algossearch}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Sequential Search}
+\begin{columns}[T]
+
+\begin{column}{0.35\textwidth}
+\begin{itemize}[<+->]
+\item The need to search an array for a particular value is a common problem.
+\item This is used to delete names from a mailing list, or upgrading the salary of an employee etc.
+\item The simplest method for searching is called the sequential search.
+\item Simply move through the array from beginning to end, stopping when you have found the value you require.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.55\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapO/seqsearch.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]
+\frametitle{Sequential Search}
+\begin{columns}[T]
+
+\begin{column}{0.35\textwidth}
+\begin{itemize}[<+->]
+\item Sometimes our list of people may not be random.
+\item If, for instance, it is sorted, we can use \verb^strcmp()^ in a slightly cleverer manner.
+\item We can stop searching once the search key is alphabetically greater than the item at the current position in the list.
+\item This halves, on average, the number of comparisons required.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.55\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapO/seqsearch2.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Binary Search for {\em 101}}
+\begin{columns}[T]
+
+\begin{column}{0.525\textwidth}
+\begin{itemize}[<+->]
+\item Searching small lists doesn't require much computation time.
+\item However, as lists get longer (e.g. phone directories), sequential searching becomes extremely inefficient.
+\item A binary search consists of examining the middle element of the array to see if it has the desired value. If not, then half the array may be discarded for the next search.
+\end{itemize}
+\fontsize{5pt}{7.2}\selectfont
+\[
+\begin{array}{cccccccccccccc}
+\\
+\\
+4 & 7 & 19 & 25 & 36 & 37 & 50 & 100 & 101 & 205 & 220 & 270 & 301 & 321 \\
+\\
+\\
+\Uparrow & & & & & & \uparrow & & & & & & & \Uparrow \\
+\\
+\\
+& & & & & & & \Uparrow & & & \uparrow & & & \Uparrow \\
+\\
+\\
+& & & & & & & \Uparrow & \uparrow & \Uparrow & & & & \\
+\end{array}
+\]
+\end{column}
+
+\pause
+\begin{column}{0.425\textwidth}
+\lstinputlisting[style=basicc,linerange={1-31}]{../Code/ChapO/binsearch_it.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Iterative v. Recursion Binary Search}
+\begin{columns}[T]
+
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc,linerange={32-50},numbers=none]{../Code/ChapO/binsearch_it.c}
+\end{column}
+
+\pause
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc,linerange={32-50},numbers=none]{../Code/ChapO/binsearch_rec.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Interpolation Search}
+\begin{columns}[T]
+
+\begin{column}{0.50\textwidth}
+\begin{itemize}
+\item When we look for a word in a dictionary, we don't start in the middle.
+We make an educated guess as to where to start based on the 1st letter of the
+word being searched for.
+\item This idea led to the interpolation search.
+\item In binary searching, we simply used the middle of an ordered list as a best guess as to where to begin the search.
+\item Now we use an interpolation involving the key, the start of the list and the end.
+\[
+i = (k - l[0])/(l[n-1] - l[0])*n
+\]
+\item when searching for `15' :
+\[
+\begin{array}{cccccccc}
+0 & 4 & 5 & 9 & 10 & 12 & 15 & 20\\
+&&&&&&\Uparrow&\\
+\end{array}
+\]
+\[
+i = (15-0)/(20-0)*8
+\]
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc,linerange={32-58},numbers=none]{../Code/ChapO/interp.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Algorithmic Complexity}
+\begin{columns}[T]
+
+\begin{column}{0.55\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapO/clocker.c}
+\begin{itemize}
+\item This code on an old Dell laptop took:
+\begin{itemize}
+\item 3.12 seconds using a non-optimzing compiler -O0
+\item 0.00 seconds using an aggressive optimization -O3
+\end{itemize}
+\item But "wall-clock" time is generally not the thing that excites Computer Scientists.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.35\textwidth}
+\begin{itemize}
+\item Searching and sorting algorithms have a complexity associated with them, called big-O.
+\item This complexity indicates how, for $n$ numbers, performance deteriorates when $n$ changes.
+\item Sequential Search : {\bf O(n)}
+\item Binary Search : {\bf O(log n)}
+\item Interpolation Search : {\bf O(log log n)}
+\item We'll discuss the dream of a {\bf O(1)} search later in ``Hashing''.
+\end{itemize}
+\end{column}
+
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Binary vs. Interpolation Timing}
+\begin{columns}[T]
+
+\begin{column}{0.55\textwidth}
+\lstinputlisting[style=basicc,linerange={1-32}]{../Code/ChapO/TestSpeed/time_srch.c}
+\end{column}
+
+\pause
+\begin{column}{0.35\textwidth}
+\outputlisting{../Code/ChapO/TestSpeed/time_srch.autoout}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
