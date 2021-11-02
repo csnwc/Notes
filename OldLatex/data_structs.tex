@@ -1234,13 +1234,13 @@ bool coll_free(coll* c)
 {\large{\bf Collection ADT III}}
 \end{center}
 \begin{itemize}
-\item Any code using the ADT can be compiled against any of the impmentations. 
+\item Any code using the ADT can be compiled against any of the implementations. 
 \item The {\em Collection} interface ({\tt coll.h}) is never changed.
 \item There are pros and cons of each implementation:
 \begin{itemize}
 \item Fixed Array : Simple to implement - can't avoid the problems of it being a fixed-size. Deletion expensive.
 \item Dynamic Array : Implementation fairly simple. Deletion expensive. Every realloc() is very {\bf expensive}. Need to tune SCALEFACTOR. 
-\item Linked : Slightly fiddly implmentation - fast to delete an element.
+\item Linked : Slightly fiddly implementation - fast to delete an element.
 \end{itemize}
 \end{itemize}
 }

@@ -1,0 +1,76 @@
+\section{P : Linked Data Structures}
+\label{chap:linked}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Linked Data Structures}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Linked data representations are useful when:
+\begin{itemize}
+\item It is difficult to predict the size and the shape of the data structures in advance.
+\item We need to efficiently insert and delete elements.
+\end{itemize}
+\item To create linked data representations we use pointers to connect separate
+blocks of storage together. If a given block contains a pointer to a second
+block, we can follow this pointer there.
+\item By following pointers one after another, we can travel right along
+the structure.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={1-34}]{../Code/ChapP/llist.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]
+\frametitle{Linked Lists}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={36-54},numbers=none]{../Code/ChapP/llist.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+Searching and Recursive printing:
+\lstinputlisting[style=basicc,linerange={56-74},numbers=none]{../Code/ChapP/llist.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Abstract Data Types}
+\begin{columns}[T]
+
+\begin{column}{0.90\textwidth}
+\begin{itemize}[<+->]
+\item But would we really code something like this {\bf every} time we
+need flexible data storage~? 
+\item This would be horribly error-prone.
+\item Build something once, and test it well.
+\item One example of this is an {\bf Abstract Data Type (ADT)}.
+\item Each ADT exposes its functionality via an {\em interface}.
+\item The user only accesses the data via this interface.
+\item The user of the ADT doesn't need to understand how the data is
+being stored (e.g. array vs. linked lists etc.)
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

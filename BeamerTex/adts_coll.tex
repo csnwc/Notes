@@ -1,0 +1,166 @@
+\section{Q : ADTs - Collection}
+\label{chap:adts_coll}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Collections}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item One of the simplest ADTs is the {\bf Collection}.
+\item This is just a simple place to search for/add/delete data elements.
+\item Some collections allow duplicate elements and others do not (e.g. Sets).
+\item Some are ordered (for faster searching) and others unordered.
+\item Our Collection will be unsorted and will allow duplicates.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../../ADTs/Collection/coll.h}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Collection ADT}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Note that the interface gives you no hints as to the actual underlying
+implementation of the ADT.
+\item A user of the ADT doesn't really need to know how it's
+implemented - ideally.
+\item The ADT developer could have several {\bf different} implementations.
+\item Here we'll see {\em Collection} implemented using:
+\begin{itemize}
+\item A fixed-size array
+\item A dynamic array
+\item A linked-list
+\end{itemize}
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\verb^Fixed/specific.h^:
+\lstinputlisting[style=basicc]{../../ADTs/Collection/Fixed/specific.h}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Collection ADT using a Fixed-size Array}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\verb^Fixed/fixed.c^:
+\lstinputlisting[style=basicc,linerange={1-27}]{../../ADTs/Collection/Fixed/fixed.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={29-59},numbers=none]{../../ADTs/Collection/Fixed/fixed.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Collection ADT via a Dynamic (Realloc) Array}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\verb^Realloc/specific.h^:
+\lstinputlisting[style=basicc]{../../ADTs/Collection/Realloc/specific.h}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\verb^Realloc/realloc.c^:
+\lstinputlisting[style=basicc,linerange={1-23}]{../../ADTs/Collection/Realloc/realloc.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Collection ADT via a Linked List}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\verb^Linked/specific.h^:
+\lstinputlisting[style=basicc]{../../ADTs/Collection/Linked/specific.h}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\verb^Linked/linked.c^:
+\lstinputlisting[style=basicc,linerange={1-31},numbers=none]{../../ADTs/Collection/Linked/linked.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Collection ADT via a Linked List II}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={33-58},numbers=none]{../../ADTs/Collection/Linked/linked.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={60-89},numbers=none]{../../ADTs/Collection/Linked/linked.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Collection Summary}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Any code using the ADT can be compiled against any of the implementations, e.g.~the test (\verb^testcoll.c^) code. 
+\item The {\em Collection} interface ({\verb^coll.h^}) is never changed.
+\item There are pros and cons of each implementation:
+\begin{itemize}
+\item Fixed Array : Simple to implement - can't avoid the problems of it being a fixed-size. Deletion expensive.
+\item Dynamic Array : Implementation fairly simple. Deletion expensive. Every realloc() is very {\bf expensive}. Need to tune SCALEFACTOR.
+\item Linked : Slightly fiddly implementation - fast to delete an element.
+\end{itemize}
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+That Linked List code from the previous Chapter again:
+\lstinputlisting[style=basicc]{../Code/ChapQ/llist2.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\endinput
