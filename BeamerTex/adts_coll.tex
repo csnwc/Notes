@@ -78,7 +78,7 @@ implemented - ideally.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
-\frametitle{Collection ADT via a Dynamic (Realloc) Array}
+\frametitle{Collection ADT via an Array (Realloc)}
 \begin{columns}[T]
 
 \begin{column}{0.45\textwidth}
@@ -146,7 +146,7 @@ implemented - ideally.
 \item There are pros and cons of each implementation:
 \begin{itemize}
 \item Fixed Array : Simple to implement - can't avoid the problems of it being a fixed-size. Deletion expensive.
-\item Dynamic Array : Implementation fairly simple. Deletion expensive. Every realloc() is very {\bf expensive}. Need to tune SCALEFACTOR.
+\item Realloc Array : Implementation fairly simple. Deletion expensive. Every realloc() is very {\bf expensive}. Need to tune SCALEFACTOR.
 \item Linked : Slightly fiddly implementation - fast to delete an element.
 \end{itemize}
 \end{itemize}
@@ -154,7 +154,38 @@ implemented - ideally.
 
 \pause
 \begin{column}{0.45\textwidth}
+{\tiny
+\begin{tabular}{|l|c|c|c|}\hline
+Task                 & Fixed Array      & Realloc Array      & Linked List        \\\hline
+Insert new element   & O(1) at end      & O(1) at end        & O(1) at front      \\
+                     & {\em if space}   & {\em but realloc()}&                    \\\hline
+Search for an element& O(n)             & O(n)               & O(n)               \\
+                     & {\em brute force}& {\em brute force}  & {\em brute force}  \\\hline
+Search + delete      & O(n) + O(n)      & O(n) + O(n)        & O(n) + O(1)        \\
+                     & {\em move left}  & {\em move left}    & {\em delete 'free'}\\\hline
+\end{tabular}
+}
+\begin{itemize}
+\item If we had ordered our ADT (ie. the elements were sorted), then the searches could be via a
+binary / interpolation search, leading to \verb^O(log n)^ or \verb^O(log log n)^ search times.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{ADTs Making Coding Simpler}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
 That Linked List code from the previous Chapter again:
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapQ/llist2.c}
 \end{column}
 
