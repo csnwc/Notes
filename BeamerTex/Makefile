@@ -12,13 +12,13 @@ all: ../cnotes.pdf ../cnotes_slides.pdf ../datastructs.pdf ../datastructs_slides
 	mv cnotes_slides.pdf ..
 	rm -f *.aux *.log *.out *.toc *.nav *.vrb cnotes*.pdf datastructs*.pdf *.snm
 
-../datastructs.pdf: recurs.tex datastructs_body.tex datastructs_defs.tex datastructs_handout.tex algossearch.tex linked.tex adts_coll.tex adts_stacks.tex
+../datastructs.pdf: recurs.tex datastructs_body.tex datastructs_defs.tex datastructs_handout.tex algossearch.tex linked.tex adts_coll.tex adts_stacks.tex adts_queues.tex
 	pdflatex datastructs_handout.tex
 	pdflatex datastructs_handout.tex
 	mv datastructs_handout.pdf ../datastructs.pdf
 	rm -f *.aux *.log *.out *.toc *.nav *.vrb cnotes*.pdf datastructs*.pdf *.snm
 
-../datastructs_slides.pdf: recurs.tex datastructs_body.tex datastructs_defs.tex datastructs_slides.tex algossearch.tex linked.tex adts_coll.tex adts_stacks.tex
+../datastructs_slides.pdf: recurs.tex datastructs_body.tex datastructs_defs.tex datastructs_slides.tex algossearch.tex linked.tex adts_coll.tex adts_stacks.tex adts_queues.tex
 	pdflatex datastructs_slides.tex
 	pdflatex datastructs_slides.tex
 	mv datastructs_slides.pdf ..
