@@ -35,45 +35,13 @@ FIFO (First in, First out):
 \frametitle{ADTs : Queues (Fixed) I}
 \begin{columns}[T]
 
-\begin{column}{0.45\textwidth}
+\begin{column}{0.35\textwidth}
 \verb^specific.h^
 \lstinputlisting[style=basicc]{../../ADTs/Queue/Fixed/specific.h}
 \end{column}
 
 \pause
-\begin{column}{0.45\textwidth}
-\verb^fixed.c^
-\lstinputlisting[style=basicc,linerange={1-32}]{../../ADTs/Queue/Fixed/fixed.c}
-\end{column}
-
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
-\frametitle{ADTs : Queues (Fixed) II}
-\begin{columns}[T]
-
-\begin{column}{0.45\textwidth}
-\lstinputlisting[style=basicc,linerange={34-48}]{../../ADTs/Queue/Fixed/fixed.c}
-\end{column}
-
-\pause
-\begin{column}{0.45\textwidth}
-\lstinputlisting[style=basicc,linerange={50-70}]{../../ADTs/Queue/Fixed/fixed.c}
-\end{column}
-
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
-\frametitle{Ring Buffers}
-\begin{columns}[T]
-
-\begin{column}{0.60\textwidth}
+\begin{column}{0.55\textwidth}
 \begin{center}
 \begin{tikzpicture}[>=latex,font=\sffamily,semithick,scale=1.00]
     \draw [thick,draw=black] (0,0) circle (2);
@@ -88,6 +56,38 @@ FIFO (First in, First out):
         node [right,inner xsep=.333cm] (End) {End (enqueue)};
 \end{tikzpicture}
 \end{center}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{ADTs : Queues (Fixed) II}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\verb^fixed.c^
+\lstinputlisting[style=basicc,linerange={1-22}]{../../ADTs/Queue/Fixed/fixed.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={24-48}]{../../ADTs/Queue/Fixed/fixed.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{ADTs : Queues (Fixed) III}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={50-70}]{../../ADTs/Queue/Fixed/fixed.c}
 \end{column}
 
 \pause
@@ -110,7 +110,7 @@ FIFO (First in, First out):
 
 \begin{column}{0.45\textwidth}
 \verb^specific.h^
-\lstinputlisting[style=basicc]{../../ADTs/Queue/Linked/specific.h}
+\lstinputlisting[style=basicc,linerange={1-19}]{../../ADTs/Queue/Linked/specific.h}
 \end{column}
 
 \pause
