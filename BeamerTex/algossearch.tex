@@ -112,7 +112,7 @@
 \begin{columns}[T]
 
 \begin{column}{0.50\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item When we look for a word in a dictionary, we don't start in the middle.
 We make an educated guess as to where to start based on the 1st letter of the
 word being searched for.
@@ -151,9 +151,9 @@ i = (15-0)/(20-0)*8
 
 \begin{column}{0.55\textwidth}
 \lstinputlisting[style=basicc]{../Code/ChapO/clocker.c}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item This code on an old Dell laptop took:
-\begin{itemize}
+\begin{itemize}[<+->]
 \item 3.12 seconds using a non-optimzing compiler -O0
 \item 0.00 seconds using an aggressive optimization -O3
 \end{itemize}
@@ -163,7 +163,7 @@ i = (15-0)/(20-0)*8
 
 \pause
 \begin{column}{0.35\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item Searching and sorting algorithms have a complexity associated with them, called big-O.
 \item This complexity indicates how, for $n$ numbers, performance deteriorates when $n$ changes.
 \item Sequential Search : {\bf O(n)}

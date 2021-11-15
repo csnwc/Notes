@@ -39,7 +39,7 @@ implementation of the ADT.
 implemented - ideally.
 \item The ADT developer could have several {\bf different} implementations.
 \item Here we'll see {\em Collection} implemented using:
-\begin{itemize}
+\begin{itemize}[<+->]
 \item A fixed-size array
 \item A dynamic array
 \item A linked-list
@@ -144,7 +144,7 @@ implemented - ideally.
 \item Any code using the ADT can be compiled against any of the implementations, e.g.~the test (\verb^testcoll.c^) code. 
 \item The {\em Collection} interface ({\verb^coll.h^}) is never changed.
 \item There are pros and cons of each implementation:
-\begin{itemize}
+\begin{itemize}[<+->]
 \item Fixed Array : Simple to implement - can't avoid the problems of it being a fixed-size. Deletion expensive.
 \item Realloc Array : Implementation fairly simple. Deletion expensive. Every realloc() is very {\bf expensive}. Need to tune SCALEFACTOR.
 \item Linked : Slightly fiddly implementation - fast to delete an element.
@@ -165,7 +165,7 @@ Search + delete      & O(n) + O(n)      & O(n) + O(n)        & O(n) + O(1)      
                      & {\em move left}  & {\em move left}    & {\em delete 'free'}\\\hline
 \end{tabular}
 }
-\begin{itemize}
+\begin{itemize}[<+->]
 \item If we had ordered our ADT (ie. the elements were sorted), then the searches could be via a
 binary / interpolation search, leading to \verb^O(log n)^ or \verb^O(log log n)^ search times.
 \end{itemize}

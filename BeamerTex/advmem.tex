@@ -131,7 +131,7 @@ memory. The memory is  not initialized.
 \item This is known as a variable length array.
 \item However, we will always use the \verb^-Wvla^ with the compiler to prevent them.
 \item There are a number of reasons for this:
-\begin{itemize}
+\begin{itemize}[<+->]
 \item Some C++ compilers don't accept it.
 \item The memory comes off the stack not the heap, and
 you have no idea if the allocation has worked (it'll just crash if not)
