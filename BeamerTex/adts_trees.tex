@@ -24,13 +24,77 @@
 \begin{column}{0.45\textwidth}
 \begin{itemize}[<+->]
 \item Trees drawn upside-down~!
-\item Ancestor relationships: A is the parent of~E
+\item Ancestor relationships: `50' is the parent of~`25' and~`75'.
 \item Can refer to left and right children
 \item In a tree, there is only one path from the root to any child
 \item A node with no children is a leaf
 \item Most trees need to be created dynamically
 \item Empty subtrees are set to NULL
 \end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Binary Search Trees}
+\begin{columns}[T]
+
+\begin{column}{0.40\textwidth}
+In a binary search tree the left-hand tree of a parent contains
+all keys less than the parent node, and the right-hand side all
+the keys greater than the parent node.	
+\begin{center}	
+\includegraphics[width=\textwidth]{../Images/Linkedb.pdf}	
+\end{center}	
+\end{column}
+
+\pause
+\begin{column}{0.50\textwidth}
+\verb^bst.h^
+\lstinputlisting[style=basicc]{../../ADTs/BST/bst.h}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Binary Search Trees : Linked I}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\verb^specific.h^
+\lstinputlisting[style=basicc]{../../ADTs/BST/Linked/specific.h}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+%% _insert()
+\lstinputlisting[style=basicc,linerange={149-168},numbers=none]{../../ADTs/BST/Linked/linked.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Binary Search Trees : Linked II}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+%_isin()
+\lstinputlisting[style=basicc,linerange={170-185},numbers=none]{../../ADTs/BST/Linked/linked.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+%_printlisp()
+\lstinputlisting[style=basicc,linerange={205-224},numbers=none]{../../ADTs/BST/Linked/linked.c}
 \end{column}
 
 \end{columns}
@@ -73,70 +137,6 @@ Is $A[i]$ a leaf~? & True & $2i > n$\\ \hline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
-\frametitle{Binary Search Trees}
-\begin{columns}[T]
-
-\begin{column}{0.40\textwidth}
-In a binary search tree the left-hand tree of a parent contains
-all keys less than the parent node, and the right-hand side all
-the keys greater than the parent node.	
-\begin{center}	
-\includegraphics[height=0.5\textheight]{../Images/treeapt.pdf}	
-\end{center}	
-\end{column}
-
-\pause
-\begin{column}{0.50\textwidth}
-\verb^bst.h^
-\lstinputlisting[style=basicc]{../../ADTs/BST/bst.h}
-\end{column}
-
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
-\frametitle{Binary Search Trees : Linked I}
-\begin{columns}[T]
-
-\begin{column}{0.45\textwidth}
-\verb^specific.h^
-\lstinputlisting[style=basicc]{../../ADTs/BST/Linked/specific.h}
-\end{column}
-
-\pause
-\begin{column}{0.45\textwidth}
-%% _insert()
-\lstinputlisting[style=basicc,linerange={149-168}]{../../ADTs/BST/Linked/linked.c}
-\end{column}
-
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
-\frametitle{Binary Search Trees : Linked II}
-\begin{columns}[T]
-
-\begin{column}{0.45\textwidth}
-%_isin()
-\lstinputlisting[style=basicc,linerange={170-185}]{../../ADTs/BST/Linked/linked.c}
-\end{column}
-
-\pause
-\begin{column}{0.45\textwidth}
-%_printlisp()
-\lstinputlisting[style=basicc,linerange={205-223}]{../../ADTs/BST/Linked/linked.c}
-\end{column}
-
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
 \frametitle{Binary Search Trees : Realloc}
 \begin{columns}[T]
 
@@ -148,7 +148,7 @@ the keys greater than the parent node.
 \pause
 \begin{column}{0.45\textwidth}
 Using a queue for Level-Order traversal:
-\lstinputlisting[style=basicc,linerange={72-86}]{../../ADTs/BST/Realloc/realloc.c}
+\lstinputlisting[style=basicc,linerange={72-86},numbers=none]{../../ADTs/BST/Realloc/realloc.c}
 \end{column}
 
 \end{columns}
