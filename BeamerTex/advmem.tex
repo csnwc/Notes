@@ -14,7 +14,7 @@
 \pause
 \begin{column}{0.55\textwidth}
 \begin{itemize}[<+->]
-\item This looks (at first) like a sensible attempt to accept a string and change it {\em in-place} to capitalise all 'n' characters.
+\item This looks (at first) like a sensible attempt to accept a string and change it {\em in-place} to capitalise all `n' characters.
 It crashes though via a segmentation fault.
 \item With the usual compile flags we get no more information.
 \item But using:
@@ -48,7 +48,7 @@ is the culprit.
 \item Now we try to create a copy of the string, and return a pointer to it.
 \item With the usual compile flags we're told:
 \begin{verbatim}
-nify2.c: In function 'nify':
+nify2.c: In function `nify':
 nify2.c:33:11: warning: function returns address
 of local variable [-Wreturn-local-addr]
    33 |    return t;

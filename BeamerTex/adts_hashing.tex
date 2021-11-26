@@ -42,7 +42,7 @@ elements, would require $2.1$ comparisons on average.
 
 \begin{column}{0.35\textwidth}
 \begin{itemize}[<+->]
-\item In a three letter string $X_2 X_1 X_0$ the letter 'A' has the value 0, 'B' has the
+\item In a three letter string $X_2 X_1 X_0$ the letter `A' has the value 0, `B' has the
 value 1 etc.
 \item One hash function is:
 \[
@@ -85,7 +85,7 @@ $ h("DCA") = 1 $
 \begin{itemize}[<+->]
 \item An ideal hashing function maps keys into the array in a {\it uniform} and {\it random} manner.
 \item Collisions occur when a hash function maps two different keys onto the same address.
-\item It's very difficult to choose 'good' hashing functions.
+\item It's very difficult to choose `good' hashing functions.
 \item Collisions are common - the {\bf von Mises} paradox. When 23 keys are randomly mapped onto 365 addresses there is a 50\% chance of a collision.
 \end{itemize}
 \end{column}
@@ -200,7 +200,7 @@ Has similarities to the implementation of \verb^rand()^~:
 \begin{columns}[T]
 
 \begin{column}{0.45\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item We have two tables, each with their {\bf own} hash function.
 \item We only need to check two cells when searching.
 \item On collision, the existing item is `cuckooed' out of it's cell into the other table.
