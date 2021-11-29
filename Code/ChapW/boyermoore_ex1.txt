@@ -1,0 +1,5 @@
+A STRING SEARCHING EXAMPLE CONSISTING OF ...
+    |    |
+STING    |                        
+     STING                        
+         STING                    

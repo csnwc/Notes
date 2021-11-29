@@ -1,0 +1,435 @@
+\section{W : Algorithms II - Sort / Strings / Graphs}
+\label{chap:algos2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Algorithms : Sorting}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={5-32},numbers=none]{../Code/ChapW/bubble.c}
+\outputlisting{../Code/ChapW/bubble.autoout}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Bubblesort has complexity $O(n^2)$, therefore very inefficient.
+\item If an algorithm uses comparison keys to decide the correct order
+then the theoretical lower bound on complexity is $O(n \log n )$. From wiki:
+\pause
+\begin{center}
+\includegraphics[width=0.6\textwidth]{../Images/1280px-Comparison_computational_complexity.png}
+\end{center}
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Algorithms : Merge Sort}
+\begin{columns}[T]
+
+\begin{column}{0.35\textwidth}
+\begin{itemize}[<+->]
+\item Transposition (Bubblesort)
+\item Insertion Sort (Lab Work)
+\item Priority Queue (Selection sort, Heap sort)
+\item Divide \& Conquer (Merge \& Quick sort)
+\item Address Calculation (Proxmap)
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.55\textwidth}
+\begin{itemize}[<+->]
+\item Merge sort is divide-and-conquer in that you
+divide the array into two halves, mergesort each half and
+then merge the two halves into order.
+\end{itemize}
+\pause
+\lstinputlisting[style=basicc,linerange={1-26}]{../Code/ChapW/merges.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Merge Sort II}
+\begin{columns}[T]
+
+\begin{column}{0.50\textwidth}
+\lstinputlisting[style=basicc,linerange={28-60},numbers=none]{../Code/ChapW/merges.c}
+\end{column}
+
+\pause
+\begin{column}{0.40\textwidth}
+\begin{itemize}[<+->]
+\item Quicksort is also divide-and-conquer.
+\item Choose some value in the array as the {\it pivot} key.
+\item This key is used to divide the array into two partitions.
+The left partition contains keys
+$\leq$ pivot key, the right partition contains keys $>$ pivot.
+\item Once again, the sort is then applied recursively.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Algorithms : Quicksort}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={1-31}]{../Code/ChapW/quicks.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={33-52},numbers=none]{../Code/ChapW/quicks.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{qsort()}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Theoretically both methods have a complexity $O(n \log n)$
+\item Quicksort is preferred because it requires less memory and is generally faster.
+\item Quicksort can go badly wrong if the pivot key chosen is either the maximum or minimum value in the array.
+\item Quicksort is so loved by programmers that a library version of it exists in ANSI C.
+\item If you need an off-the-shelf sort, this is often a good option.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapW/qsort.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Algorithms : The Radix Sort}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item The radix sort is also know as the bin sort, a name derived from its origin as a technique used on (now obsolete) card sorters.
+\item For integer data, repeated passes of radix sort focus on the right digit (the units), then the second digit (the tens)
+and so on.
+\item Strings could be sorted in a similar manner.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+459 254 472 534 649 239 432 654 477\\
+\vspace*{1em}
+{\bf 0}\\
+{\bf 1}\\
+{\bf 2} 472 432\\
+{\bf 3}\\
+{\bf 4} 254 534 654\\
+{\bf 5}\\
+{\bf 6}\\
+{\bf 7} 477\\
+{\bf 8}\\
+{\bf 9} 459 649 239\\
+\vspace*{1em}
+Read out the new list:
+
+472 432 254 534 654 477 459 649 239
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Radix Sort II}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+472 432 254 534 654 477 459 649 239\\
+\vspace*{1em}
+{\bf 0}\\
+{\bf 1}\\
+{\bf 2}\\
+{\bf 3} 432 534 239\\
+{\bf 4} 649\\
+{\bf 5} 254 654 459\\
+{\bf 6}\\
+{\bf 7} 472 477\\
+{\bf 8}\\
+{\bf 9}\\
+\vspace*{1em}
+432 534 239 649 254 654 459 472 477
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+432 534 239 649 254 654 459 472 477\\
+\vspace*{1em}
+{\bf 0}\\
+{\bf 1}\\
+{\bf 2} 239 254\\
+{\bf 3}\\
+{\bf 4} 432 459 472 477\\
+{\bf 5} 534\\
+{\bf 6} 649 654\\
+{\bf 7}\\
+{\bf 8}\\
+{\bf 9}\\
+\vspace*{1em}
+239 254 432 459 472 477 534 649 654
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Radix Sort Discussion}
+
+\begin{itemize}[<+->]
+\item This has a theoretical complexity of $O(n)$.
+\item It is difficult to write an all-purpose radix sort - you need a different one for doubles, integers, strings etc.
+\item $O(n)$ simply means that the number of operations can be bounded by $k.n$, for some constant $k$.
+\item With the radix sort, $k$ is often very large.
+\item For many lists this may be less efficient than more traditional $O(n \log n)$ algorithms.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Algorithm : Rabin-Karp String Searching}
+\begin{columns}[T]
+
+\begin{column}{0.40\textwidth}
+\begin{itemize}[<+->]
+\item The task of searching for a string amongst a large
+amount of text is commonly required in word-processors,
+but more interestingly in massive Biological Databases e.g.\ searching for amino acids in protein sequences.
+\item How difficult can it be~? Don't you just do a character by
+character brute-force search~?
+\begin{verbatim}
+Master String : AAAAAAAAAAAAH
+Substring     : AAAAAAH
+Substring     :  AAAAAAH
+Substring     :   AAAAAAH
+\end{verbatim}
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.50\textwidth}
+\begin{itemize}[<+->]
+\item If the master string has $m$ characters, and the search string has $n$ characters then this search has complexity: $O(mn)$
+\item Recall that to compute a hash function on a word we did something like:
+\[
+h("NEILL") =
+\]
+{\scriptsize
+\[
+(13\times26^4 + 4\times26^3 + 8\times26^2 + 11\times26 + 11) \% P
+\]
+}
+where $P$ is a big prime number.
+\item This can be expanded by Horner's method to:
+{\scriptsize
+\[
+(((((((13\times26)+ 4)\times26) + 8)\times26) + 11)\times26 + 11) \% P
+\]
+}
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Rabin-Karp II}
+\begin{columns}[T]
+
+\begin{column}{0.530\textwidth}
+\begin{itemize}[<+->]
+\item For a large search string, overflow can occur. We therefore move the {\it mod} operation inside the brackets:
+{\scriptsize
+\[
+((((((13\times26)+ 4)\%P \times26) + 8)\%P \times26) + 11)\%P \times26 + 11) \% P
+\]
+}
+\item We can compute a hash number for the search string, and for the initial part of the master string.
+\item When we compute the hash number for the next part of the master, most of the computation is common, we just need to take out the effect of the first letter and add in the effect of the new one.
+\item One small calculation each time we move one place left in the master.
+\item Complexity $O(m+n)$ roughly, but need to check that two identical hash numbers really has identified two identical strings.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.420\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapW/rabinkarp.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Algorithm : Boyer-Moore String Searching}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+The Boyer-Moore algorithm uses (in part) an array flagging
+which characters form part of the search string and an array telling
+us how far to slide right if that character appears in the master and causes
+a mismatch.
+
+\outputlisting{../Code/ChapW/boyermoore_ex1.txt}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item With a right-to-left walk through the search string we see that the G and the R mismatch on the first comparison.
+\item Since R doesn't appear in the
+search string, we can take $5$ steps to the left.
+\item The next comparison is between the G and the S. We can slide the search string right until it matches the S in the master.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Boyer-Moore II}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\outputlisting{../Code/ChapW/boyermoore_ex2.txt}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Now the C doesn't appear in the master and once again we can slide a full $5$ places to the right.
+\item After $3$ more full slides right we arrive at the T in CONSISTING.
+\item We align the T's, and have found our match using $7$ compares (plus $5$ to verify the match).
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Algorithms : TSP on Graphs}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Imagine planning a delivery route around a graph, starting from a particular vertex.
+\item What's the least cost by which you can visit every vertex without ever returning to one~?
+\item Finding the optimal path (to reduce travelling time) is an \verb^NP-hard^ problem - 
+read up on Computational Complexity Theory to understand this better.
+\item For small graphs you could do this exhaustively, but for very large graphs you have
+to use some heuristics.
+\item One `greedy' approach is to simply go to your closest unvisited neighbour each time.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Typically gives results within \verb^25%^
+of the optimal solution, but sometimes give a worst-case solution $\ldots$
+\item 
+{\scriptsize \verb^A -> B -> C -> D -> J -> I -> E -> F -> G^}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{../Images/Linkedg.pdf}
+\end{center}
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{TSP II}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={5-26},numbers=none]{../../ADTs/Graph/Indep/indep.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc,linerange={27-46},numbers=none]{../../ADTs/Graph/Indep/indep.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Algorithms : Dijkstra on Graphs}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item It's often important to find the shortest path through a graph from one vertex to another.
+\item One way of doing this is the greedy algorithm due to Dijkstra discovered $~1956$.
+\item Picks the unvisited vertex with the lowest distance, \& calculate the distance through it to each unvisited neighbor, updating the neighbour's distance if smaller.
+\item Mark visited when done with neighbors.
+\end{itemize}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\begin{center}
+\pause
+\includegraphics[width=0.4\textwidth]{../Images/dijkstra1.pdf}
+\pause
+\includegraphics[width=0.4\textwidth]{../Images/dijkstra2.pdf}
+\pause
+\includegraphics[width=0.4\textwidth]{../Images/dijkstra3.pdf}
+\end{center}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
