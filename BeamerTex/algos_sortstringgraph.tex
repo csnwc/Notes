@@ -210,8 +210,11 @@ Read out the new list:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
-\frametitle{Radix Sort Discussion}
+\frametitle{Radix Sort Discussion amd gprof}
 
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
 \begin{itemize}[<+->]
 \item This has a theoretical complexity of $O(n)$.
 \item It is difficult to write an all-purpose radix sort - you need a different one for doubles, integers, strings etc.
@@ -219,7 +222,18 @@ Read out the new list:
 \item With the radix sort, $k$ is often very large.
 \item For many lists this may be less efficient than more traditional $O(n \log n)$ algorithms.
 \end{itemize}
+\end{column}
 
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Sometimes you'll want to profile your code.
+\item Compile with the \verb^-pg^ flag.
+\item Executing your code prooduces a \verb^gmon.out^ file.
+\item Now: \verb^gprof ./executable gmon.out^ shows the function-call profile of your code.
+\end{itemize}
+\end{column}
+
+\end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
