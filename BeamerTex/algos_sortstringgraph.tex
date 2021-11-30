@@ -39,7 +39,7 @@ then the theoretical lower bound on complexity is $O(n \log n )$. From wiki:
 \item Transposition (Bubblesort)
 \item Insertion Sort (Lab Work)
 \item Priority Queue (Selection sort, Heap sort)
-\item Divide \& Conquer (Merge \& Quick sort)
+\item Divide \& Conquer (Merge \& Quick sorts)
 \item Address Calculation (Proxmap)
 \end{itemize}
 \end{column}
@@ -228,7 +228,7 @@ Read out the new list:
 \begin{itemize}[<+->]
 \item Sometimes you'll want to profile your code.
 \item Compile with the \verb^-pg^ flag.
-\item Executing your code prooduces a \verb^gmon.out^ file.
+\item Executing your code produces a \verb^gmon.out^ file.
 \item Now: \verb^gprof ./executable gmon.out^ shows the function-call profile of your code.
 \end{itemize}
 \end{column}
@@ -300,7 +300,7 @@ where $P$ is a big prime number.
 }
 \item We can compute a hash number for the search string, and for the initial part of the master string.
 \item When we compute the hash number for the next part of the master, most of the computation is common, we just need to take out the effect of the first letter and add in the effect of the new one.
-\item One small calculation each time we move one place left in the master.
+\item One small calculation each time we move one place right in the master.
 \item Complexity $O(m+n)$ roughly, but need to check that two identical hash numbers really has identified two identical strings.
 \end{itemize}
 \end{column}
@@ -333,7 +333,7 @@ a mismatch.
 \begin{itemize}[<+->]
 \item With a right-to-left walk through the search string we see that the G and the R mismatch on the first comparison.
 \item Since R doesn't appear in the
-search string, we can take $5$ steps to the left.
+search string, we can take $5$ steps to the right.
 \item The next comparison is between the G and the S. We can slide the search string right until it matches the S in the master.
 \end{itemize}
 \end{column}
