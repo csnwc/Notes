@@ -21,7 +21,7 @@ typedef struct card card;
 void shuffle_deck(card d[DECK]);
 void init_deck(card d[DECK]);
 void print_deck(card d[DECK], int n);
-void print_card(char s[], card c);
+void print_card(char s[BIGSTR], card c);
 void test(void);
 
 int main(void)
@@ -66,7 +66,7 @@ void print_deck(card d[DECK], int n)
 }
 
 #define SMALLSTR 20
-void print_card(char s[], card c)
+void print_card(char s[BIGSTR], card c)
 {
    // Note the +1 below : zero pips not used, but makes easier coding ?
    char pipnames[PERSUIT+1][SMALLSTR] = {"Zero", "One", "Two", "Three",
@@ -74,7 +74,7 @@ void print_card(char s[], card c)
                                          "Eight", "Nine", "Ten", "Jack", 
                                          "Queen", "King"};
    char suitnames[SUITS][SMALLSTR] = {"Hearts", "Diamonds", "Spades", "Clubs"};
-   sprintf(s, "%s of %s", pipnames[c.pips], suitnames[c.st]);
+   snprintf(s, BIGSTR, "%s of %s", pipnames[c.pips], suitnames[c.st]);
 }
 
 #define FIRSTCARD "One of Hearts"

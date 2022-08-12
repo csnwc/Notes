@@ -321,7 +321,7 @@ One way to write the function \verb^strlen()^
 
 \begin{column}{0.45\textwidth}
 In \verb^#include <string.h>^ :
-\frametitle{The {\tt sprintf()} Function}
+\frametitle{The {\tt snprintf()} Function}
 This is very similar to the function \verb^printf()^, except
 that the output is stored in a string rather than written
 to the output.
@@ -329,7 +329,7 @@ It is defined as:
 \vspace{-0.75em}
 {\small
 \begin{verbatim}
-int sprintf(string, control-arg, other args);
+int snprintf(string, str-size, control-arg, other args);
 \end{verbatim}
 }
 \vspace{-0.75em}
@@ -339,7 +339,7 @@ For example:
    int i = 7;
    float f = 17.041;
    char str[100];
-   sprintf(str, "%i %f", i, f);
+   snprintf(str, 100, "%i %f", i, f);
    printf("%s\n", str);
 
 Outputs : 7 17.041000
@@ -360,7 +360,7 @@ to another function for further processing.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
-\frametitle{sprintf() and sscanf()}
+\frametitle{snprintf() and sscanf()}
 \begin{columns}
 
 \begin{column}{0.45\textwidth}

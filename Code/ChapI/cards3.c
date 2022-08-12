@@ -72,7 +72,7 @@ void print_deck(card d[DECK], int n)
 }
 
 #define SMALLSTR 20
-void print_card(char s[], card c)
+void print_card(char s[BIGSTR], card c)
 {
    
    char pipstr[SMALLSTR];
@@ -88,7 +88,7 @@ void print_card(char s[], card c)
          strcpy(pipstr, "King");
          break;
       default:
-         sprintf(pipstr, "%2i", c.pips);
+         snprintf(pipstr, SMALLSTR, "%2i", c.pips);
    }
    switch(c.st){
       case hearts :
@@ -103,7 +103,7 @@ void print_card(char s[], card c)
       default :
          strcpy(suitstr, "Clubs");
    }
-   sprintf(s, "%s of %s", pipstr, suitstr);
+   snprintf(s, BIGSTR, "%s of %s", pipstr, suitstr);
 }
 
 #define FIRSTCARD " 1 of Hearts"
