@@ -79,7 +79,32 @@ this will list all your files into myfiles.txt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
-\frametitle{One Character at a Time}
+\frametitle{Interlude : argc/v}
+\begin{columns}[T]
+
+\begin{column}{0.40\textwidth}
+\begin{itemize}[<+->]
+\item A traditional C program has \verb^int main(int argc, char* argv[]);^
+\item \verb^argc^ is the number of words typed on the command line to execute the program.
+\item argv is an array of {\bf pointers to} chars - i.e. an array of strings.
+\item This is not a traditional $2D$ array of characters - it's a $1D$ array of pointers - each string could be a different length.
+\item This is sometimes known as a ragged-right or jagged array.
+\end{itemize}
+\end{column}
+
+\begin{column}{0.50\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapM/usingargs.c}
+\outputlisting{../Code/ChapM/usingargs.manout}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]
+\frametitle{Back to Files : One Character at a Time}
 \begin{columns}[T]
 
 \begin{column}{0.50\textwidth}
@@ -91,12 +116,14 @@ this will list all your files into myfiles.txt
 \begin{itemize}[<+->]
 \item This is a very basic version of the Linux command \verb^cp^.
 \item \verb^fgetc()^ and \verb^fputc()^ are the file equivalents of \verb^getchar^ and \verb^putchar^.
+\item How does a C program access arguments typed on the command line~?
 \end{itemize}
 \end{column}
 
 
 \end{columns}
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -1,0 +1,6 @@
+$ ./usingargs -c doof groob
+You typed 4 arguments
+The name of your executable is : ./usingargs
+Argument 1 is : -c
+Argument 2 is : doof
+Argument 3 is : groob
