@@ -3,17 +3,18 @@
 
 int main(void)
 {
-   int   i, n;
    printf("Randomly distributed integers are printed.\n"
            "How many do you want to see?  ");
-   do{
-      i = scanf("%i", &n);
-   }while(i != 1);
-   for (i = 0; i < n; ++i) {
-      if (i % 4 == 0)
-         printf("\n");
-      printf("%12i", rand());
+   int n;
+   if(scanf("%i", &n) == 1){
+      for (int i = 0; i < n; ++i) {
+         if (i % 4 == 0){
+            printf("\n");
+         }
+         printf("%12i", rand());
+      }
+      printf("\n");
+      return 0;
    }
-   printf("\n");
-   return 0;
+   return 1;
 }
