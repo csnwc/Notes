@@ -243,8 +243,8 @@ We will {\bf never} use this second approach - put {\tt main()} first with the p
 \item The contents of the functions are saved onto a special stack, so that when you return to the function, its variables and state can be restored.
 \item \url{https://en.wikipedia.org/wiki/Call_stack}
 \item Historically, for small functions that needed to be fast, programmers might have \verb^#define^ a macro.
-\item There's a problem though - what happens if we used {\tt m = MIN(i++, j++);} ?
-\item This is expanded to {\tt ((i++)<(j++)?(i++):(j++))} which is {\bf not} what was intended.
+\item There's a problem though - what happens if we used {\tt m = MIN(j++, k++);} ?
+\item This is expanded to {\tt ((j++)<(k++)?(j++):(k++))} which is {\bf not} what was intended.
 \end{itemize}
 \end{column}
 
