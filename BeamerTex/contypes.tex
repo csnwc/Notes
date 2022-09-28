@@ -83,13 +83,13 @@ is valid, the compiler assumes the array size to be \verb^4^.
 \pause
 \begin{column}{0.45\textwidth}
 \begin{itemize}[<+->]
+\item \verb^a[5] = a[4] + 1;^
+\item \verb^k[9]++;^
+\item \verb^n[12+i] = 0;^
 \item Accessing an array out of bounds will not be identified by
 the compiler. It may cause an error at run-time.
 One frequent result is that an entirely unrelated variable
 is altered.
-\item \verb^a[5] = a[4] + 1;^
-\item \verb^k[9]++;^
-\item \verb^n[12+i] = 0;^
 \end{itemize}
 \end{column}
 
