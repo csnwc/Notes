@@ -19,6 +19,7 @@
 }
 \end{column}
 
+\pause
 \begin{column}[c]{0.60\textwidth}
 {\tiny
 \begin{tabular}{|l|l|l|} \hline
@@ -37,9 +38,10 @@ signed short int &  &  \\ \hline
 %
 unsigned short & 16 & \%hu \\
 unsigned short int &  &  \\ \hline
-int & 16 & \%i or \%d \\
-signed &  &  \\
-signed int &  &  \\ \hline
+%
+int & 16 & Identical for printf : \%i or \%d \\
+signed &  & For scanf, \%d input decimal only \\
+signed int &  & For scanf, \%i auto-detects format (octal,decimal,hex)\\ \hline
 %
 unsigned & 16 & \%u \\
 unsigned int &  &  \\ \hline
