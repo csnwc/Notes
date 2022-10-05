@@ -68,6 +68,7 @@ char *strcat(char dest[], const char src[]);
 int strcmp(const char s1[], const char s2[]);
 \end{verbatim}
 }
+\pause
 \begin{itemize}[<+->]
 \item \verb^strcat()^ appends a copy of string \verb^src^,
 including  the  terminating null character,
@@ -98,6 +99,7 @@ char *strcpy(char dst[], const char src[]);
 unsigned strlen(const char s[]);
 \end{verbatim}
 }
+\pause
 \begin{itemize}[<+->]
 \item \verb^strcpy()^ copies string \verb^src^ to \verb^dst^
 including the  terminating null  character,
@@ -109,7 +111,7 @@ not including the terminating null character.
 
 \pause
 \begin{column}{0.45\textwidth}
-One way to write the function \verb^strlen()^
+One way to write the function \verb^strlen()^~:
 \lstinputlisting[style=basicc]{../Code/ChapI/strlen.c}
 \end{column}
 
@@ -134,6 +136,7 @@ It is defined as:
 int snprintf(string, str-size, control-arg, other args);
 \end{verbatim}
 }
+\pause
 \vspace{-0.75em}
 For example:
 \vspace{-0.75em}
