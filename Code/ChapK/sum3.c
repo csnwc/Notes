@@ -15,11 +15,11 @@ int main(void)
 
 int sum(int* p )
 {
-   int sum = 0;
+   int tot= 0;
 
    for(int i=0; i<NUM; i++){
-      sum += *p;
+      tot += *p;
       p++;
    }
-   return sum;
+   return tot;
 }

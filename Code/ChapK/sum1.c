@@ -15,10 +15,10 @@ int main(void)
 
 int sum(int a[])
 {
-   int sum = 0;
+   int tot = 0;
 
    for(int i=0; i<NUM; i++){
-      sum += a[i];
+      tot += a[i];
    }
-   return sum;
+   return tot;
 }
