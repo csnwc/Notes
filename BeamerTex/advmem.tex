@@ -19,7 +19,7 @@ It crashes though via a segmentation fault.
 \item With the usual compile flags we get no more information.
 \item But using:
 \begin{verbatim}
-clang nify1.c -g3 -fsanitize=undefined
+gcc nify1.c -g3 -fsanitize=undefined
 -fsanitize=address -o nify1
 \end{verbatim}
 we find that
