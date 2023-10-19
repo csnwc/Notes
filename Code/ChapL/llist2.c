@@ -35,7 +35,7 @@ int main(void)
 void addtolist(data* tail)
 {
    tail->next = calloc(1, sizeof(data));
-   assert(tail);
+   assert(tail->next);
    tail = tail->next;
    tail->num = rand()%MAXNUM;
 }
