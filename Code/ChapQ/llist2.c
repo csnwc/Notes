@@ -3,11 +3,9 @@
 
 int main(void)
 {
-   coll* c;
-   int i;
-
    printf("Please type some numbers :");
-   c = coll_init();
+   coll* c = coll_init();
+   int i;
    while(scanf("%i", &i) == 1){
       coll_add(c, i);
    }

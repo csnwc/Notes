@@ -29,8 +29,7 @@ int main(void)
       current = current->next;
    }
    printList(start);
-   // Should Free List
-   return 0;
+   return 0; // Should Free List
 } 
 
 Data* allocateData(int i)

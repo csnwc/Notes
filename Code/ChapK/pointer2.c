@@ -4,9 +4,7 @@ int main(void)
 {
 
    int i;
-   int* p;
-
-   p = &i;
+   int* p = &i;
    printf("Please Type a number : ");
    scanf("%i", &i);
    printf("%i\n", i);

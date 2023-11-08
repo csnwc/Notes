@@ -16,10 +16,8 @@ int main(void)
 int fact(int a)
 {
  
-   int i;
    int tot = 1;
-
-   for(i=1; i<=a; i++){
+   for(int i=1; i<=a; i++){
       tot *= i;
    }
    return tot;
