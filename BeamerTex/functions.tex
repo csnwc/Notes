@@ -125,7 +125,7 @@ program aborts with an error.
 \item We will use assert testing in this style {\bf every} time we write a function.
 \item These tests tend to get quite long, so we generally collect them in a function called {\tt test()} which itself is called from {\tt main()}.
 \item If there is no error, there is no output from this program.
-\item By \verb^#define^'ing \verb^NDEBUG^ before the {\tt \#include <assert.h>}, all assertions are ignored, allowing them to be used during development and switched off later.
+\item If you \verb^#define NDEBUG^ before the {\tt \#include <assert.h>}, all assertions are ignored, allowing them to be used during development and switched off later.
 \end{itemize}
 \end{column}
 
