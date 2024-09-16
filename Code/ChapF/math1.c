@@ -12,11 +12,11 @@ int main(void)
    scanf("%lf", &r);
    // Make sure radius is positive
    r = fabs(r);
-   double a = 4.0 / 3.0 * PI * pow(r, (double) 3);
-   printf("Volume of your ball = %f\n", a);
-   printf("Volume of your ball = %.2f\n", a);
-   printf("Volume of your ball = %i\n", (int)a);
-   printf("Volume of your ball = %.0f\n", a);
-   printf("Volume of your ball = %f\n", round(a));
+   double v = 4.0 / 3.0 * PI * pow(r, (double) 3);
+   printf("Volume of your ball = %f\n", v);
+   printf("Volume of your ball = %.2f\n", v);
+   printf("Volume of your ball = %i\n", (int)v);
+   printf("Volume of your ball = %.0f\n", v);
+   printf("Volume of your ball = %f\n", round(v));
    return 0;
 }
