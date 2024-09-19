@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-enum day {sun,mon,tue,wed,thu,fri,sat};
+enum day {mon,tue,wed,thu,fri,sat, sun};
 typedef enum day day;
 
 day find_next_day(day d);
@@ -34,7 +34,7 @@ day find_next_day(day d)
          next_day = fri;
          break;
       case fri:
-         next_day = tue;
+         next_day = sat;
          break;
       case sat:
          next_day = sun;

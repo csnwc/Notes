@@ -236,7 +236,7 @@ for(sum = 0, i = 1; i <= n; ++i){
 
 An equivalent, but more difficult to read expression~:
 \begin{lstlisting}[style=basicc,numbers=none]
-for(sum = 0 , i = 1; i <= n; ++i, sum += i);
+for(sum = 0 , i = 1; i <= n; sum += i, ++i);
 \end{lstlisting}
 
 Notice the loop has an empty body, hence the semicolon.
