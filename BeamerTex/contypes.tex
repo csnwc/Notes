@@ -16,12 +16,13 @@ float x[10];
 int k[ARRAY_SIZE];
 \end{verbatim}
 }
-The following, however, is not valid:
+\item The following, (a variable-length array), is not valid:
 {\small
 \begin{verbatim}
 float y[i*2];
 \end{verbatim}
 }
+we prevent these using the \verb^-Wvla^ compiler flag.
 \item Arrays are stored in contiguous memory, e.g.:
 {\small
 \begin{verbatim}
@@ -35,6 +36,7 @@ int a[5];
 }
 \end{figure}
 \end{center}
+%\vspace*{-0.5cm}
 \item Arrays are indexed {\bf 0} to {\bf n-1}.
 \end{itemize}
 
