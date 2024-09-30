@@ -1,12 +1,12 @@
 all: ../cnotes.pdf ../cnotes_slides.pdf ../datastructs.pdf ../datastructs_slides.pdf
 
-../cnotes.pdf: 2darrs.tex cnotes_body.tex str.tex contypes.tex datatypes.tex cnotes_defs.tex flowcontrol.tex functions.tex grammar.tex cnotes_handout.tex helloworld.tex preamble.tex typeenum.tex files.tex advmem.tex
+../cnotes.pdf: 2darrs.tex pointers.tex cnotes_body.tex str.tex contypes.tex datatypes.tex cnotes_defs.tex flowcontrol.tex functions.tex grammar.tex cnotes_handout.tex helloworld.tex preamble.tex typeenum.tex files.tex advmem.tex
 	pdflatex cnotes_handout.tex
 	pdflatex cnotes_handout.tex
 	cp cnotes_handout.pdf ../cnotes.pdf
 	rm -f *.aux *.log *.out *.toc *.nav *.vrb cnotes*.pdf datastructs*.pdf *.snm
 
-../cnotes_slides.pdf: 2darrs.tex cnotes_body.tex str.tex contypes.tex datatypes.tex cnotes_defs.tex flowcontrol.tex functions.tex grammar.tex helloworld.tex preamble.tex typeenum.tex cnotes_slides.tex files.tex advmem.tex
+../cnotes_slides.pdf: 2darrs.tex pointers.tex cnotes_body.tex str.tex contypes.tex datatypes.tex cnotes_defs.tex flowcontrol.tex functions.tex grammar.tex helloworld.tex preamble.tex typeenum.tex cnotes_slides.tex files.tex advmem.tex
 	pdflatex cnotes_slides.tex
 	pdflatex cnotes_slides.tex
 	cp cnotes_slides.pdf ..
