@@ -1,4 +1,4 @@
-\section{W : Algorithms II - Sort / Strings}
+\section{V : Algorithms II - Sort}
 \label{chap:algos2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -8,8 +8,8 @@
 \begin{columns}[T]
 
 \begin{column}{0.45\textwidth}
-\lstinputlisting[style=basicc,linerange={5-32},numbers=none]{../Code/ChapW/bubble.c}
-\outputlisting{../Code/ChapW/bubble.autoout}
+\lstinputlisting[style=basicc,linerange={5-32},numbers=none]{../Code/ChapV/bubble.c}
+\outputlisting{../Code/ChapV/bubble.autoout}
 \end{column}
 
 \pause
@@ -52,7 +52,7 @@ divide the array into two halves, mergesort each half and
 then merge the two halves into order.
 \end{itemize}
 \pause
-\lstinputlisting[style=basicc,linerange={1-26}]{../Code/ChapW/merges.c}
+\lstinputlisting[style=basicc,linerange={1-26}]{../Code/ChapV/merges.c}
 \end{column}
 
 \end{columns}
@@ -65,7 +65,7 @@ then merge the two halves into order.
 \begin{columns}[T]
 
 \begin{column}{0.50\textwidth}
-\lstinputlisting[style=basicc,linerange={28-60},numbers=none]{../Code/ChapW/merges.c}
+\lstinputlisting[style=basicc,linerange={28-60},numbers=none]{../Code/ChapV/merges.c}
 \end{column}
 
 \pause
@@ -90,12 +90,12 @@ $\leq$ pivot key, the right partition contains keys $>$ pivot.
 \begin{columns}[T]
 
 \begin{column}{0.45\textwidth}
-\lstinputlisting[style=basicc,linerange={1-31}]{../Code/ChapW/quicks.c}
+\lstinputlisting[style=basicc,linerange={1-31}]{../Code/ChapV/quicks.c}
 \end{column}
 
 \pause
 \begin{column}{0.45\textwidth}
-\lstinputlisting[style=basicc,linerange={33-52},numbers=none]{../Code/ChapW/quicks.c}
+\lstinputlisting[style=basicc,linerange={33-52},numbers=none]{../Code/ChapV/quicks.c}
 \end{column}
 
 \end{columns}
@@ -119,7 +119,7 @@ $\leq$ pivot key, the right partition contains keys $>$ pivot.
 
 \pause
 \begin{column}{0.45\textwidth}
-\lstinputlisting[style=basicc]{../Code/ChapW/qsort.c}
+\lstinputlisting[style=basicc]{../Code/ChapV/qsort.c}
 \end{column}
 
 \end{columns}
@@ -235,132 +235,3 @@ Read out the new list:
 
 \end{columns}
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
-\frametitle{Algorithm : Rabin-Karp String Searching}
-\begin{columns}[T]
-
-\begin{column}{0.40\textwidth}
-\begin{itemize}[<+->]
-\item The task of searching for a string amongst a large
-amount of text is commonly required in word-processors,
-but more interestingly in massive Biological Databases e.g.\ searching for amino acids in protein sequences.
-\item How difficult can it be~? Don't you just do a character by
-character brute-force search~?
-\begin{verbatim}
-Master String : AAAAAAAAAAAAH
-Substring     : AAAAAAH
-Substring     :  AAAAAAH
-Substring     :   AAAAAAH
-\end{verbatim}
-\end{itemize}
-\end{column}
-
-\pause
-\begin{column}{0.50\textwidth}
-\begin{itemize}[<+->]
-\item If the master string has $m$ characters, and the search string has $n$ characters then this search has complexity: $O(mn)$
-\item Recall that to compute a hash function on a word we did something like:
-\[
-h("NEILL") =
-\]
-{\scriptsize
-\[
-(13\times26^4 + 4\times26^3 + 8\times26^2 + 11\times26 + 11) \% P
-\]
-}
-where $P$ is a big prime number.
-\item This can be expanded by Horner's method to:
-{\scriptsize
-\[
-(((((((13\times26)+ 4)\times26) + 8)\times26) + 11)\times26 + 11) \% P
-\]
-}
-\end{itemize}
-\end{column}
-
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
-\frametitle{Rabin-Karp II}
-\begin{columns}[T]
-
-\begin{column}{0.530\textwidth}
-\begin{itemize}[<+->]
-\item For a large search string, overflow can occur. We therefore move the {\it mod} operation inside the brackets:
-{\scriptsize
-\[
-((((((13\times26)+ 4)\%P \times26) + 8)\%P \times26) + 11)\%P \times26 + 11) \% P
-\]
-}
-\item We can compute a hash number for the search string, and for the initial part of the master string.
-\item When we compute the hash number for the next part of the master, most of the computation is common, we just need to take out the effect of the first letter and add in the effect of the new one.
-\item One small calculation each time we move one place right in the master.
-\item Complexity $O(m+n)$ roughly, but need to check that two identical hash numbers really has identified two identical strings.
-\end{itemize}
-\end{column}
-
-\pause
-\begin{column}{0.420\textwidth}
-\lstinputlisting[style=basicc]{../Code/ChapW/rabinkarp.c}
-\end{column}
-
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
-\frametitle{Algorithm : Boyer-Moore String Searching}
-\begin{columns}[T]
-
-\begin{column}{0.45\textwidth}
-The Boyer-Moore algorithm uses (in part) an array flagging
-which characters form part of the search string and an array telling
-us how far to slide right if that character appears in the master and causes
-a mismatch.
-
-\outputlisting{../Code/ChapW/boyermoore_ex1.txt}
-\end{column}
-
-\pause
-\begin{column}{0.45\textwidth}
-\begin{itemize}[<+->]
-\item With a right-to-left walk through the search string we see that the G and the R mismatch on the first comparison.
-\item Since R doesn't appear in the
-search string, we can take $5$ steps to the right.
-\item The next comparison is between the G and the S. We can slide the search string right until it matches the S in the master.
-\end{itemize}
-\end{column}
-
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]
-\frametitle{Boyer-Moore II}
-\begin{columns}[T]
-
-\begin{column}{0.45\textwidth}
-\outputlisting{../Code/ChapW/boyermoore_ex2.txt}
-\end{column}
-
-\begin{column}{0.45\textwidth}
-\begin{itemize}[<+->]
-\item Now the C doesn't appear in the master and once again we can slide a full $5$ places to the right.
-\item After $3$ more full slides right we arrive at the T in CONSISTING.
-\item We align the T's, and have found our match using $7$ compares (plus $5$ to verify the match).
-\end{itemize}
-\end{column}
-
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%input{algos_graph}
