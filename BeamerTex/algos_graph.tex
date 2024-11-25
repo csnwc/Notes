@@ -1,5 +1,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Sidebar : $P=NP$ ?}
+\begin{columns}[T]
 
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item The P versus NP problem is a major unsolved problem in theoretical computer science.
+\item It asks whether every problem whose solution can be quickly verified can also be quickly solved.
+\item e.g.the Subset Sum problem — for a set of numbers and a target sum, determine if there exists a subset of numbers that adds up to the target sum.
+\item Easy to verify a solution: For $\{3,4,5,6,7\}$ and a target of $9$, a valid subset is $\{4,5\}$. This is $P$.
+\item But computing it takes $O(2^n)$ time (non-polynomial) $NP$.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item But maybe $NP$ algorithms are `hard' simply because we haven't found a better solution?
+\item It is thought that $P \neq NP$, meaning there are problems that can't be solved in polynomial time, but for which the answer could be verified in polynomial time.
+\item A proof either way would have profound implications for mathematics, cryptography, AI etc.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{Algorithms : TSP on Graphs}
 \begin{columns}[T]
@@ -10,8 +36,7 @@
 \item What's the least cost by which you can visit every vertex without ever returning to one~?
 \item Finding the optimal path (to reduce travelling time) is an \verb^NP-hard^ problem - 
 read up on Computational Complexity Theory to understand this better.
-\item For small graphs you could do this exhaustively, but for very large graphs you have
-to use some heuristics.
+\item For small graphs you could do this exhaustively, but for very large graphs this combinatorial approach becomes untenable.
 \item One `greedy' approach is to simply go to your closest unvisited neighbour each time.
 \end{itemize}
 \end{column}
