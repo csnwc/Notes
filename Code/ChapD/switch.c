@@ -8,7 +8,7 @@ int main(void)
 
    int i, n;
    do{
-      printf("Enter a number from 2 - 9 : ");
+      printf("\nEnter a number from 2 - 9 : ");
       n = scanf("%i", &i);
    }while( (n!=1) || (i<2) || (i>9) );
    switch(i){
