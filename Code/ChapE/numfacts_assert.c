@@ -8,6 +8,7 @@ int main(void)
    assert(numfactors(17) == 2);
    assert(numfactors(12) == 6);
    assert(numfactors(6) == 4);
+   assert(numfactors(1) == 1);
    assert(numfactors(0) == 0); // ?
    return 0;
 }
