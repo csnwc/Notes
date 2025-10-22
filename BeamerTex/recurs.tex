@@ -43,6 +43,9 @@ time \& time again.
 \begin{itemize}[<+->]
 \item We need to change the function prototype.
 \item This allows us to track both the start and the end of the string.
+\item This is a form of `tail-end' recursion.
+\item Some compilers can optimize for this since the current function can be terminated
+without waiting for the next function to return.
 \end{itemize}
 \end{column}
 
