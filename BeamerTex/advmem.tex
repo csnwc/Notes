@@ -161,17 +161,18 @@ you have no idea if the allocation has worked (it'll just crash if not)
 \item This code appears to work correctly.
 \item However, it actually {\bf leaks}. The memory
 allocated was never \verb^free()^'d.
-\item This is best found by running the program \verb^valgrind^.
+\item This is best found by compiling the program using the sanitizer:
 {\tiny
 \begin{verbatim}
-String String
-==474==
-==474== HEAP SUMMARY:
-==474==     in use at exit: 7 bytes in 1 blocks
-==474==   total heap usage: 2 allocs, 1 frees, 1,031 bytes allocated
-==474==
-==474== LEAK SUMMARY:
-==474==    definitely lost: 7 bytes in 1 blocks
+==201503==ERROR: LeakSanitizer: detected memory leaks
+Direct leak of 6 byte(s) in 1 object(s) allocated from:
+    #0 0x737ae50b4887 in __interceptor_malloc ../../../../src/libsanitizer/
+asan/asan_malloc_linux.cpp:145
+    #1 0x5845d6ac347c in main (/mnt/c/Users/csnwc/OneDrive - University
+of Bristol/Dropbox/Lecturing/COMSM1201/strdup+0x147c)
+    #2 0x737ae4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start
+_call_main.h:58
+SUMMARY: AddressSanitizer: 6 byte(s) leaked in 1 allocation(s).
 \end{verbatim}
 }
 \end{itemize}
@@ -194,17 +195,7 @@ String String
 \begin{column}{0.45\textwidth}
 \begin{itemize}[<+->]
 \item This code is now correct.
-{\tiny
-\begin{verbatim}
-String String
-==475==
-==475== HEAP SUMMARY:
-==475==     in use at exit: 0 bytes in 0 blocks
-==475==   total heap usage: 2 allocs, 2 frees, 1,031 bytes allocated
-==475==
-==475== All heap blocks were freed -- no leaks are possible
-\end{verbatim}
-}
+\item The sanitized code runs without any leak warnings.
 \end{itemize}
 \end{column}
 
@@ -225,7 +216,7 @@ String String
 \pause
 \begin{column}{0.45\textwidth}
 \begin{itemize}[<+->]
-\item The structure contains a pointer to a something of it's own type (even before we've fully defined the struture itself).
+\item The structure contains a pointer to something of it's own type (even before we've fully defined the struture itself).
 \item Here, if \verb^p^ points to \verb^a^, then \verb^p->next->next^ points to \verb^c^.
 \end{itemize}
 \end{column}
