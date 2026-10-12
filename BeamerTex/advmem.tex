@@ -99,9 +99,10 @@ void* malloc(int n);
 \end{verbatim}
 allocates $n$ bytes and returns a pointer to the allocated
 memory. The memory is  not initialized.
-\item Now, when our function is called, a dedicated chunk of memory is allocated.
+\item Now, when our function is called, a dedicated chunk of memory is allocated
+from the \verb^heap^.
 \item This memory is always in scope until \verb^free()^ is used on it.
-\item We must free the memory somewhere though, otherwise memory leaks develop.
+\item We must free the memory somewhere though, otherwise memory leaks occur.
 \item We will see \verb^calloc()^ (and perhaps \verb^realloc()^) later.
 \end{itemize}
 \end{column}
