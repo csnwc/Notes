@@ -1,0 +1,212 @@
+\section{X : Optimising Execution Speed (\& Memory)}
+\label{chap:optim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Bitwise Operators}
+\begin{columns}[T]
+
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapX/twiddle.c}
+\end{column}
+
+\pause
+\begin{column}{0.50\textwidth}
+\begin{itemize}[<+->]
+\item For some operations bitwise manipulation makes
+sense.
+\item Use \verb^>>^, \verb^<<^, \verb^&^ and \verb^|^.
+\item However, you might believe that shifting an integer right one bit
+might be quicker than dividing by two.
+\item Inspect the assembled code, OR switch off optimisation \verb^-O0^ and time a large
+loop performing each of the approaches.
+\item On a modern processor with a modern compiler, it probably makes
+no difference, so use the approach that is most self-documenting.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Memory Alignment : Structures}
+\begin{columns}[T]
+
+\begin{column}{0.45\textwidth}
+Why can you not directly compare two structures?
+
+\lstinputlisting[style=basicc]{../Code/ChapX/structcomp.c}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item The reason is somewhat complex.
+\item The elements of a structure are memory aligned.
+\item This allows the processor to quickly access elements
+without complicated (expensive) bit-shifting.
+\item The structure may contain padding (slop) whose contents are undefined.
+\item The compiler optimises for execution speed over total memory used.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]
+\frametitle{Memory Alignment : Structures}
+\begin{columns}[T]
+
+\begin{column}{0.50\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapX/alin.c}
+\end{column}
+
+\pause
+\begin{column}{0.40\textwidth}
+\begin{itemize}[<+->]
+\item Running this produces:
+\begin{verbatim}
+0  4  8 = 12
+0  1  5 = 7
+\end{verbatim}
+\item The compiler has quietly added `slop' between elements in the first structure.
+\item Therefore, using \verb^memcmp()^ to compare between two structures of the same type might fail.
+\item The second structure has no `slop' between elements.
+\item Put the largest elements first in the \verb^struct^, and the smallest last.
+\item \url{http://www.catb.org/esr/structure-packing/}
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Memory Alignment : SIMD}
+\begin{columns}[T]
+
+
+\pause
+\begin{column}{0.50\textwidth}
+\begin{itemize}[<+->]
+\item Most modern CPUs have instruction set extensions which allow the same operation to be performed on multiple data {\bf simultaneously}.
+\item This is know as SIMD (Single Instruction Multiple Data).
+\item Here we want to sum two arrays element-wise.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.40\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapX/avx.c}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Memory Alignment : SIMD}
+\begin{columns}[T]
+
+\begin{column}{0.60\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapX/avx2.c}
+\end{column}
+
+\pause
+\begin{column}{0.35\textwidth}
+\begin{itemize}[<+->]
+\item Here we use AVX2 (available since 2013)
+\item We need a \verb^C11^ compiler (\verb^-std=c11^).
+\item \verb^float^s are $32$-bits, and registers are $256$-bits.
+\item Notice we're stepping through the additions {\bf eight} at a time.
+\item Does this make the code eight times quicker though?
+\item An optimizing compiler (\verb^-O3^) may do some of this heavy lifting for you anyway.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Multi-Processors}
+\begin{columns}[T]
+
+\pause
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item OpenMP allows some simple additions to your C code
+which enable Multi-Processor execution.
+\item You takes chunks of your code (typically a big loop)
+and share them out over several processors/threads.
+\item Use flag \verb^-fopenmp^ to compile.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapX/thread.c}
+\end{column}
+
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{OpenMP}
+\begin{columns}[T]
+
+\pause
+\begin{column}{0.45\textwidth}
+\begin{itemize}[<+->]
+\item Here we have a big loop that goes through all possibilities
+and counts the numbers of primes.
+\end{itemize}
+\end{column}
+
+\pause
+\begin{column}{0.45\textwidth}
+\lstinputlisting[style=basicc]{../Code/ChapX/primes_no.c}
+\end{column}
+
+
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{OpenMP}
+\begin{columns}[T]
+
+\pause
+\begin{column}{0.50\textwidth}
+\lstinputlisting[style=basicc,linerange={1-25}]{../Code/ChapX/primes.c}
+\end{column}
+
+\pause
+\begin{column}{0.40\textwidth}
+\begin{itemize}[<+->]
+\item Now each loop is farmed-out to different processors.
+\item {\bf BUT}: The variable \verb^cnt^ is over-written by all the
+threads independently.
+\item We have to make a copy of \verb^cnt^ that is local to each thread
+and sum them together at the end (a reduction).
+\item There are diferent types of scheduling (which iterations of the loop
+is assigned to which processor): \verb^static, dynamic, guided, auto,^ and \verb^runtime^.
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
